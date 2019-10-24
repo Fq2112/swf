@@ -150,31 +150,31 @@
         </ul>
     </div>
 
-    <div class="avd main-content">
+    <section class="avd no-padding">
         <div class="frame-pureweb">
             <iframe class="purewebIframe"
                     src="https://reality.pureweb.io/?name=adocv2gnp4e24f&amp;minSize=1080p&amp;maxSize=1080p"
                     width="100%" scrolling="no" frameborder="0" allowfullscreen="{true}"></iframe>
         </div>
+    </section>
 
-        <section class="callto-action bg-color2 padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="call-action">
-                            <div class="text">
-                                <p><strong class="strong-red">Avery Dennison</strong> doesn't recommend the use
-                                    of <b>Conform Chrome</b> for full car wraps or covering vehicle proximity sensors.
-                                    Are you interested in wrapping your vehicle?</p>
-                            </div>
-                            <a href="{{route('show.installers')}}" class="btn btn-dark-red ld ld-breath">FIND AN
-                                INSTALLER</a>
+    <section class="callto-action bg-color2 padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="call-action">
+                        <div class="text">
+                            <p><strong class="strong-red">Avery Dennison</strong> doesn't recommend the use
+                                of <b>Conform Chrome</b> for full car wraps or covering vehicle proximity sensors.
+                                Are you interested in wrapping your vehicle?</p>
                         </div>
+                        <a href="{{route('show.installers')}}" class="btn btn-dark-red ld ld-breath">FIND AN
+                            INSTALLER</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 @endsection
 @push('scripts')
     <script>

@@ -12,6 +12,7 @@
 
     <!-- Bootstrap-3.3.7 fremwork css -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}"/>
+    <link href="{{asset('css/bootstrap-select.css')}}" rel="stylesheet">
     <!-- Core Style css -->
     <link rel="stylesheet" href="{{asset('css/colorbox.css')}}"/>
     <!-- Slider carousel css  -->
@@ -214,6 +215,7 @@
 <!-- Jquery -->
 <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap-select.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/classie.js')}}"></script>
 <!-- Core Style -->
 <script type="text/javascript" src="{{asset('js/jquery.colorbox.js')}}"></script>
