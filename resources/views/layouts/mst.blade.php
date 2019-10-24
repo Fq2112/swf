@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
     <title>@yield('title')</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('favicon.ico')}}" />
-    <meta name="keywords" content="HTML5 Template , Responsive , html5 , css3" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('favicon.ico')}}"/>
+    <meta name="keywords" content="HTML5 Template , Responsive , html5 , css3"/>
     <meta name="description" content="Baako - Responsive HTML5 CSS3 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -17,24 +17,36 @@
     <!-- Slider carousel css  -->
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}"/>
     <!-- Slider revolution css  -->
-    <link rel="stylesheet" href="{{asset('rs-plugin/css/settings.css')}}"/>
+    <link rel="stylesheet" href="{{asset('vendor/rs-plugin/css/settings.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/rev-settings.css')}}"/>
     <!-- Fontawesome 5.10.1 -->
     <link rel="stylesheet" type="text/css" href="{{asset('fonts/fontawesome/css/all.css')}}">
     <!-- Main style css -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
+
+    <!-- Loading.io -->
+    <link href="{{asset('css/loading.css')}}" rel="stylesheet">
+    <!-- bubble-button -->
+    <link href="{{asset('css/bubble-button.css')}}" rel="stylesheet">
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="{{asset('vendor/sweetalert/sweetalert2.css')}}">
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <!-- Media queries -->
+    <link rel="stylesheet" href="{{asset('css/media-query.css')}}">
+
     @stack('styles')
 </head>
-<body>
+<body class="use-nicescroll">
 <!-- page loader start -->
 <div class="images-preloader">
     <div class="preloader4"></div>
 </div>
 
 <div class="wrapper">
-    <div class="main-content scroll-none home-page">
+    <div class="main-content scroll-none home-page dark-page">
         <!-- header start -->
-        <header class="site-header cars-header border-bottom dropdown-green">
+        <header class="site-header cars-header border-bottom dropdown-green navigation-dark">
             <!-- Top search -->
             <div class="top-search">
                 <div class="container">
@@ -52,7 +64,8 @@
                             <!-- Contacts start -->
                             <div class="contacts">
                                 <p><a href="tel:+6281615007777"><i class="fa fa-phone"></i> +62 816 1500 7777</a></p>
-                                <p><a href="mailto:{{env('MAIL_USERNAME')}}"><i class="fa fa-envelope"></i> {{env('MAIL_USERNAME')}}</a></p>
+                                <p><a href="mailto:{{env('MAIL_USERNAME')}}"><i
+                                            class="fa fa-envelope"></i> {{env('MAIL_USERNAME')}}</a></p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6">
@@ -77,28 +90,12 @@
                 <div class="container">
                     <div class="logo">
                         <a href="{{route('home')}}">
-                            <img src="{{asset('images/car-logo-red.png')}}" alt="">
+                            <img id="logo1" width="158px" src="{{asset('images/logo/white_horizontal.png')}}">
                         </a>
                     </div>
                     <button class="btn-toggle"><i class="fa fa-reorder"></i></button>
                     <nav class="nav">
-                        <ul class="main-menu">
-                            <li><a href="{{route('home')}}"><i class="fa fa-home" style="margin-right: .7em"></i>Home</a></li>
-                            <li class="menu-item-has-children">
-                                <a href="#"><i class="fa fa-car" style="margin-right: .7em"></i>Products <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu dropdown-arrow">
-                                    <li class="menu-item-has-children">
-                                        <a href="{{route('show.product-overview')}}">Supreme Wrap Film</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="http://ppf.co.id" target="_blank">PPF (SPF-XI)</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="{{route('show.gallery')}}"><i class="fa fa-photo-video" style="margin-right: .7em"></i>Gallery</a></li>
-                            <li><a href="{{route('show.installers')}}"><i class="fa fa-tools" style="margin-right: .7em"></i>Installers</a></li>
-                            <li><a href="{{route('show.blog')}}"><i class="fa fa-blog" style="margin-right: .7em"></i>Blog</a></li>
-                        </ul>
+                        @include('layouts.partials._headerMenu')
                     </nav>
                 </div>
             </div>
@@ -108,15 +105,77 @@
     </div>
 
     <!-- footer Start -->
-    <footer>
+    <footer class="transparent-dark bgOverly footer-color7">
         <div class="content-widgets">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="footer-widget widget">
-                            <img src="{{asset('images/car-logo.png')}}" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <h4>Recent Posts</h4>
+                            <ul class="recent-post">
+                                @foreach(\App\Models\Blog::orderByDesc('id')->take(3)->get() as $row)
+                                    @php
+                                        $date = \Carbon\Carbon::parse($row->created_at);
+                                        $url = route('detail.blog', ['author' => $row->getUser->username,
+                                        'y' => $date->format('Y'), 'm' => $date->format('m'), 'd' => $date->format('d'),
+                                        'title' => $row->title_uri]);
+                                    @endphp
+                                    <li>
+                                        <a class="thumb" href="{{$url}}">
+                                            <img src="{{asset('storage/blog/thumbnail/'.$row->thumbnail)}}" alt="">
+                                        </a>
+                                        <div class="right-post">
+                                            <a href="{{$url}}">{{$row->title}}</a>
+                                            <p><i class="fa fa-calendar-alt"></i>{{$date->format('F j, Y')}}</p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <h4>Gallery</h4>
+                            <div class="footer-gallery">
+                                @foreach(\App\Models\Gallery::orderByDesc('id')->take(5)->get() as $row)
+                                    <a href="{{route('show.gallery', ['title' => $row->title])}}">
+                                        <img src="{{$row->type == 'photos' ? asset('storage/gallery/'.$row->file) :
+                                        asset('storage/gallery/thumbnail/'.$row->thumbnail)}}" alt="">
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="footer-widget widget">
+                            <div class="footer-logo">
+                                <a href="{{route('home')}}">
+                                    <img id="logo2" width="200px" src="{{asset('images/logo/red_horizontal.png')}}"
+                                         alt="">
+                                </a>
+                            </div>
+                            <p>Our Company, <b>Premier Autostyling</b>, is the one and only distributor of <b>Avery
+                                    Dennison</b> SWF (Supreme Wrap Film) in <b>Indonesia</b>.</p>
+                            <nav class="footer-nav" style="text-transform: uppercase">
+                                <a href="{{route('show.contact')}}">Contact Us</a>
+                                <a href="https://averydennison.com/en/home/legal-and-privacy-notices.html"
+                                   target="_blank">Legal & Privacy Notices</a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="footer-widget widget">
+                            <h4>Keep in Touch</h4>
+                            <ul class="contact">
+                                <li>
+                                    <i class="fa fa-map-marked-alt"></i>
+                                    Raya Kenjeran 469, Surabaya, East Java, Indonesia.
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i>
+                                    <a href="tel:+6281615007777">+62 816 1500 7777</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope"></i>
+                                    <a href="mailto:info@supremewrap.co.id" style="text-transform: none">info@supremewrap.co.id</a>
+                                </li>
+                            </ul>
                             <div class="social-media">
                                 <a href="https://facebook.com/AveryDennisonCorporation" target="_blank">
                                     <i class="fab fa-facebook-f"></i></a>
@@ -129,81 +188,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-widget widget">
-                            <h4>Useful Links</h4>
-                            <ul class="contact">
-                                <li>
-                                    <a href=""><i class="fa fa-caret-right"></i> Home Page</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="fa fa-caret-right"></i> Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="fa fa-caret-right"></i> FAQ's</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="fa fa-caret-right"></i> Blog</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-widget widget">
-                            <h4>OUR SERVICE</h4>
-                            <ul class="contact">
-                                <li>
-                                    <a href=""><i class="fa fa-caret-right"></i> Home Page</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="fa fa-caret-right"></i> Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="fa fa-caret-right"></i> FAQ's</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="fa fa-caret-right"></i> Blog</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-widget widget">
-                            <h4>Keep in touch</h4>
-                            <ul class="contact">
-                                <li>
-                                    <i class="fa fa-map-marked-alt"></i>
-                                    Raya Kenjeran 469, Surabaya East Java, Indonesia &ndash; 60134.
-                                </li>
-                                <li>
-                                    <i class="fa fa-phone"></i>
-                                    <a href="tel:+6281615007777">+62 816 1500 7777</a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope"></i>
-                                    <a href="mailto:info@ppf.co.id" style="text-transform: none">info@ppf.co.id</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <p>© {{now()->format('Y')}} Premier Autostyling. All rights reserved | Designed & Developed by
                             <a href="http://rabbit-media.net" target="_blank">Rabbit Media</a></p>
-                    </div>
-                    <div class="col-md-3">
-                        <p class="back-top"><a href="#" id="to-top">BACK TO TOP <i class="fa fa-angle-up"></i></a></p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 </div>
+
+@if(!\Illuminate\Support\Facades\Request::is('blog*'))
+    <a href="#" onclick="scrollToTop()" class="to-top" title="Go to top">Top</a>
+@endif
+<div class="myProgress">
+    <div class="bar"></div>
+</div>
+
 <!-- Jquery -->
 <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
@@ -223,10 +230,156 @@
 <!-- Jquery progress bar js-->
 <script type="text/javascript" src="{{asset('js/pro-bars.js')}}"></script>
 <!-- SLIDER REVOLUTION SCRIPTS  -->
-<script type="text/javascript" src="{{asset('rs-plugin/js/jquery.themepunch.plugins.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('rs-plugin/js/jquery.themepunch.revolution.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('vendor/rs-plugin/js/jquery.themepunch.plugins.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('vendor/rs-plugin/js/jquery.themepunch.revolution.min.js')}}"></script>
 <!-- Template core js -->
 <script type="text/javascript" src="{{asset('js/index-car-2.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/wmbox.js')}}"></script>
+
+<script src="{{asset('vendor/checkMobileDevice.js')}}"></script>
+<!-- Nicescroll -->
+<script src="{{asset('vendor/nicescroll/jquery.nicescroll.js')}}"></script>
+<!-- Sweetalert2 -->
+<script src="{{asset('vendor/sweetalert/sweetalert.min.js')}}"></script>
+<!-- AOS -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+@stack('scripts')
+<script type="text/javascript">
+    $(function () {
+        window.mobilecheck() ? $("body").removeClass('use-nicescroll') : $("body").css("overflow", "hidden");
+
+        AOS.init({
+            duration: 800,
+            easing: 'slide',
+            once: false,
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+    });
+
+    $('#logo1').hover(
+        function () {
+            $(this).attr('src', '{{asset('images/logo/red_horizontal.png')}}')
+        },
+        function () {
+            $(this).attr('src', '{{asset('images/logo/white_horizontal.png')}}')
+        }
+    );
+
+    $('#logo2').hover(
+        function () {
+            $(this).attr('src', '{{asset('images/logo/white_horizontal.png')}}')
+        },
+        function () {
+            $(this).attr('src', '{{asset('images/logo/red_horizontal.png')}}')
+        }
+    );
+
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if ($(this).scrollTop() > 100) {
+            $('.to-top').addClass('show-to-top');
+        } else {
+            $('.to-top').removeClass('show-to-top');
+        }
+    }
+
+    function scrollToTop(callback) {
+        if ($('html').scrollTop()) {
+            $('html').animate({scrollTop: 0}, callback);
+            return;
+        }
+        if ($('body').scrollTop()) {
+            $('body').animate({scrollTop: 0}, callback);
+            return;
+        }
+        callback();
+    }
+
+    function numberOnly(e, decimal) {
+        var key;
+        var keychar;
+        if (window.event) {
+            key = window.event.keyCode;
+        } else if (e) {
+            key = e.which;
+        } else return true;
+        keychar = String.fromCharCode(key);
+        if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27) || (key == 188)) {
+            return true;
+        } else if ((("0123456789").indexOf(keychar) > -1)) {
+            return true;
+        } else if (decimal && (keychar == ".")) {
+            return true;
+        } else return false;
+    }
+
+    var title = document.getElementsByTagName("title")[0].innerHTML;
+    (function titleScroller(text) {
+        document.title = text;
+        setTimeout(function () {
+            titleScroller(text.substr(1) + text.substr(0, 1));
+        }, 500);
+    }(title + " ~ "));
+
+    <!--Scroll Progress Bar-->
+    function progress() {
+        var windowScrollTop = $(window).scrollTop();
+        var docHeight = $(document).height();
+        var windowHeight = $(window).height();
+        var progress = (windowScrollTop / (docHeight - windowHeight)) * 100;
+        var $bgColor = progress > 99 ? '#ff1f27' : '#E31B23';
+        var $textColor = progress > 99 ? '#fff' : '#333';
+
+        $('.myProgress .bar').width(progress + '%').css({backgroundColor: $bgColor});
+        // $('h1').text(Math.round(progress) + '%').css({color: $textColor});
+        $('.fill').height(progress + '%').css({backgroundColor: $bgColor});
+    }
+
+    progress();
+
+    $(document).on('scroll', progress);
+
+    window.onload = function () {
+        $('.images-preloader').fadeOut();
+
+        $(".use-nicescroll").niceScroll({
+            cursorcolor: "rgb(227,27,35)",
+            cursorwidth: "8px",
+            background: "rgba(222, 222, 222, .75)",
+            cursorborder: 'none',
+            // cursorborderradius:0,
+            autohidemode: 'leave',
+            zindex: 99999999,
+        });
+
+        var options = {
+            whatsapp: "+6281615007777",
+            email: "sindhu@supremewrap.co.id",
+            call_to_action: "Contact us",
+            button_color: "#e31b23",
+            position: "left",
+            order: "email,whatsapp",
+        };
+        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () {
+            WhWidgetSendButton.init(host, proto, options);
+        };
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    };
+
+    $(document).on('mouseover', '.use-nicescroll', function () {
+        $(this).getNiceScroll().resize();
+    });
+</script>
 </body>
 </html>

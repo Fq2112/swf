@@ -19,16 +19,20 @@ class SWFController extends Controller
 //        $client = new Instagram(env('IG_CLIENT_TOKEN'));
 //        $posts = collect($client->media())->sortBy('created_time')->reverse();
         $countries = Country::all();
-        $blog = Blog::orderByDesc('id')->take(5)->get();
-
         \App\Models\Visitor::hit();
-        return view('pages.main.home', compact('countries', 'blog'));
+        return view('pages.main.home', compact('countries'));
     }
 
     public function showProductOverview()
     {
         \App\Models\Visitor::hit();
         return view('pages.main.product-overview');
+    }
+
+    public function showProductVisualizer()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.main.product.visualizer');
     }
 
     public function showGallery(Request $request)

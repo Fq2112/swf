@@ -18,10 +18,19 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
         'as' => 'home'
     ]);
 
-    Route::get('product-overview', [
-        'uses' => 'SWFController@showProductOverview',
-        'as' => 'show.product-overview'
-    ]);
+    Route::group(['prefix' => 'product'], function () {
+
+        Route::get('overview', [
+            'uses' => 'SWFController@showProductOverview',
+            'as' => 'show.product.overview'
+        ]);
+
+        Route::get('visualizer', [
+            'uses' => 'SWFController@showProductVisualizer',
+            'as' => 'show.product.visualizer'
+        ]);
+
+    });
 
     Route::group(['prefix' => 'gallery'], function () {
 
