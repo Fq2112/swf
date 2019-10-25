@@ -4,11 +4,15 @@
     <link rel="stylesheet" href="{{asset('css/downloadCard-gridList.css')}}">
     <style>
         .breadcrumbs {
-            background-image: url({{asset('images/slider/installer.jpg')}});
+            background-image: url({{asset('images/slider/installer5.jpg')}});
         }
 
-        .download-cards .btn:hover:before, .btn:focus:before, .btn:active:before {
-            border-top-right-radius: 0;
+        #map{
+            border: 1px solid #FFF;
+        }
+
+        #map:hover {
+            border: 1px solid #E31B23;
         }
 
         .gm-style-iw {
@@ -81,12 +85,10 @@
         }
 
         #pac-input {
-            background-color: #fff;
             margin: 1em;
             text-overflow: ellipsis;
-            width: 500px;
-            border: 1px solid transparent;
-            border-radius: 2px 0 0 2px;
+            width: 400px;
+            border-radius: 4px;
             box-sizing: border-box;
             -moz-box-sizing: border-box;
             height: 32px;
@@ -94,73 +96,52 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
-        #pac-input:focus {
-            border-color: #E31B23;
-        }
-
-        article.download-card {
-            max-height: 235px;
-            margin: 2em 0 0 0;
-        }
-
         @media (max-width: 1080px) {
-            #pac-input {
-                width: 420px;
-            }
-        }
-
-        @media (max-width: 991px) {
-            #pac-input {
-                width: 650px;
-            }
-        }
-
-        @media (max-width: 736px) {
-            #pac-input {
-                width: 650px;
-            }
-        }
-
-        @media (max-width: 568px) {
-            #pac-input {
-                width: 480px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #pac-input {
-                width: 400px;
-            }
-        }
-
-        @media (max-width: 414px) {
-            #pac-input {
-                width: 340px;
-            }
-        }
-
-        @media (max-width: 384px) {
             #pac-input {
                 width: 320px;
             }
         }
 
-        @media (max-width: 320px) {
+        @media (max-width: 991px) {
             #pac-input {
-                width: 260px;
+                width: 550px;
             }
         }
 
-        .download-card__content-box a {
-            text-decoration: none;
-            color: #333;
-            transition: all .3s ease-in-out;
+        @media (max-width: 736px) {
+            #pac-input {
+                width: 550px;
+            }
         }
 
-        .download-card__content-box a:hover, .download-card__content-box a:focus {
-            text-decoration: none;
-            color: #E31B23;
-            box-shadow: none;
+        @media (max-width: 568px) {
+            #pac-input {
+                width: 380px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #pac-input {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 414px) {
+            #pac-input {
+                width: 240px;
+            }
+        }
+
+        @media (max-width: 384px) {
+            #pac-input {
+                width: 220px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            #pac-input {
+                width: 160px;
+            }
         }
     </style>
 @endpush
@@ -173,126 +154,235 @@
                 installers with a high-performance and responsive service.</p>
         </div>
         <ul class="crumb">
-            <li><i class="fa fa-home"></i></li>
+            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
             <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
             <li><i class="fa fa-angle-double-right"></i></li>
-            <li><i class="fa fa-tools"></i></li>
+            <li><a href="{{route('show.installers')}}"><i class="fa fa-tools"></i></a></li>
             <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Installers</a></li>
         </ul>
     </div>
 
-    <section class="no-padding">
-        <div class="row">
-            <div class="col-lg-6">
-                <div id="map" style="width: 100%;height: 600px"></div>
-                <input data-aos="zoom-out" data-aos-delay="100" id="pac-input" class="form-control"
-                       type="text" placeholder="Enter your location">
-            </div>
-            <div class="col-lg-6">
-                <img src="{{asset('images/loading.gif')}}" id="image" class="img-responsive ld ld-breath">
-                <div data-view="list-view" class="download-cards nicescroll" id="ins-contacts"
-                     style="height: 600px">
+    <section class="home-intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="map" class="img-thumbnail" style="width: 100%;height: 600px"></div>
+                    <input data-aos="zoom-out" data-aos-delay="100" id="pac-input" class="form-control"
+                           type="text" placeholder="Enter your location">
                 </div>
-                <form id="form-contact-installer" action="{{route('submit.contact.installers')}}"
-                      method="post" style="display: none">
-                    @csrf
-                    <input type="hidden" name="ins_email">
-                    <div class="modal-header"
-                         style="border-bottom: 1px solid #e5e5e5;padding: 0 0 .5em 0;margin-bottom: 1.5em;">
-                        <button type="button" class="close" style="font-size: 2.5em">&times;</button>
-                        <h3 class="modal-title"></h3>
+                <div class="col-lg-6">
+                    <img src="{{asset('images/loading.gif')}}" id="image" class="img-responsive ld ld-breath">
+                    <div data-view="list-view" class="download-cards nicescroll" id="ins-contacts"
+                         style="height: 600px">
                     </div>
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <label for="con_fname">First Name <span class="required">*</span></label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input id="con_fname" type="text" class="form-control" name="con_fname"
-                                       placeholder="First name" autofocus required>
+                    <form id="form-contact-installer" action="{{route('submit.contact.installers')}}"
+                          method="post" style="display: none">
+                        @csrf
+                        <input type="hidden" name="ins_email">
+                        <div class="modal-header" style="border-bottom: 1px solid #e5e5e5;padding: 0 0 .5em 0;margin-bottom: 1.5em;">
+                            <button type="button" class="close" style="font-size: 1.5em;color: #fff">&times;</button>
+                            <h3 class="modal-title"></h3>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label class="form-control-label" for="con_fname">First Name <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="con_fname" type="text" class="form-control" name="con_fname"
+                                           placeholder="First name" autofocus required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-control-label" for="con_lname">Last Name <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="con_lname" type="text" class="form-control" name="con_lname"
+                                           placeholder="Last name" required>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="con_lname">Last Name <span class="required">*</span></label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input id="con_lname" type="text" class="form-control" name="con_lname"
-                                       placeholder="Last name" required>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="form-control-label" for="con_email">Email <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <input id="con_email" type="email" class="form-control" name="con_email"
+                                           placeholder="Email" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label for="con_email">Email <span class="required">*</span></label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                <input id="con_email" type="email" class="form-control" name="con_email"
-                                       placeholder="Email" required>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label class="form-control-label" for="con_company">Company <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                    <input id="con_company" type="text" class="form-control" name="con_company"
+                                           placeholder="Company name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-control-label" for="con_phone">Phone <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input placeholder="Phone number" type="text" maxlength="13"
+                                           class="form-control"
+                                           name="con_phone" onkeypress="return numberOnly(event, false)" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <label for="con_company">Company <span class="required">*</span></label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                <input id="con_company" type="text" class="form-control" name="con_company"
-                                       placeholder="Company name" required>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="form-control-label" for="con_country">Country <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                    <select id="con_country" class="form-control" name="con_country" required>
+                                        @foreach($countries as $row)
+                                            <option value="{{$row->name}}">{{$row->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="con_phone">Phone <span class="required">*</span></label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                <input placeholder="Phone number" type="text" maxlength="13"
-                                       class="form-control"
-                                       name="con_phone" onkeypress="return numberOnly(event, false)" required>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="form-control-label" for="con_subject">Subject <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-text-width"></i></span>
+                                    <input id="con_subject" type="text" class="form-control" name="con_subject"
+                                           placeholder="Subject" minlength="3" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label for="con_country">Country <span class="required">*</span></label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-                                <select id="con_country" class="form-control selectpicker" name="con_country"
-                                        data-live-search="true" title="-- Choose --" required>
-                                    @foreach($countries as $row)
-                                        <option value="{{$row->name}}">{{$row->name}}</option>
-                                    @endforeach
-                                </select>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="form-control-label" for="con_message">Message <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                    <textarea id="con_message" class="form-control" name="con_message"
+                                              placeholder="Write something here&hellip;" rows="5"
+                                              style="resize: vertical" required></textarea>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label for="con_subject">Subject <span class="required">*</span></label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-text-width"></i></span>
-                                <input id="con_subject" type="text" class="form-control" name="con_subject"
-                                       placeholder="Subject" minlength="3" required>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-dark-red btn-block"><b>SUBMIT</b></button>
                             </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label for="con_message">Message <span class="required">*</span></label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
-                                <textarea id="con_message" class="form-control" name="con_message"
-                                          placeholder="Write something here&hellip;" rows="5"
-                                          style="resize: vertical" required></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary btn-block"><b>SUBMIT</b></button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
+
+    <section class="callto-action bg-color2 padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="call-action">
+                        <div class="text">
+                            <p>Do you want to be a <strong class="strong-red">certified installer?</strong> To integrate the certified installers network, we will evaluate your technical skills and knowledge.</p>
+                        </div>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#certModal"
+                           class="btn btn-dark-red ld ld-breath">APPLY NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="certModal" tabindex="-1" role="dialog" aria-labelledby="certModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="certModalLabel">Certification Request</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('submit.certification')}}">
+                        @csrf
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label class="form-control-label" for="fname">First Name <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="fname" type="text" class="form-control" name="fname"
+                                           placeholder="First name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-control-label" for="lname">Last Name <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="lname" type="text" class="form-control" name="lname"
+                                           placeholder="Last name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="form-control-label" for="email">Email <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <input id="email" type="email" class="form-control" name="email"
+                                           placeholder="Email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="form-control-label" for="phone">Phone <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input placeholder="Phone number" type="text" maxlength="13" class="form-control"
+                                           name="phone" onkeypress="return numberOnly(event, false)" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label class="form-control-label" for="type">Certification Type <span class="required">*</span></label>
+                                <p>
+                                    <input type="radio" id="ppf" name="type" value="PPF" required>
+                                    <label class="form-control-label" for="ppf">PPF</label>&ensp;
+                                    <input type="radio" id="wrap" name="type" value="Wrap">
+                                    <label class="form-control-label" for="wrap">Wrap</label>
+                                </p>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="form-control-label" for="company">Company <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                    <input id="company" type="text" class="form-control" name="company"
+                                           placeholder="Company name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="form-control-label" for="country">Country</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                    <select id="country" class="form-control" name="country">
+                                        <option value="" selected>Rather not say</option>
+                                        @foreach($countries as $row)
+                                            <option value="{{$row->name}}">{{$row->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark-red">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('scripts')
     <script src="{{asset('js/filter-gridList.js')}}"></script>
@@ -306,50 +396,190 @@
             mapTypeControl: false,
             styles: [
                 {
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#212121"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#212121"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                },
+                {
                     "featureType": "administrative.land_parcel",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "landscape.man_made",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {"featureType": "poi", "elementType": "labels", "stylers": [{"visibility": "on"}]}, {
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.locality",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#bdbdbd"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#181818"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#1b1b1b"
+                        }
+                    ]
+                },
+                {
                     "featureType": "road",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "simplified"}, {"lightness": 20}]
-                }, {
-                    "featureType": "road.highway",
-                    "elementType": "geometry",
-                    "stylers": [{"hue": "#f49935"}]
-                }, {
-                    "featureType": "road.highway",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "simplified"}]
-                }, {
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#2c2c2c"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#8a8a8a"
+                        }
+                    ]
+                },
+                {
                     "featureType": "road.arterial",
                     "elementType": "geometry",
-                    "stylers": [{"hue": "#fad959"}]
-                }, {
-                    "featureType": "road.arterial",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "road.local",
+                    "stylers": [
+                        {
+                            "color": "#373737"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
                     "elementType": "geometry",
-                    "stylers": [{"visibility": "simplified"}]
-                }, {
+                    "stylers": [
+                        {
+                            "color": "#3c3c3c"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#4e4e4e"
+                        }
+                    ]
+                },
+                {
                     "featureType": "road.local",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "simplified"}]
-                }, {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
                     "featureType": "transit",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
                     "featureType": "water",
-                    "elementType": "all",
-                    "stylers": [{"hue": "#a1cdfc"}, {"saturation": 30}, {"lightness": 49}]
-                }]
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#000000"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#3d3d3d"
+                        }
+                    ]
+                }
+            ]
         });
 
         var infowindow = new google.maps.InfoWindow({maxWidth: 350});
@@ -380,7 +610,7 @@
                     '<div class="iw-content">' +
                     '<img class="img-responsive" src="{{$ins->logo != "" ? asset('storage/installers/'. $ins->logo) : asset('images/logo/icon.png')}}" alt="{{$ins->name}} logo">' +
                     '<div class="iw-subTitle">Contacts</div>' +
-                    '<p>{{$ins->address}}<br>Phone: <a href="tel:{{$ins->phone}}">{{$ins->phone}}</a><br>' +
+                    '<p style="text-align: left;padding: 0;">{{$ins->address}}<br>Phone: <a href="tel:{{$ins->phone}}">{{$ins->phone}}</a><br>' +
                     'Email: <a href="mailto:{{$ins->email}}">{{$ins->email}}</a></p>' +
                     '</div><div class="iw-bottom-gradient"></div></div>';
 
@@ -391,7 +621,7 @@
                 $("#form-contact-installer").show();
                 $("#form-contact-installer .modal-title").text('{{$ins->name}}');
                 $("#form-contact-installer input:not(:input[name=_token]), #form-contact-installer textarea").val('');
-                $("#con_country").val('default').selectpicker('refresh');
+                $("#con_country").val(null).trigger('change');
                 $("#form-contact-installer input[name='ins_email']").val('{{$ins->email}}');
                 $("#map").css('height', map_height_form);
                 $('html,body').animate({scrollTop: $("#ins-contacts").parent().offset().top}, 500);
@@ -407,7 +637,7 @@
                 $("#ins-contacts, #form-contact-installer").hide();
                 $("#form-contact-installer .modal-title").text('');
                 $("#form-contact-installer input:not(:input[name=_token]), #form-contact-installer textarea").val('');
-                $("#con_country").val('default').selectpicker('refresh');
+                $("#con_country").val(null).trigger('change');
                 loadInstallers();
                 infowindow.close();
 
@@ -473,7 +703,7 @@
             $("#ins-contacts, #form-contact-installer").hide();
             $("#form-contact-installer .modal-title").text('');
             $("#form-contact-installer input:not(:input[name=_token]), #form-contact-installer textarea").val('');
-            $("#con_country").val('default').selectpicker('refresh');
+            $("#con_country").val(null).trigger('change');
             infowindow.close();
 
             var place = autocomplete.getPlace(), city = '';
@@ -516,8 +746,33 @@
                 autohidemode: 'leave',
             });
 
+            $("#country, #con_country").select2({
+                placeholder: "-- Choose --",
+                allowClear: true,
+                width: '100%'
+            });
+
             loadInstallers();
         });
+
+        $("#pac-input").on('focus', function () {
+            $("#map").css('border-color', '#e31b23');
+        });
+
+        $("#pac-input").on('blur', function () {
+            $("#map").css('border-color', '#fff');
+        });
+
+        var $img = $(".breadcrumbs"),
+            images = ['installer1.jpg', 'installer2.jpg', 'installer3.jpg', 'installer4.jpg', 'installer5.jpg'],
+            index = 0, maxImages = images.length - 1, timer = setInterval(function () {
+                var currentImage = images[index];
+                index = (index == maxImages) ? 0 : ++index;
+                $img.fadeOut("slow", function () {
+                    $img.css("background-image", 'url({{asset('images/slider')}}/' + currentImage + ')');
+                    $img.fadeIn("slow");
+                });
+            }, 5000);
 
         function loadInstallers(city) {
             clearTimeout(this.delay);
@@ -544,7 +799,8 @@
                                 '<a onclick="contactInstaller(' + i + ',' + val.lat + ', ' + val.long + ', \'' + val.name + '\', \'' + val.email + '\')" href="javascript:void(0)">' +
                                 '<div class="download-card__icon-box"><img src="' + logo + '" alt="' + val.name + ' logo"></div></a>' +
                                 '<div class="download-card__content-box">' +
-                                '<a href="' + link + '" target="_blank"><h3 class="download-card__content-box__title">' + val.name + '</h3></a>' +
+                                '<h3 class="download-card__content-box__title"><a href="' + link + '" ' +
+                                'target="_blank" style="font-weight: bold">' + val.name + '</a></h3>' +
                                 '<table style="font-size: 16px"><tbody>' +
                                 '<tr><td><i class="fa fa-map-marked-alt"></i></td><td>&nbsp;</td><td>' + val.address + '</td></tr>' +
                                 '<tr><td><i class="fa fa-phone"></i></td><td>&nbsp;</td><td><a href="tel:' + val.phone + '">' + val.phone + '</a></td></tr>' +
@@ -553,7 +809,7 @@
                                 '</tbody></table></div>' +
                                 '<div class="card-read-more">' +
                                 '<a onclick="contactInstaller(' + i + ',' + val.lat + ', ' + val.long + ', \'' + val.name + '\', \'' + val.email + '\')" href="javascript:void(0)" ' +
-                                'class="btn btn-link btn-block">Contact</a></div></article>'
+                                'class="btn btn-block">Contact</a></div></article>'
                         });
 
                         if (content != '') {
@@ -581,7 +837,7 @@
             $("#form-contact-installer").show();
             $("#form-contact-installer .modal-title").text(name);
             $("#form-contact-installer input:not(:input[name=_token]), #form-contact-installer textarea").val('');
-            $("#con_country").val('default').selectpicker('refresh');
+            $("#con_country").val(null).trigger('change');
             $("#form-contact-installer input[name='ins_email']").val(email);
 
             $("#map").css('height', map_height_form);
@@ -598,7 +854,7 @@
             $("#form-contact-installer").hide();
             $("#form-contact-installer .modal-title").text('');
             $("#form-contact-installer input:not(:input[name=_token]), #form-contact-installer textarea").val('');
-            $("#con_country").val('default').selectpicker('refresh');
+            $("#con_country").val(null).trigger('change');
 
             $("#map").css('height', map_height);
             $('html,body').animate({scrollTop: $("#ins-contacts").parent().offset().top}, 500);

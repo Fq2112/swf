@@ -3,7 +3,7 @@
 @push('styles')
     <style>
         .breadcrumbs {
-            background-image: url({{asset('images/slider/product-visualizer.jpg')}});
+            background-image: url({{asset('images/slider/visualizer6.jpg')}});
         }
 
         .avd .purewebIframe {
@@ -140,12 +140,10 @@
                 Conform Chrome Series products.</p>
         </div>
         <ul class="crumb">
-            <li><i class="fa fa-home"></i></li>
+            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
             <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
             <li><i class="fa fa-angle-double-right"></i></li>
-            <li><i class="fa fa-car"></i></li>
-            <li><a href="{{route('show.product.overview')}}">
-                    <i class="fa fa-angle-double-right"></i> Product (SWF)</a></li>
+            <li><a href="{{route('show.product.overview')}}"><i class="fa fa-car"></i></a></li>
             <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Visualizer</a></li>
         </ul>
     </div>
@@ -164,8 +162,8 @@
                 <div class="col-md-12">
                     <div class="call-action">
                         <div class="text">
-                            <p><strong class="strong-red">Avery Dennison</strong> doesn't recommend the use
-                                of <b>Conform Chrome</b> for full car wraps or covering vehicle proximity sensors.
+                            <p align="justify"><strong class="strong-red">Avery Dennison</strong> doesn't recommend the
+                                use of <b>Conform Chrome</b> for full car wraps or covering vehicle proximity sensors.
                                 Are you interested in wrapping your vehicle?</p>
                         </div>
                         <a href="{{route('show.installers')}}" class="btn btn-dark-red ld ld-breath">FIND AN
@@ -178,6 +176,16 @@
 @endsection
 @push('scripts')
     <script>
+        var $img = $(".breadcrumbs"), images = ['visualizer1.jpg', 'visualizer2.jpg', 'visualizer3.jpg', 'visualizer4.jpg'],
+            index = 0, maxImages = images.length - 1, timer = setInterval(function () {
+                var currentImage = images[index];
+                index = (index == maxImages) ? 0 : ++index;
+                $img.fadeOut("slow", function () {
+                    $img.css("background-image", 'url({{asset('images/slider')}}/' + currentImage + ')');
+                    $img.fadeIn("slow");
+                });
+            }, 5000);
+
         function goToAnchor() {
             $('html,body').animate({scrollTop: $(".avd").offset().top}, 500);
         }

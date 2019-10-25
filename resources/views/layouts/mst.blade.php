@@ -12,7 +12,6 @@
 
     <!-- Bootstrap-3.3.7 fremwork css -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}"/>
-    <link href="{{asset('css/bootstrap-select.css')}}" rel="stylesheet">
     <!-- Core Style css -->
     <link rel="stylesheet" href="{{asset('css/colorbox.css')}}"/>
     <!-- Slider carousel css  -->
@@ -25,10 +24,10 @@
     <!-- Main style css -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
 
+    <!-- select2 -->
+    <link href="{{asset('vendor/select2/dist/css/select2.css')}}" rel="stylesheet" />
     <!-- Loading.io -->
     <link href="{{asset('css/loading.css')}}" rel="stylesheet">
-    <!-- bubble-button -->
-    <link href="{{asset('css/bubble-button.css')}}" rel="stylesheet">
     <!-- Sweetalert2 -->
     <link rel="stylesheet" href="{{asset('vendor/sweetalert/sweetalert2.css')}}">
     <!-- AOS -->
@@ -36,6 +35,161 @@
     <!-- Media queries -->
     <link rel="stylesheet" href="{{asset('css/media-query.css')}}">
 
+    <style>
+        .select2 {
+            border-radius: 0 4px 4px 0;
+            border: 1px solid #fff;
+        }
+
+        .select2-dropdown {
+            background-color: #0e0e0e;
+            border: 1px solid #fff;
+        }
+
+        span.select2-selection.select2-selection--single {
+            outline: none;
+        }
+
+        .select2-container--default .select2-selection--single {
+             background-color: unset;
+             border: unset;
+             border-radius: unset;
+        }
+
+        .modal-title {
+            color: #E31B23;
+            text-transform: uppercase;
+            font-size: 20px !Important;
+        }
+
+        .modal-header .close {
+            margin-top: 5px;
+        }
+
+        .required {
+            color: #E31B23;
+        }
+
+        .form-control, .select2-search--dropdown .select2-search__field {
+            background-color: #0e0e0e;
+            color: #fff;
+        }
+
+        .form-control:focus, .select2-search--dropdown .select2-search__field:focus  {
+            border-color: #E31B23 !important;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 27, 35, 0.6) !important;
+        }
+
+        .has-feedback .form-control-feedback {
+            position: absolute;
+            display: block;
+            width: 34px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+        }
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label {
+            position: relative;
+            padding-left: 28px;
+            cursor: pointer;
+            line-height: 20px;
+            display: inline-block;
+            color: #666;
+        }
+
+        [type="radio"]:checked + label:before,
+        [type="radio"]:not(:checked) + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 100%;
+            background: #fff;
+        }
+
+        [type="radio"]:checked + label:before {
+            border: 1px solid #E31B23;
+        }
+
+        [type="radio"]:checked + label:after,
+        [type="radio"]:not(:checked) + label:after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #E31B23;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked + label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .btn-primary {
+            background-color: #E31B23;
+            border-color: #cd1b23;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary.focus,
+        .btn-primary:active,
+        .btn-primary.active,
+        .open > .dropdown-toggle.btn-primary {
+            background-color: #c3181f;
+            border-color: #af181f;
+        }
+
+        .btn-primary.disabled,
+        .btn-primary[disabled],
+        fieldset[disabled] .btn-primary,
+        .btn-primary.disabled:hover,
+        .btn-primary[disabled]:hover,
+        fieldset[disabled] .btn-primary:hover,
+        .btn-primary.disabled:focus,
+        .btn-primary[disabled]:focus,
+        fieldset[disabled] .btn-primary:focus,
+        .btn-primary.disabled.focus,
+        .btn-primary[disabled].focus,
+        fieldset[disabled] .btn-primary.focus,
+        .btn-primary.disabled:active,
+        .btn-primary[disabled]:active,
+        fieldset[disabled] .btn-primary:active,
+        .btn-primary.disabled.active,
+        .btn-primary[disabled].active,
+        fieldset[disabled] .btn-primary.active {
+            background-color: #E31B23;
+            border-color: #cd1b23;
+        }
+
+        .btn-primary .badge {
+            color: #E31B23;
+            background-color: #fff;
+        }
+    </style>
     @stack('styles')
 </head>
 <body class="use-nicescroll">
@@ -48,15 +202,6 @@
     <div class="main-content scroll-none home-page dark-page">
         <!-- header start -->
         <header class="site-header cars-header border-bottom dropdown-green navigation-dark">
-            <!-- Top search -->
-            <div class="top-search">
-                <div class="container">
-                    <div class="row">
-                        <input type="text" class="" name="x" placeholder="Type & Hit Enter" autofocus="autofocus">
-                    </div>
-                    <a href="#" id="search-delete"><i class="fa fa-times"></i></a>
-                </div>
-            </div>
             <!-- sub bar start -->
             <div class="sub-bar">
                 <div class="container">
@@ -94,7 +239,7 @@
                             <img id="logo1" width="158px" src="{{asset('images/logo/white_horizontal.png')}}">
                         </a>
                     </div>
-                    <button class="btn-toggle"><i class="fa fa-reorder"></i></button>
+                    <button class="btn-toggle"><i class="fa fa-bars"></i></button>
                     <nav class="nav">
                         @include('layouts.partials._headerMenu')
                     </nav>
@@ -215,7 +360,6 @@
 <!-- Jquery -->
 <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/bootstrap-select.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/classie.js')}}"></script>
 <!-- Core Style -->
 <script type="text/javascript" src="{{asset('js/jquery.colorbox.js')}}"></script>
@@ -238,6 +382,9 @@
 <script type="text/javascript" src="{{asset('js/index-car-2.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/wmbox.js')}}"></script>
 
+<!-- select2 -->
+<script src="{{asset('vendor/select2/dist/js/select2.full.min.js')}}"></script>
+<!-- check-mobile -->
 <script src="{{asset('vendor/checkMobileDevice.js')}}"></script>
 <!-- Nicescroll -->
 <script src="{{asset('vendor/nicescroll/jquery.nicescroll.js')}}"></script>
