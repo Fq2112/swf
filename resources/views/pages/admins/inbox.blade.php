@@ -1,5 +1,5 @@
 @extends('layouts.mst_admin')
-@section('title', 'PPF Admins: Inbox | '.env('APP_TITLE'))
+@section('title', 'SWF Admins: Inbox | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('admins/modules/summernote/summernote-bs4.css')}}">
     <style>

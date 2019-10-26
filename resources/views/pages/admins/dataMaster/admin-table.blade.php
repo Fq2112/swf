@@ -1,5 +1,5 @@
 @extends('layouts.mst_admin')
-@section('title', 'PPF Admins: Admin Accounts Table | '.env('APP_TITLE'))
+@section('title', 'SWF Admins: Admin Accounts Table | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('admins/modules/datatables/datatables.min.css')}}">
     <link rel="stylesheet"

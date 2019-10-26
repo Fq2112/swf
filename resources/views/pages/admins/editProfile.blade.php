@@ -1,5 +1,5 @@
 @extends('layouts.mst_admin')
-@section('title', 'PPF Admins: Edit Profile | '.env('APP_TITLE'))
+@section('title', 'SWF Admins: Edit Profile | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('admins/modules/bootstrap-social/bootstrap-social.css')}}">
 @endpush

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>PPF Admins: Authenticate | {{env("APP_TITLE")}}</title>
+    <title>SWF Admins: Authenticate | {{env("APP_TITLE")}}</title>
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
 
     <!-- General CSS Files -->
