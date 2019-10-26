@@ -33,17 +33,18 @@
         .pagination > li > a,
         .pagination > li > span {
             color: #777;
-            background-color: transparent;
-            border: 1px solid #777;
+            background-color: #080808;
+            border: 1px solid #000;
             font-weight: 600;
+            transition: all .3s ease-in-out;
         }
 
         .pagination > li > a:hover,
         .pagination > li > span:hover,
         .pagination > li > a:focus,
         .pagination > li > span:focus {
-            background: transparent;
-            color: #b91a21;
+            background: #b91a21;
+            color: #fff;
             border-color: #b91a21;
         }
 
@@ -53,8 +54,8 @@
         .pagination > .active > span:hover,
         .pagination > .active > a:focus,
         .pagination > .active > span:focus {
-            background: transparent;
-            color: #b91a21;
+            background: #e31b23;
+            color: #fff;
             border-color: #E31B23;
         }
 
@@ -64,9 +65,12 @@
         .pagination > .disabled > span,
         .pagination > .disabled > span:focus,
         .pagination > .disabled > span:hover {
-            background-color: transparent;
-            border-color: #777;
+            background-color: #080808;
+            border-color: #000;
+            color: #777;
             pointer-events: none;
+            cursor: no-drop !important;
+            opacity: 0.3;
         }
 
         #myTabContent ul li:before {

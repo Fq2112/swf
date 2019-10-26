@@ -195,7 +195,7 @@
 </div>
 
 <div class="wrapper">
-    <div class="main-content scroll-none home-page dark-page">
+    <div class="main-content home-page dark-page">
         <!-- header start -->
         <header class="site-header cars-header border-bottom dropdown-green navigation-dark">
             <!-- sub bar start -->
@@ -255,7 +255,7 @@
                         <div class="footer-widget widget">
                             <h4 data-aos="fade-right">Recent Posts</h4>
                             <ul class="recent-post">
-                                @foreach(\App\Models\Blog::orderByDesc('id')->take(3)->get() as $row)
+                                @foreach(\App\Models\Blog::orderByDesc('id')->take(1)->get() as $row)
                                     @php
                                         $date = \Carbon\Carbon::parse($row->created_at);
                                         $url = route('detail.blog', ['author' => $row->getUser->username,
@@ -267,8 +267,11 @@
                                             <img src="{{asset('storage/blog/thumbnail/'.$row->thumbnail)}}" alt="">
                                         </a>
                                         <div class="right-post">
+                                            <p style="padding-top: 0;padding-bottom: 5px;line-height: 1">{{strtoupper
+                                            ($row->getBlogCategory->name)}}<i class="fa fa-calendar-alt"></i>{{$date
+                                            ->format('F j, Y')}}<br><sub>by <a href="{{route('detail.blog', ['author' =>
+                                            $row->getUser->username])}}">{{$row->getUser->username}}</a></sub></p>
                                             <a href="{{$url}}">{{$row->title}}</a>
-                                            <p><i class="fa fa-calendar-alt"></i>{{$date->format('F j, Y')}}</p>
                                         </div>
                                     </li>
                                 @endforeach
