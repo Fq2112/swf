@@ -24,6 +24,10 @@
     <!-- Main style css -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
 
+    <!-- ajax-loader -->
+    <link rel="stylesheet" href="{{asset('css/ajax-loader.css')}}">
+    <!-- modal-dark -->
+    <link rel="stylesheet" href="{{asset('css/modal-dark.css')}}">
     <!-- select2 -->
     <link href="{{asset('vendor/select2/dist/css/select2.css')}}" rel="stylesheet" />
     <!-- Loading.io -->
@@ -38,12 +42,12 @@
     <style>
         .select2 {
             border-radius: 0 4px 4px 0;
-            border: 1px solid #fff;
+            border: 1px solid #777;
         }
 
         .select2-dropdown {
             background-color: #0e0e0e;
-            border: 1px solid #fff;
+            border: 1px solid #777;
         }
 
         span.select2-selection.select2-selection--single {
@@ -56,23 +60,14 @@
              border-radius: unset;
         }
 
-        .modal-title {
-            color: #E31B23;
-            text-transform: uppercase;
-            font-size: 20px !Important;
-        }
-
-        .modal-header .close {
-            margin-top: 5px;
-        }
-
         .required {
             color: #E31B23;
         }
 
         .form-control, .select2-search--dropdown .select2-search__field {
             background-color: #0e0e0e;
-            color: #fff;
+            color: #777;
+            border-color: #777;
         }
 
         .form-control:focus, .select2-search--dropdown .select2-search__field:focus  {
@@ -113,9 +108,9 @@
             top: 0;
             width: 20px;
             height: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #777;
             border-radius: 100%;
-            background: #fff;
+            background: transparent;
         }
 
         [type="radio"]:checked + label:before {
@@ -503,7 +498,7 @@
             cursorborder: 'none',
             // cursorborderradius:0,
             autohidemode: 'leave',
-            zindex: 99999999,
+            zindex: 9999999,
         });
 
         var options = {

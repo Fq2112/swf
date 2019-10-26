@@ -133,7 +133,7 @@ class SWFController extends Controller
 
         Mail::send('emails.contact-installers', $data, function ($message) use ($data) {
             $message->from($data['con_email'], $data['con_fname'] . ' ' . $data['con_lname']);
-            $message->to($data['ins_email'])->cc('info@ppf.co.id');
+            $message->to($data['ins_email'])->cc(env('MAIL_USERNAME'));
             $message->subject($data['con_subject']);
         });
 
@@ -164,7 +164,7 @@ class SWFController extends Controller
 
         Mail::send('emails.certification-request', $data, function ($message) use ($data) {
             $message->from($data['email'], $data['fname'] . ' ' . $data['lname']);
-            $message->to('sindhu@ppf.co.id');
+            $message->to('sindhu@supremewrap.co.id');
             $message->subject($data['type'] . ' Certification Request: ' . $data['company']);
         });
 

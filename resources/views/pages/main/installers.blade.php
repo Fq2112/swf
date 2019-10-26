@@ -7,14 +7,6 @@
             background-image: url({{asset('images/slider/installer5.jpg')}});
         }
 
-        #map{
-            border: 1px solid #FFF;
-        }
-
-        #map:hover {
-            border: 1px solid #E31B23;
-        }
-
         .gm-style-iw {
             width: 350px !important;
             top: 15px;
@@ -162,115 +154,125 @@
         </ul>
     </div>
 
-    <section class="home-intro">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div id="map" class="img-thumbnail" style="width: 100%;height: 600px"></div>
-                    <input data-aos="zoom-out" data-aos-delay="100" id="pac-input" class="form-control"
-                           type="text" placeholder="Enter your location">
+    <section class="no-padding">
+        <div class="row">
+            <div class="col-lg-6">
+                <div id="map" style="width: 100%;height: 600px"></div>
+                <input data-aos="zoom-out" data-aos-delay="100" id="pac-input" class="form-control"
+                       type="text" placeholder="Enter your location">
+            </div>
+            <div class="col-lg-6">
+                <div class="ajax-loader">
+                    <div class="preloader4"></div>
                 </div>
-                <div class="col-lg-6">
-                    <img src="{{asset('images/loading.gif')}}" id="image" class="img-responsive ld ld-breath">
-                    <div data-view="list-view" class="download-cards nicescroll" id="ins-contacts"
-                         style="height: 600px">
+                <div data-view="list-view" class="download-cards nicescroll" id="ins-contacts"
+                     style="height: 515px">
+                </div>
+                <form id="form-contact-installer" action="{{route('submit.contact.installers')}}"
+                      method="post" style="display: none">
+                    @csrf
+                    <input type="hidden" name="ins_email">
+                    <div class="modal-header"
+                         style="border-bottom: 1px solid #777;padding: 0 0 .5em 0;margin-bottom: 1.5em;">
+                        <button type="button" class="close" style="font-size: 1.5em">&times;</button>
+                        <h3 class="modal-title"></h3>
                     </div>
-                    <form id="form-contact-installer" action="{{route('submit.contact.installers')}}"
-                          method="post" style="display: none">
-                        @csrf
-                        <input type="hidden" name="ins_email">
-                        <div class="modal-header" style="border-bottom: 1px solid #e5e5e5;padding: 0 0 .5em 0;margin-bottom: 1.5em;">
-                            <button type="button" class="close" style="font-size: 1.5em;color: #fff">&times;</button>
-                            <h3 class="modal-title"></h3>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-md-6">
-                                <label class="form-control-label" for="con_fname">First Name <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="con_fname" type="text" class="form-control" name="con_fname"
-                                           placeholder="First name" autofocus required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-control-label" for="con_lname">Last Name <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="con_lname" type="text" class="form-control" name="con_lname"
-                                           placeholder="Last name" required>
-                                </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="form-control-label" for="con_fname">First Name <span
+                                    class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input id="con_fname" type="text" class="form-control" name="con_fname"
+                                       placeholder="First name" autofocus required>
                             </div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="form-control-label" for="con_email">Email <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input id="con_email" type="email" class="form-control" name="con_email"
-                                           placeholder="Email" required>
-                                </div>
+                        <div class="col-md-6">
+                            <label class="form-control-label" for="con_lname">Last Name <span
+                                    class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input id="con_lname" type="text" class="form-control" name="con_lname"
+                                       placeholder="Last name" required>
                             </div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-6">
-                                <label class="form-control-label" for="con_company">Company <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                    <input id="con_company" type="text" class="form-control" name="con_company"
-                                           placeholder="Company name" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-control-label" for="con_phone">Phone <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                    <input placeholder="Phone number" type="text" maxlength="13"
-                                           class="form-control"
-                                           name="con_phone" onkeypress="return numberOnly(event, false)" required>
-                                </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="form-control-label" for="con_email">Email <span
+                                    class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input id="con_email" type="email" class="form-control" name="con_email"
+                                       placeholder="Email" required>
                             </div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="form-control-label" for="con_country">Country <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-                                    <select id="con_country" class="form-control" name="con_country" required>
-                                        @foreach($countries as $row)
-                                            <option value="{{$row->name}}">{{$row->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="form-control-label" for="con_company">Company <span
+                                    class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                <input id="con_company" type="text" class="form-control" name="con_company"
+                                       placeholder="Company name" required>
                             </div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="form-control-label" for="con_subject">Subject <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-text-width"></i></span>
-                                    <input id="con_subject" type="text" class="form-control" name="con_subject"
-                                           placeholder="Subject" minlength="3" required>
-                                </div>
+                        <div class="col-md-6">
+                            <label class="form-control-label" for="con_phone">Phone <span
+                                    class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input placeholder="Phone number" type="text" maxlength="13"
+                                       class="form-control"
+                                       name="con_phone" onkeypress="return numberOnly(event, false)" required>
                             </div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="form-control-label" for="con_message">Message <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
-                                    <textarea id="con_message" class="form-control" name="con_message"
-                                              placeholder="Write something here&hellip;" rows="5"
-                                              style="resize: vertical" required></textarea>
-                                </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="form-control-label" for="con_country">Country <span
+                                    class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                <select id="con_country" class="form-control" name="con_country" required>
+                                    @foreach($countries as $row)
+                                        <option value="{{$row->name}}">{{$row->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-dark-red btn-block"><b>SUBMIT</b></button>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="form-control-label" for="con_subject">Subject <span
+                                    class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-text-width"></i></span>
+                                <input id="con_subject" type="text" class="form-control" name="con_subject"
+                                       placeholder="Subject" minlength="3" required>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="form-control-label" for="con_message">Message <span
+                                    class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                <textarea id="con_message" class="form-control" name="con_message"
+                                          placeholder="Write something here&hellip;" rows="5"
+                                          style="resize: vertical" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-dark-red btn-block"
+                                    style="padding-top: 8px;padding-bottom: 8px"><b>SUBMIT</b></button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -281,108 +283,126 @@
                 <div class="col-md-12">
                     <div class="call-action">
                         <div class="text">
-                            <p>Do you want to be a <strong class="strong-red">certified installer?</strong> To integrate the certified installers network, we will evaluate your technical skills and knowledge.</p>
+                            <p>Do you want to be a <strong class="strong-red">certified installer?</strong> To integrate
+                                the certified installers network, we will evaluate your technical skills and knowledge.
+                            </p>
                         </div>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#certModal"
                            class="btn btn-dark-red ld ld-breath">APPLY NOW</a>
+                        <div class="modal dark fade" id="certModal" tabindex="-1" role="dialog"
+                             aria-labelledby="certModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" style="width: 40%" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4 class="modal-title" id="certModalLabel">Certification Request</h4>
+                                    </div>
+                                    <form method="post" action="{{route('submit.certification')}}">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <label class="form-control-label" for="fname">First Name <span
+                                                            class="required">*</span></label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i
+                                                                class="fa fa-user"></i></span>
+                                                        <input id="fname" type="text" class="form-control" name="fname"
+                                                               placeholder="First name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-control-label" for="lname">Last Name <span
+                                                            class="required">*</span></label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i
+                                                                class="fa fa-user"></i></span>
+                                                        <input id="lname" type="text" class="form-control" name="lname"
+                                                               placeholder="Last name" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="form-control-label" for="email">Email <span
+                                                            class="required">*</span></label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i
+                                                                class="fa fa-envelope"></i></span>
+                                                        <input id="email" type="email" class="form-control" name="email"
+                                                               placeholder="Email" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="form-control-label" for="phone">Phone <span
+                                                            class="required">*</span></label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i
+                                                                class="fa fa-phone"></i></span>
+                                                        <input placeholder="Phone number" type="text" maxlength="13"
+                                                               class="form-control"
+                                                               name="phone" onkeypress="return numberOnly(event, false)"
+                                                               required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-4">
+                                                    <label class="form-control-label" for="type">Certification Type
+                                                        <span class="required">*</span></label>
+                                                    <p>
+                                                        <input type="radio" id="ppf" name="type" value="PPF" required>
+                                                        <label class="form-control-label" for="ppf">PPF</label>&ensp;
+                                                        <input type="radio" id="wrap" name="type" value="Wrap">
+                                                        <label class="form-control-label" for="wrap">Wrap</label>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <label class="form-control-label" for="company">Company <span
+                                                            class="required">*</span></label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i
+                                                                class="fa fa-building"></i></span>
+                                                        <input id="company" type="text" class="form-control"
+                                                               name="company"
+                                                               placeholder="Company name" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="form-control-label" for="country">Country</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i
+                                                                class="fa fa-flag"></i></span>
+                                                        <select id="country" class="form-control" name="country">
+                                                            <option value="" selected>Rather not say</option>
+                                                            @foreach($countries as $row)
+                                                                <option value="{{$row->name}}">{{$row->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-grey" data-dismiss="modal">Close
+                                            </button>
+                                            <button type="submit" class="btn btn-dark-red">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <div class="modal fade" id="certModal" tabindex="-1" role="dialog" aria-labelledby="certModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="certModalLabel">Certification Request</h4>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="{{route('submit.certification')}}">
-                        @csrf
-                        <div class="row form-group">
-                            <div class="col-md-6">
-                                <label class="form-control-label" for="fname">First Name <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="fname" type="text" class="form-control" name="fname"
-                                           placeholder="First name" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-control-label" for="lname">Last Name <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="lname" type="text" class="form-control" name="lname"
-                                           placeholder="Last name" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="form-control-label" for="email">Email <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input id="email" type="email" class="form-control" name="email"
-                                           placeholder="Email" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="form-control-label" for="phone">Phone <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                    <input placeholder="Phone number" type="text" maxlength="13" class="form-control"
-                                           name="phone" onkeypress="return numberOnly(event, false)" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-md-4">
-                                <label class="form-control-label" for="type">Certification Type <span class="required">*</span></label>
-                                <p>
-                                    <input type="radio" id="ppf" name="type" value="PPF" required>
-                                    <label class="form-control-label" for="ppf">PPF</label>&ensp;
-                                    <input type="radio" id="wrap" name="type" value="Wrap">
-                                    <label class="form-control-label" for="wrap">Wrap</label>
-                                </p>
-                            </div>
-                            <div class="col-md-8">
-                                <label class="form-control-label" for="company">Company <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                    <input id="company" type="text" class="form-control" name="company"
-                                           placeholder="Company name" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="form-control-label" for="country">Country</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-                                    <select id="country" class="form-control" name="country">
-                                        <option value="" selected>Rather not say</option>
-                                        @foreach($countries as $row)
-                                            <option value="{{$row->name}}">{{$row->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-dark-red">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 @push('scripts')
     <script src="{{asset('js/filter-gridList.js')}}"></script>
@@ -734,6 +754,10 @@
         var map_height = '', map_height_form = '';
         $(function () {
             window.mobilecheck() ? $(".w3-agileits-about-grids").removeClass('vertical-center') : '';
+            window.mobilecheck() ? $("#certModal .modal-dialog").css('width', 'unset') :
+                $("#certModal .modal-dialog").css('width', '40%');
+            window.mobilecheck() ? $(".ajax-loader").parent().css('padding', '3em 3em 0 3em') :
+                $(".ajax-loader").parent().css('padding', '3em 5em 0 3em');
             map_height = window.mobilecheck() ? '475px' : '600px';
             map_height_form = window.mobilecheck() ? '475px' : '712px';
 
@@ -746,21 +770,20 @@
                 autohidemode: 'leave',
             });
 
-            $("#country, #con_country").select2({
+            $("#con_country").select2({
                 placeholder: "-- Choose --",
                 allowClear: true,
                 width: '100%'
             });
 
+            $("#country").select2({
+                placeholder: "-- Choose --",
+                allowClear: true,
+                width: '100%',
+                dropdownParent: $('#certModal .modal-content')
+            });
+
             loadInstallers();
-        });
-
-        $("#pac-input").on('focus', function () {
-            $("#map").css('border-color', '#e31b23');
-        });
-
-        $("#pac-input").on('blur', function () {
-            $("#map").css('border-color', '#fff');
         });
 
         var $img = $(".breadcrumbs"),
@@ -781,11 +804,11 @@
                     url: '{{route('get.city.installers', ['city' => ''])}}/' + city,
                     type: 'GET',
                     beforeSend: function () {
-                        $('#image').show();
+                        $('.ajax-loader').show();
                         $("#ins-contacts").hide();
                     },
                     complete: function () {
-                        $('#image').hide();
+                        $('.ajax-loader').hide();
                         $("#ins-contacts").show();
                     },
                     success: function (data) {
