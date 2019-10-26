@@ -12192,13 +12192,28 @@ blockquote.border-style-4 {
     transform: rotateY(360deg);
 }
 
+.meta-single .email-color {
+    background: #848484;
+    color: #fff;
+}
+
+.meta-single .whatsapp-color {
+    background: #57bb63;
+    color: #fff;
+}
+
 .meta-single .fb-color {
-    background: #4966b6;
+    background: #46629E;
+    color: #fff;
+}
+
+.meta-single .linkedin-color {
+    background: #007ab9;
     color: #fff;
 }
 
 .meta-single .tw-color {
-    background: #1b95e0;
+    background: #1DA1F2;
     color: #fff;
 }
 
