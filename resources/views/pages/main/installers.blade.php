@@ -157,11 +157,11 @@
     <section class="no-padding">
         <div class="row">
             <div class="col-lg-6">
-                <div id="map" style="width: 100%;height: 600px"></div>
+                <div data-aos="fade-right" id="map" style="width: 100%;height: 600px"></div>
                 <input data-aos="zoom-out" data-aos-delay="100" id="pac-input" class="form-control"
                        type="text" placeholder="Enter your location">
             </div>
-            <div class="col-lg-6">
+            <div data-aos="fade-left" class="col-lg-6">
                 <div class="ajax-loader">
                     <div class="preloader4"></div>
                 </div>
@@ -282,12 +282,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="call-action">
-                        <div class="text">
+                        <div data-aos="fade-right" class="text">
                             <p>Do you want to be a <strong class="strong-red">certified installer?</strong> To integrate
                                 the certified installers network, we will evaluate your technical skills and knowledge.
                             </p>
                         </div>
-                        <a href="javascript:void(0)" data-toggle="modal" data-target="#certModal"
+                        <a data-aos="fade-left" href="javascript:void(0)" data-toggle="modal" data-target="#certModal"
                            class="btn btn-dark-red ld ld-breath">APPLY NOW</a>
                         <div class="modal dark fade" id="certModal" tabindex="-1" role="dialog"
                              aria-labelledby="certModalLabel" aria-hidden="true">

@@ -12,6 +12,7 @@
 
     <!-- Bootstrap-3.3.7 fremwork css -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('admins/modules/bootstrap/css/glyphicons.css')}}"/>
     <!-- Core Style css -->
     <link rel="stylesheet" href="{{asset('css/colorbox.css')}}"/>
     <!-- Slider carousel css  -->
@@ -66,7 +67,7 @@
 
         .form-control, .select2-search--dropdown .select2-search__field {
             background-color: #0e0e0e;
-            color: #777;
+            color: #fff;
             border-color: #777;
         }
 
@@ -252,7 +253,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-widget widget">
-                            <h4>Recent Posts</h4>
+                            <h4 data-aos="fade-right">Recent Posts</h4>
                             <ul class="recent-post">
                                 @foreach(\App\Models\Blog::orderByDesc('id')->take(3)->get() as $row)
                                     @php
@@ -261,7 +262,7 @@
                                         'y' => $date->format('Y'), 'm' => $date->format('m'), 'd' => $date->format('d'),
                                         'title' => $row->title_uri]);
                                     @endphp
-                                    <li>
+                                    <li data-aos="zoom-out">
                                         <a class="thumb" href="{{$url}}">
                                             <img src="{{asset('storage/blog/thumbnail/'.$row->thumbnail)}}" alt="">
                                         </a>
@@ -272,10 +273,10 @@
                                     </li>
                                 @endforeach
                             </ul>
-                            <h4>Gallery</h4>
+                            <h4 data-aos="fade-right">Gallery</h4>
                             <div class="footer-gallery">
                                 @foreach(\App\Models\Gallery::orderByDesc('id')->take(5)->get() as $row)
-                                    <a href="{{route('show.gallery', ['title' => $row->title])}}">
+                                    <a data-aos="zoom-out" href="{{route('show.gallery', ['title' => $row->title])}}">
                                         <img src="{{$row->type == 'photos' ? asset('storage/gallery/'.$row->file) :
                                         asset('storage/gallery/thumbnail/'.$row->thumbnail)}}" alt="">
                                     </a>
@@ -287,13 +288,12 @@
                         <div class="footer-widget widget">
                             <div class="footer-logo">
                                 <a href="{{route('home')}}">
-                                    <img id="logo2" width="200px" src="{{asset('images/logo/red_horizontal.png')}}"
-                                         alt="">
-                                </a>
+                                    <img data-aos="zoom-out" id="logo2" width="200px"
+                                         src="{{asset('images/logo/red_horizontal.png')}}" alt=""></a>
                             </div>
-                            <p>Our Company, <b>Premier Autostyling</b>, is the one and only distributor of <b>Avery
-                                    Dennison</b> SWF (Supreme Wrap Film) in <b>Indonesia</b>.</p>
-                            <nav class="footer-nav" style="text-transform: uppercase">
+                            <p data-aos="fade-down">Our Company, <b>Premier Autostyling</b>, is the one and only
+                                distributor of <b>Avery Dennison</b> SWF (Supreme Wrap Film) in <b>Indonesia</b>.</p>
+                            <nav data-aos="fade-down" class="footer-nav" style="text-transform: uppercase">
                                 <a href="{{route('show.contact')}}">Contact Us</a>
                                 <a href="https://averydennison.com/en/home/legal-and-privacy-notices.html"
                                    target="_blank">Legal & Privacy Notices</a>
@@ -302,22 +302,22 @@
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-widget widget">
-                            <h4>Keep in Touch</h4>
+                            <h4 data-aos="fade-right">Keep in Touch</h4>
                             <ul class="contact">
-                                <li>
+                                <li data-aos="fade-down">
                                     <i class="fa fa-map-marked-alt"></i>
                                     Raya Kenjeran 469, Surabaya, East Java, Indonesia.
                                 </li>
-                                <li>
+                                <li data-aos="fade-down">
                                     <i class="fa fa-phone"></i>
                                     <a href="tel:+6281615007777">+62 816 1500 7777</a>
                                 </li>
-                                <li>
+                                <li data-aos="fade-down">
                                     <i class="fa fa-envelope"></i>
                                     <a href="mailto:info@supremewrap.co.id" style="text-transform: none">info@supremewrap.co.id</a>
                                 </li>
                             </ul>
-                            <div class="social-media">
+                            <div data-aos="fade-up" class="social-media">
                                 <a href="https://facebook.com/AveryDennisonCorporation" target="_blank">
                                     <i class="fab fa-facebook-f"></i></a>
                                 <a href="https://twitter.com/AveryDennison" target="_blank">
