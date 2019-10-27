@@ -121,7 +121,7 @@
         <div class="main-sidebar sidebar-style-2">
             <aside id="sidebar-wrapper">
                 <div class="sidebar-brand">
-                    <a href="{{route('admin.dashboard')}}">PPF Admins</a>
+                    <a href="{{route('admin.dashboard')}}">SWF Admins</a>
                 </div>
                 <div class="sidebar-brand sidebar-brand-sm">
                     <a href="{{route('admin.dashboard')}}">

@@ -22,7 +22,7 @@
             left: 0;
             right: 0;
             text-align: center;
-            background: rgba(0, 0, 0, .7);
+            background: rgba(0, 0, 0, 0.7);
             opacity: 0;
             transition: all 400ms ease-in-out;
             height: 100%;
@@ -41,6 +41,7 @@
         }
 
         .content-area img {
+            margin: 0 auto;
             transition: transform .5s ease;
         }
 
@@ -74,13 +75,21 @@
         .blog-content p {
             color: #666;
         }
+
+        .lg-backdrop {
+            z-index: 9999999;
+        }
+
+        .lg-outer {
+            z-index: 10000000;
+        }
     </style>
 @endpush
 @section('content')
     <div class="breadcrumbs">
         <div class="breadcrumbs-overlay"></div>
         <div class="page-title">
-            <h2>Blog Author</h2>
+            <h2>Our Blog</h2>
         </div>
         <ul class="crumb">
             <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
@@ -88,7 +97,8 @@
             <li><i class="fa fa-angle-double-right"></i></li>
             <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
             <li><a href="{{route('show.blog')}}"><i class="fa fa-angle-double-right"></i> Blog</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Author</a></li>
+            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> {{$blog->getBlogCategory
+            ->name}}</a></li>
         </ul>
     </div>
 
@@ -102,21 +112,16 @@
                                 @if($blog->getBlogGallery->count() > 0)
                                     <div data-aos="zoom-out" class="content-area">
                                         <img src="{{asset('storage/blog/thumbnail/'.$blog->thumbnail)}}"
-                                             class="img-responsive"
-                                             alt="Thumbnail">
+                                             class="img-responsive" alt="Thumbnail">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
-                                                <svg id="play" class="play" data-toggle="tooltip"
-                                                     title="Click here to play!"
-                                                     data-placement="bottom" version="1.1"
+                                                <svg id="play" class="play" version="1.1"
                                                      xmlns="http://www.w3.org/2000/svg"
                                                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     height="100px"
-                                                     width="100px"
-                                                     viewBox="0 0 100 100" enable-background="new 0 0 100 100"
-                                                     xml:space="preserve">
-                                    <path class="stroke-solid" fill="none" stroke="#E31B23"
-                                          d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7C97.3,23.7,75.7,2.3,49.9,2.5"/>
+                                                     height="100px" width="100px" viewBox="0 0 100 100"
+                                                     enable-background="new 0 0 100 100" xml:space="preserve">
+                                                    <path class="stroke-solid" fill="none" stroke="#E31B23"
+                                                          d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7C97.3,23.7,75.7,2.3,49.9,2.5"/>
                                                     <path class="stroke-dotted" fill="none" stroke="#E31B23"
                                                           d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7C97.3,23.7,75.7,2.3,49.9,2.5"/>
                                                     <path class="icon" fill="#E31B23"
@@ -200,199 +205,66 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-lg-3">
-                    <!-- sidebar start -->
+                <div data-aos="fade-left" class="col-md-4 col-lg-3">
                     <div class="sidebar">
                         <div class="widget widget_search">
-                            <form method="get" class="search-form input-group" action="#">
-                                <input class="form-control" type="text" value="" name="s" id="s"
-                                       placeholder="type to search...">
+                            <form id="form-search" class="search-form input-group" action="{{route('show.blog')}}">
+                                <input id="keyword" type="text" name="q" class="form-control" autocomplete="off"
+                                       placeholder="Search&hellip;" required>
                                 <span class="input-group-btn">
-                                            <button class="btn btn-default" type="submit"><i
-                                                    class="fa fa-search"></i></button>
-                                        </span>
+                                    <button class="btn btn-dark-red" type="submit"><i class="fa fa-search"></i></button>
+                                </span>
                             </form>
                         </div>
                         <div class="widget widget_categories">
                             <h4>Categories</h4>
                             <ul>
-                                <li><a href="#"><i class="fa fa-caret-right"></i> Web</a> <span>(23)</span></li>
-                                <li><a href="#"><i class="fa fa-caret-right"></i> Development</a> <span>(11)</span></li>
-                                <li><a href="#"><i class="fa fa-caret-right"></i> Photoshop</a> <span>(15)</span></li>
-                                <li><a href="#"><i class="fa fa-caret-right"></i> Illustrations</a> <span>(05)</span>
-                                </li>
-                                <li><a href="#"><i class="fa fa-caret-right"></i> Photography</a> <span>(10)</span></li>
-                                <li><a href="#"><i class="fa fa-caret-right"></i> Design </a> <span>(25)</span></li>
+                                @foreach(\App\Models\BlogCategory::orderBy('name')->get() as $row)
+                                    <li class="hover-li">
+                                        <a href="{{route('show.blog', ['category' => $row->id])}}">
+                                            <i class="fa fa-caret-right"></i> {{$row->name}}</a>
+                                        <span class="hover-span">({{count($row->getBlog)}})</span>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
-                        <div id="widget-tabs" class="widget widget_tabs">
-                            <ul class="title-tabs">
-                                <li><a href="#tab1"> RECENT </a></li>
-                                <li><a href="#tab2"> POPULAR </a></li>
-                                <li><a href="#tab3"> COMMENTS </a></li>
-                            </ul>
-                            <div class="content-tabs">
-                                <div id="tab1">
-                                    <div class="recent-post">
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/blog/thumbs60x60/1.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <a href="blog-post.html">Nullam Massa Turpis...</a>
-                                                <p><i class="fa fa-clock-o"></i> Jan 10, 2016</p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/blog/thumbs60x60/2.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <a href="blog-post.html">Malesuada Lacinia...</a>
-                                                <p><i class="fa fa-clock-o"></i> Jan 10, 2016</p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/blog/thumbs60x60/3.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <a href="blog-post.html">Quis Dictum Nulla...</a>
-                                                <p><i class="fa fa-clock-o"></i> Jan 10, 2016</p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/blog/thumbs60x60/4.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <a href="blog-post.html">Nam Ornare Pulvinar...</a>
-                                                <p><i class="fa fa-clock-o"></i> Jan 10, 2016</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="tab2">
-                                    <div class="popular-post">
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/blog/thumbs60x60/3.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <a href="blog-post.html">Malesuada Lacinia...</a>
-                                                <p><i class="fa fa-clock-o"></i> Jan 10, 2016</p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/blog/thumbs60x60/2.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <a href="blog-post.html">Quis Dictum Nulla...</a>
-                                                <p><i class="fa fa-clock-o"></i> Jan 10, 2016</p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/blog/thumbs60x60/1.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <a href="blog-post.html">Nam Ornare Pulvinar...</a>
-                                                <p><i class="fa fa-clock-o"></i> Jan 10, 2016</p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/blog/thumbs60x60/4.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <a href="blog-post.html">Nullam Massa Turpis...</a>
-                                                <p><i class="fa fa-clock-o"></i> Jan 10, 2016</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="tab3">
-                                    <div class="comment-post">
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/faces/thumbs50x50/5.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <p>" Lorem ipsum dolor sit amet, consectetur adipiscing elit. "</p>
-                                                <p class="none-style">posted by <a href="#">Mary G. Kirkpatrick</a></p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/faces/thumbs50x50/4.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <p>" Nullam fermentum risus sit amet nisl porta hendrerit. "</p>
-                                                <p class="none-style">posted by <a href="#">Sonia L. Ortega</a></p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/faces/thumbs50x50/1.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <p>" Lorem ipsum dolor sit amet, consectetur adipiscing elit. "</p>
-                                                <p class="none-style">posted by <a href="#">Dennis T. Furr</a></p>
-                                            </div>
-                                        </div>
-                                        <div class="tabs-post">
-                                            <a class="thumb" href="blog-post.html"><img
-                                                    src="images/faces/thumbs50x50/2.jpg" alt=""></a>
-                                            <div class="right-post">
-                                                <p>" Fusce ultricies eget nibh in maximus potenti. "</p>
-                                                <p class="none-style">posted by <a href="#">Edward S. Neal</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="widget">
-                            <h4>Testimonial</h4>
-                            <div class="testimonial">
-                                <blockquote>Design is not just what it looks like and feels like. Design is how it
-                                    works. <a href="">john doe</a></blockquote>
-                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos
-                                    dolorem. <a href="">john doe</a></blockquote>
-                            </div>
-                        </div>
-
-                        <div class="widget">
-                            <h4>Popular Tags</h4>
-                            <div class="tags">
-                                <a href="">span</a>
-                                <a href="">business</a>
-                                <a href="">food</a>
-                                <a href="">fashion</a>
-                                <a href="">finance</a>
-                                <a href="">culture</a>
-                                <a href="">health</a>
-                                <a href="">sports</a>
-                                <a href="">life style</a>
-                                <a href="">books</a>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <h4>About Us</h4>
+                            <h4>About The Author</h4>
                             <div class="textwidget">
-                                <p>Sed vestibulum laoreet orci, nec
-                                    maximus velit. Aliquam sed justo vel
-                                    nibh lobortis rutrum at id elit.
-                                    Donec vitae fermentum metus,
-                                    varius viverra purus. Pellentesque
-                                    bibendum eros sed justo dignissim,
-                                    accumsan placerat tortor volutpat.
-                                </p>
+                                @if($user->about != "")
+                                    <p>{{$user->about}}</p>
+                                @else
+                                    <p><em>The author hasn't written anything yet&hellip;</em></p>
+                                @endif
                             </div>
                         </div>
                     </div>
-                    <!-- sidebar end -->
                 </div>
             </div>
         </div>
     </div>
 @endsection
 @push('scripts')
+    <script src="{{asset('vendor/jquery-ui/jquery-ui.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/lib/picturefill.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
     <script>
+        $(function () {
+            $("#related-post").owlCarousel({
+                navigation: true,
+                navigationText: ["<i class='fa fa-caret-left'></i>", "<i class='fa fa-caret-right'></i>"],
+                slideSpeed: 600,
+                autoPlay: 8000,
+                items: 3,
+                itemsDesktop: [1199, 2],
+                itemsDesktopSmall: [979, 3],
+                itemsTablet: [768, 2],
+                itemsMobile: [479, 1],
+                pagination: false
+            });
+        });
+
         var $img = $(".breadcrumbs"),
             images = ['blog3.jpg', 'blog2.jpg', 'blog1.jpg'],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
@@ -416,6 +288,24 @@
                     @endforeach
                 ]
             });
+        });
+
+        $("#keyword").autocomplete({
+            source: function (request, response) {
+                $.getJSON('{{route('get.title.blog', ['title' => ''])}}/' + $("#keyword").val(), {
+                    name: request.term,
+                }, function (data) {
+                    response(data);
+                });
+            },
+            focus: function (event, ui) {
+                event.preventDefault();
+            },
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#keyword").val(ui.item.title);
+                $("#form-search")[0].submit();
+            }
         });
 
         function shareBlog(url) {

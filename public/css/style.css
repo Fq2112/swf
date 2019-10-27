@@ -10525,15 +10525,14 @@ a.search-bgdark:hover {
 }
 
 .content-container {
-    background: #fff;
+    background: transparent;
     margin-bottom: 40px;
-
 }
 
 .content-container h2 {
     font-family: 'Raleway', Arial, sans-serif;
     font-size: 28px;
-    color: #000;
+    color: #eee;
     font-weight: 300;
     text-transform: none;
     letter-spacing: -1px;
@@ -10542,7 +10541,7 @@ a.search-bgdark:hover {
 .content-container h4 {
     font-family: "Raleway", Arial, sans-serif;
     font-size: 18px !important;
-    color: #1d2127;
+    color: #eee;
     font-weight: 500;
     text-transform: none;
 }
@@ -10550,7 +10549,7 @@ a.search-bgdark:hover {
 .content-container p {
     font-family: "Raleway", Arial, sans-serif;
     font-size: 14px;
-    color: #777;
+    color: #bbb;
     font-weight: 400;
 }
 
@@ -10611,7 +10610,7 @@ a.search-bgdark:hover {
     font-family: 'Raleway', Arial, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #777;
+    color: #bbb;
 }
 
 .post-content a {
@@ -10620,11 +10619,12 @@ a.search-bgdark:hover {
     font-weight: 500;
     margin: 0;
     padding: 0;
+    transition: all .3s ease-in-out;
 }
 
 .post-content a:hover {
-    color: #111 !important;
-    text-decoration: underline;
+    color: #9a151a !important;
+    text-decoration: none;
 }
 
 .post-content .post-date p {
@@ -11477,7 +11477,7 @@ article.item-post {
 }
 
 article.item-post a {
-    color: #333;
+    color: #eee;
 }
 
 article.item-post a:hover {
@@ -12163,7 +12163,7 @@ blockquote.border-style-4 {
 
 .meta-single {
     padding: 20px 0;
-    border-top: 1px solid #ebeced;
+    border-top: 1px solid #777;
 }
 
 .meta-single h3 {
@@ -12790,7 +12790,7 @@ blockquote.border-style-4 {
 
 .sidebar .widget {
     margin-bottom: 30px;
-    background: #fff;
+    background: transparent;
 }
 
 .sidebar .widget h4 {
@@ -12822,8 +12822,15 @@ h4.tle-color:before {
 
 .sidebar .widget li {
     padding: 5px 8px;
-    border-bottom: 1px solid #ebeced;
+    color: #bbb;
+    border-bottom: 1px solid #777;
+    text-transform: uppercase;
     overflow: hidden;
+}
+
+.sidebar .widget li:hover {
+    color: #E31B23;
+    border-bottom: 1px solid #e31b23;
 }
 
 .sidebar .widget li.r-tabs-state-active {
@@ -12836,7 +12843,7 @@ h4.tle-color:before {
 }
 
 .sidebar .widget a {
-    color: #666;
+    color: #bbb;
 }
 
 .sidebar .widget a:hover {
@@ -12998,7 +13005,13 @@ h4.tle-color:before {
     font-family: "Raleway", Arial, sans-serif;
     max-width: 260px;
     padding: 15px 18px 8px;
-    border: 1px solid #e4e4e4;
+    border: 1px solid #777;
+    border-radius: 4px;
+    color: #777;
+}
+
+.sidebar .textwidget:hover {
+    border: 1px solid #e31b23;
 }
 
 .sidebar .textwidget a {
@@ -13085,7 +13098,8 @@ h4.tle-color:before {
     width: 100%;
     height: 45px;
     padding: 0 45px 0 15px;
-    border: 1px solid #e4e4e4;
+    border: 1px solid #777;
+    border-radius: 4px 0 0 4px;
 }
 
 .search-form input[type=text]::-webkit-input-placeholder {
@@ -13109,14 +13123,19 @@ h4.tle-color:before {
     text-align: center;
     background: #e31b23;
     -webkit-border-radius: 0;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0 4px 4px 0;
     border: none;
-    padding: 0;
+    padding: 0 !important;
     color: #fff;
 }
 
-.search-form button:hover {
+.search-form button:hover, .search-form button:focus, .search-form button:active {
     background: #e31b23;
+    border-radius: 0 4px 4px 0 !important;
+}
+
+.search-form button:hover:before, .search-form button:focus:before, .search-form button:active:before {
+    border-radius: 0 4px 4px 0 !important;
 }
 
 /*=======================================
@@ -13124,7 +13143,7 @@ h4.tle-color:before {
 ========================================*/
 
 .tabs-post {
-    border-bottom: 1px solid #ebeced;
+    border-bottom: 1px solid #777;
     position: relative;
     padding-bottom: 15px;
 }
@@ -13140,8 +13159,9 @@ h4.tle-color:before {
     -webkit-transition: 0.3s;
     transition: 0.3s;
     padding: 3px;
-    border: 1px solid #e4e4e4;
+    border: 1px solid #777;
     margin-top: 10px;
+    width: 64px !important;
 }
 
 .tabs-post .thumb:hover img {

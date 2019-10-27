@@ -824,7 +824,7 @@
                                 '<div class="download-card__content-box">' +
                                 '<h3 class="download-card__content-box__title"><a href="' + link + '" ' +
                                 'target="_blank" style="font-weight: bold">' + val.name + '</a></h3>' +
-                                '<table style="font-size: 16px"><tbody>' +
+                                '<table style="font-size: 16px;color: #bbb"><tbody>' +
                                 '<tr><td><i class="fa fa-map-marked-alt"></i></td><td>&nbsp;</td><td>' + val.address + '</td></tr>' +
                                 '<tr><td><i class="fa fa-phone"></i></td><td>&nbsp;</td><td><a href="tel:' + val.phone + '">' + val.phone + '</a></td></tr>' +
                                 '<tr><td><i class="fa fa-envelope"></i></td><td>&nbsp;</td><td><a href="mailto:' + val.email + '">' + val.email + '</a></td></tr>' +

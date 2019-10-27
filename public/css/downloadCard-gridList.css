@@ -9,12 +9,12 @@
     flex-direction: column;
     width: calc(100% - 2em);
     max-height: 248px;
-    /*background: #fff;*/
+    background: transparent;
     border: 1px solid #777;
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-    margin: 0 1em 2em 1em;
+    margin-bottom: 2em;
     transition: all .4s ease-in-out;
 }
 
@@ -24,7 +24,7 @@
 
 .download-card__content-box a {
     text-decoration: none;
-    color: #777;
+    color: #bbb;
     transition: all .3s ease-in-out;
 }
 
@@ -115,13 +115,18 @@
     padding: 10px;
     font-weight: 900;
     text-transform: uppercase;
-    color: #E31B23;
+    color: #eee;
     background: transparent;
     border-radius: 0 0 4px 4px;
 }
 
+.card-read-more a:hover, .card-read-more a:focus, .card-read-more a:active,
+.card-read-more button:hover, .card-read-more button:focus, .card-read-more button:active {
+    color: #e31b23 !important;
+}
+
 .download-cards .btn:hover:before, .btn:focus:before, .btn:active:before {
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 0;
 }
 
 .download-cards[data-view='list-view'] .card-read-more {
@@ -151,7 +156,10 @@
     line-height: 1;
     margin: 0 0 .5em;
     font-size: 20px;
-    color: #aaa;
+}
+
+.download-card__content-box__title a {
+    color: #eee;
 }
 
 .download-card__content-box__description {

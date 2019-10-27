@@ -29,7 +29,7 @@ ul.static-menu, .static-menu ul {
     cursor: pointer;
     display: block;
     padding: 15px 15px 15px 15px;
-    color: #4D4D4D;
+    color: #777;
     font-family: 'LatoBold', sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -47,7 +47,7 @@ ul.static-menu, .static-menu ul {
 .static-menu li i {
     position: relative;
     font-size: 16px;
-    color: #4d4d4d;
+    color: #777;
     margin-right: 1em;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
@@ -97,7 +97,7 @@ ul.static-menu, .static-menu ul {
 .static-menu .sub-menu a {
     display: block;
     text-decoration: none;
-    color: #4d4d4d;
+    color: #777;
     padding: 12px;
     padding-left: 15px;
     -webkit-transition: all 0.25s ease;
@@ -122,5 +122,9 @@ ul.static-menu, .static-menu ul {
 
 .static-menu .sub-menu a .blog-category i {
     margin: auto .5em;
-    color: #4d4d4d;
+    color: #777;
+}
+
+.static-menu .sub-menu h4 {
+    color: #777;
 }

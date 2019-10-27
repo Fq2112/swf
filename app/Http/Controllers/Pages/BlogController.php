@@ -71,7 +71,7 @@ class BlogController extends Controller
 
     public function showDetailBlog($author, $year = null, $month = null, $date = null, $title = null)
     {
-        $user = User::where('username', $author)->first();
+        $user = User::where('username', $author)->firstOrFail();
 
         if (!$year && !$month && !$date && !$title) {
             $latest = Blog::where('user_id', $user->id)->orderByDesc('id')->take(5)->get();
@@ -85,7 +85,7 @@ class BlogController extends Controller
         } else {
             $blog = Blog::where('user_id', $user->id)->whereYear('created_at', $year)
                 ->whereMonth('created_at', $month)->whereDay('created_at', $date)
-                ->where('title_uri', $title)->first();
+                ->where('title_uri', $title)->firstOrFail();
             $relates = Blog::where('category_id', $blog->category_id)->wherenotin('id', [$blog->id])->orderByDesc('id')->get();
 
             $tgl = Carbon::parse($blog->created_at);

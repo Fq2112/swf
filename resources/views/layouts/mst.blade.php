@@ -30,7 +30,7 @@
     <!-- modal-dark -->
     <link rel="stylesheet" href="{{asset('css/modal-dark.css')}}">
     <!-- select2 -->
-    <link href="{{asset('vendor/select2/dist/css/select2.css')}}" rel="stylesheet" />
+    <link href="{{asset('vendor/select2/dist/css/select2.css')}}" rel="stylesheet"/>
     <!-- Loading.io -->
     <link href="{{asset('css/loading.css')}}" rel="stylesheet">
     <!-- Sweetalert2 -->
@@ -56,9 +56,9 @@
         }
 
         .select2-container--default .select2-selection--single {
-             background-color: unset;
-             border: unset;
-             border-radius: unset;
+            background-color: unset;
+            border: unset;
+            border-radius: unset;
         }
 
         .required {
@@ -71,7 +71,7 @@
             border-color: #777;
         }
 
-        .form-control:focus, .select2-search--dropdown .select2-search__field:focus  {
+        .form-control:focus, .select2-search--dropdown .select2-search__field:focus {
             border-color: #E31B23 !important;
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 27, 35, 0.6) !important;
         }
@@ -268,7 +268,7 @@
                                         </a>
                                         <div class="right-post">
                                             <p style="padding-top: 0;padding-bottom: 5px;line-height: 1">{{strtoupper
-                                            ($row->getBlogCategory->name)}}<i class="fa fa-calendar-alt"></i>{{$date
+                                            ($row->getBlogCategory->name)}} <i class="fa fa-calendar-alt"></i>{{$date
                                             ->format('F j, Y')}}<br><sub>by <a href="{{route('detail.blog', ['author' =>
                                             $row->getUser->username])}}">{{$row->getUser->username}}</a></sub></p>
                                             <a href="{{$url}}">{{$row->title}}</a>
@@ -309,7 +309,7 @@
                             <ul class="contact">
                                 <li data-aos="fade-down">
                                     <i class="fa fa-map-marked-alt"></i>
-                                    Raya Kenjeran 469, Surabaya, East Java, Indonesia.
+                                    Raya Kenjeran 469, Surabaya, East Java, Indonesia
                                 </li>
                                 <li data-aos="fade-down">
                                     <i class="fa fa-phone"></i>
@@ -348,9 +348,7 @@
     </footer>
 </div>
 
-@if(!\Illuminate\Support\Facades\Request::is('blog*'))
-    <a href="#" onclick="scrollToTop()" class="to-top" title="Go to top">Top</a>
-@endif
+<a href="#" onclick="scrollToTop()" class="to-top" title="Go to top">Top</a>
 <div class="myProgress">
     <div class="bar"></div>
 </div>
@@ -499,7 +497,7 @@
             cursorwidth: "8px",
             background: "rgba(222, 222, 222, .75)",
             cursorborder: 'none',
-            // cursorborderradius:0,
+            horizrailenabled: false,
             autohidemode: 'leave',
             zindex: 9999999,
         });

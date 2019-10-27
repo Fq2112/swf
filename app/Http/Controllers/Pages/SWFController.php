@@ -26,7 +26,7 @@ class SWFController extends Controller
     public function showProductOverview()
     {
         \App\Models\Visitor::hit();
-        return view('pages.main.product-overview');
+        return view('pages.main.product.overview');
     }
 
     public function showProductVisualizer()

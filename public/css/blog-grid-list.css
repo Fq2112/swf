@@ -88,6 +88,10 @@
     margin-bottom: 1em;
 }
 
+.blog-item .blog-content p {
+    color: #777;
+}
+
 .blog-item .item-arrow {
     height: 20px;
     width: 15%;

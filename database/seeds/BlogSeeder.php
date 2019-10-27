@@ -19,7 +19,11 @@ class BlogSeeder extends Seeder
 //        $faker = Factory::create();
 
         BlogCategory::create([
-            'name' => 'SWF'
+            'name' => 'Wrap Film'
+        ]);
+
+        BlogCategory::create([
+            'name' => 'PPF'
         ]);
 
         BlogCategory::create([

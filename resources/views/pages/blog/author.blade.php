@@ -24,8 +24,12 @@
         }
 
         .author {
-            margin: .5em auto;
+            margin: .5em auto 1em auto;
             text-transform: none;
+        }
+
+        .author span {
+            color: #bbb;
         }
 
         .author a {
@@ -37,6 +41,10 @@
         .author a:hover, .author a:focus, .author a:active {
             text-decoration: none;
             color: #981319;
+        }
+
+        .social-media-2.auth li {
+            margin: 5px 5px 0 0;
         }
     </style>
 @endpush
@@ -63,7 +71,7 @@
                     <img data-aos="zoom-out" class="img-thumbnail" alt="Avatar" src="{{$user->ava == "" ?
                     asset('admins/img/avatar/avatar-'.rand(1,5).'.png') : asset('storage/admins/ava/'.$user->ava)}}"
                          style="width:15%;border-radius: 100%;float: left;margin: 0 1.5em 1.5em 0">
-                    <h3 data-aos="fade-right">{{$user->name}}</h3>
+                    <h3 data-aos="fade-right" style="color: #eee">{{$user->name}}</h3>
                     <h4 data-aos="fade-down" class="author">
                         <a href="{{route('detail.blog', ['author' => $user->username])}}">{{$user
                         ->username}}</a>&ensp;<span data-toggle="tooltip" data-placement="bottom" title="TOTAL POST">
@@ -71,11 +79,24 @@
                             $user->getBlog->count().' post'}}</span>
                     </h4>
                     @if($user->about != "")
-                        <p data-aos="fade-down" align="justify">{{$user->about}}</p>
+                        <p data-aos="fade-down" align="justify" style="font-size: 15px">{{$user->about}}</p>
                     @else
-                        <p data-aos="fade-down" align="justify"><em>The author hasn't written anything yet&hellip;</em>
-                        </p>
+                        <p data-aos="fade-down" align="justify" style="font-size: 15px"><em>The author hasn't written
+                                anything yet&hellip;</em></p>
                     @endif
+                    <ul data-aos="fade-up" class="social-media-2 auth">
+                        <li><a href="mailto:{{$user->email}}">
+                                <i class="fa fa-envelope"></i></a></li>
+                        <li><a href="{{$user->facebook != "" ? 'https://fb.com/'.$user->facebook : '#'}}"
+                               target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="{{$user->twitter != "" ? 'https://twitter.com/'.$user->twitter : '#'}}"
+                               target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="{{$user->instagram != "" ? 'https://instagram.com/'.$user->instagram : '#'}}"
+                               target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="{{$user->whatsapp != "" ? 'https://web.whatsapp.com/send?text=Halo, '.
+                        $user->name.'!&phone='.$user->whatsapp.'&abid='.$user->whatsapp : '#'}}" target="_blank">
+                                <i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
                 </div>
             </div>
 
