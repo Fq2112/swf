@@ -16,11 +16,13 @@ class SWFController extends Controller
 {
     public function index()
     {
-//        $client = new Instagram(env('IG_CLIENT_TOKEN'));
-//        $posts = collect($client->media())->sortBy('created_time')->reverse();
+        $client = new Instagram(env('IG_CLIENT_TOKEN'));
+        $posts = collect($client->media())->sortBy('created_time')->reverse();
         $countries = Country::all();
+        $blog = Blog::orderByDesc('id')->take(5)->get();
+
         \App\Models\Visitor::hit();
-        return view('pages.main.home', compact('countries'));
+        return view('pages.main.home', compact('posts', 'countries', 'blog'));
     }
 
     public function showProductOverview()

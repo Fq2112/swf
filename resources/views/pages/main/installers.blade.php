@@ -753,7 +753,6 @@
 
         var map_height = '', map_height_form = '';
         $(function () {
-            window.mobilecheck() ? $(".w3-agileits-about-grids").removeClass('vertical-center') : '';
             window.mobilecheck() ? $("#certModal .modal-dialog").css('width', 'unset') :
                 $("#certModal .modal-dialog").css('width', '40%');
             window.mobilecheck() ? $(".ajax-loader").parent().css('padding', '3em 3em 0 3em') :

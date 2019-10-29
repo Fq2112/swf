@@ -3,7 +3,9 @@
   ##Screen = 1440px to higher resolution desktops
 */
 @media (min-width: 1440px) {
-
+    #ig-feed .custom-text table {
+        font-size: 30px;
+    }
 }
 
 /*
@@ -11,7 +13,9 @@
   ##Screen = 1281px to 1439px
 */
 @media (min-width: 1281px) and (max-width: 1439px) {
-
+    #ig-feed .custom-text table {
+        font-size: 28px;
+    }
 }
 
 /*
@@ -19,7 +23,9 @@
   ##Screen = B/w 1025px to 1280px
 */
 @media (min-width: 1025px) and (max-width: 1280px) {
-
+    #ig-feed .custom-text table {
+        font-size: 24px;
+    }
 }
 
 /*
@@ -27,7 +33,9 @@
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) {
-
+    #ig-feed .custom-text table {
+        font-size: 20px;
+    }
 }
 
 /*
@@ -35,7 +43,9 @@
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
+    #ig-feed .custom-text table {
+        font-size: 24px;
+    }
 }
 
 /*
@@ -43,7 +53,9 @@
   ##Screen = B/w 481px to 767px
 */
 @media (min-width: 481px) and (max-width: 767px) {
-
+    #ig-feed .custom-text table {
+        font-size: 20px;
+    }
 }
 
 /*
@@ -51,5 +63,7 @@
   ##Screen = B/w 320px to 479px
 */
 @media (min-width: 320px) and (max-width: 480px) {
-
+    #ig-feed .custom-text table {
+        font-size: 16px;
+    }
 }

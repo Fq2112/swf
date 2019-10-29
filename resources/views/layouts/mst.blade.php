@@ -522,6 +522,16 @@
         x.parentNode.insertBefore(s, x);
     };
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
     $(document).on('mouseover', '.use-nicescroll', function () {
         $(this).getNiceScroll().resize();
     });

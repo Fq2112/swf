@@ -1,0 +1,72 @@
+#ig-feed .content-area {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#ig-feed .content-area img {
+    transition: transform .5s ease;
+}
+
+#ig-feed .content-area:hover img {
+    transform: scale(1.2);
+}
+
+#ig-feed .custom-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(0, 0, 0, .6);
+    opacity: 0;
+    transition: all 400ms ease-in-out;
+    height: 100%;
+}
+
+#ig-feed .custom-overlay:hover {
+    opacity: 1;
+}
+
+#ig-feed .custom-text {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+#ig-feed .custom-text table {
+    position: relative;
+    color: #fff;
+}
+
+#ig-feed .custom-text .likes:before {
+    content: "\f004";
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    margin-right: 5px;
+}
+
+#ig-feed .custom-text .comments:before {
+    content: "\f075";
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    margin-right: 5px;
+}
+
+.ig-link {
+    text-transform: none;
+    color: #fff;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.ig-link:hover, .ig-link:focus {
+    color: #E31B23;
+    text-transform: none;
+}

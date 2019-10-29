@@ -1,20 +1,4 @@
-﻿/*-----------------------------------------------------------------------------------
-
-    Template Name: Baako - Corporate HTML5 Template
-    Template URI: http://bootexperts.com
-    Description: Baako Is a Corporate Responsive HTML5 Template
-    Author: Boldbaatar Battsagaan
-    Version: 1.0.0
-
------------------------------------------------------------------------------------
-
------------------------------------------------------------------------------------*/
-/* Google font ------------------
-  font-family: 'Raleway', sans-serif;
-  font-family: 'Arial', sans-serif;
-
-*/
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,800');
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,800');
 
 * {
     -webkit-box-sizing: border-box;
@@ -38,7 +22,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 body::-webkit-scrollbar-thumb {
@@ -337,6 +321,7 @@ h2.text-heading {
     text-transform: none;
     font-size: 34px;
     font-weight: 800;
+    color: #eee;
 }
 
 h2.text-heading:after {
@@ -415,7 +400,7 @@ h2.text-heading.style-1:after {
 }
 
 p.text-heading {
-    color: #777;
+    color: #bbb;
     width: 60%;
     text-align: center;
     font-size: 16px;
@@ -934,15 +919,16 @@ h2.text-heading.coffee-color:after {
     border-color: #e31b23;
 }
 
-.btn.btn-color2 {
-    background: #e31b23;
-    color: #fff;
+.btn.btn-color2, .btn.btn-color2:hover, .btn.btn-color2:focus, .btn.btn-color2:active {
+    background: #e31b23 !important;
+    color: #fff !important;
 }
 
 .btn.btn-cars {
     background: none;
     color: #fff;
     position: relative;
+    transition: all .3s ease-in-out;
 }
 
 .btn.btn-cars:before {
@@ -950,6 +936,7 @@ h2.text-heading.coffee-color:after {
     width: 100%;
     height: 100%;
     background-color: #E31B23;
+    transition: all .3s ease-in-out;
     -moz-transform: skewX(-20deg);
     -webkit-transform: skewX(-20deg);
     -o-transform: skewX(-20deg);
@@ -5419,8 +5406,6 @@ a.search-bgdark:hover {
 -------------------------------------*/
 .features-3 {
     padding: 50px 0;
-    border-top: 1px solid #e4e4e4;
-    border-bottom: 1px solid #e4e4e4;
 }
 
 .features-3 h2 {
@@ -5428,9 +5413,9 @@ a.search-bgdark:hover {
     font-family: 'Raleway', sans-serif;
     text-transform: none;
     font-size: 32px;
-    padding: 0;
+    padding: 0 0 10px 0;
     margin: 0;
-    padding-bottom: 10px;
+    color: #eee;
 }
 
 .features-3 h2:after {
@@ -5445,18 +5430,21 @@ a.search-bgdark:hover {
 
 .features-3 h3 {
     font-size: 32px;
+    color: #eee;
 }
 
 .features-3 p {
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     font-weight: 500;
+    color: #bbb;
 }
 
 .features-3 .text {
     font-family: 'Raleway', Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
+    color: #bbb;
 }
 
 .features-3 img {
@@ -5538,11 +5526,13 @@ a.search-bgdark:hover {
     font-size: 18px;
     text-transform: none;
     text-align: center;
+    color: #eee;
 }
 
 .features-5 p {
     text-align: center;
     font-family: 'Raleway', Arial, sans-serif;
+    color: #bbb;
 }
 
 .features-5:hover {
@@ -23292,7 +23282,6 @@ h2.font-nothing-you-could-do {
 .call-center .left-call {
     float: left;
     width: 40%;
-    padding: 0;
     margin: 0;
     padding-top: 30px;
     padding-left: 30px;
