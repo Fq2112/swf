@@ -130,7 +130,7 @@
 }
 
 .download-cards[data-view='list-view'] .card-read-more {
-    padding-left: 14em;
+    padding-left: 14.2em;
 }
 
 .download-card__content-box {
@@ -234,7 +234,7 @@
     }
 
     .download-cards[data-view='list-view'] .card-read-more {
-        padding-left: 5em;
+        padding-left: 7.1em;
     }
 
     .download-cards[data-view='grid-view'] .download-card {

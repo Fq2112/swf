@@ -16,7 +16,8 @@
     <!-- Core Style css -->
     <link rel="stylesheet" href="{{asset('css/colorbox.css')}}"/>
     <!-- Slider carousel css  -->
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}"/>
+    <link rel="stylesheet" href="{{asset('vendor/owlcarousel/dist/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/owlcarousel/dist/assets/owl.theme.default.min.css')}}">
     <!-- Slider revolution css  -->
     <link rel="stylesheet" href="{{asset('vendor/rs-plugin/css/settings.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/rev-settings.css')}}"/>
@@ -207,7 +208,7 @@
                             <div class="contacts">
                                 <p><a href="tel:+6281615007777"><i class="fa fa-phone"></i> +62 816 1500 7777</a></p>
                                 <p><a href="mailto:{{env('MAIL_USERNAME')}}"><i
-                                            class="fa fa-envelope"></i> {{env('MAIL_USERNAME')}}</a></p>
+                                                class="fa fa-envelope"></i> {{env('MAIL_USERNAME')}}</a></p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6">
@@ -295,7 +296,8 @@
                                          src="{{asset('images/logo/red_horizontal.png')}}" alt=""></a>
                             </div>
                             <p data-aos="fade-down">Our Company, <b>Premier Autostyling</b>, is the one and only
-                                distributor of <b>Avery Dennison</b> SWF (Supreme Wrap Film) in <b>Indonesia</b>.</p>
+                                authorized distributor of <b>Avery Dennison</b> SWF (Supreme Wrap Film) in
+                                <b>Indonesia</b>.</p>
                             <nav data-aos="fade-down" class="footer-nav" style="text-transform: uppercase">
                                 <a href="{{route('show.contact')}}">Contact Us</a>
                                 <a href="https://averydennison.com/en/home/legal-and-privacy-notices.html"
@@ -360,7 +362,7 @@
 <!-- Core Style -->
 <script type="text/javascript" src="{{asset('js/jquery.colorbox.js')}}"></script>
 <!-- Carousel Slider  -->
-<script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('vendor/owlcarousel/dist/owl.carousel.min.js')}}"></script>
 <!-- Jquery Waypoints -->
 <script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script>
 <!-- Jquery Counter -->

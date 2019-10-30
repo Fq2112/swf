@@ -19,6 +19,22 @@
             background-position: center;
             background-size: cover;
         }
+
+        .lg-backdrop {
+            z-index: 9999999;
+        }
+
+        .lg-outer {
+            z-index: 10000000;
+        }
+
+        .lg-sub-html h4 {
+            color: #eee;
+        }
+
+        .lg-sub-html p {
+            color: #bbb;
+        }
     </style>
 @endpush
 @section('content')
@@ -34,15 +50,16 @@
                                  data-x="center" data-hoffset="-15" data-y="170" data-speed="300" data-start="1400"
                                  data-easing="easeInOut">Welcome to <strong class="strong-red">Our Site</strong>
                             </div>
-                            <div class="tp-caption sfr stt custom-size-6 white tp-resizeme zindex"
+                            <div class="tp-caption sfr stt custom-size-7 white tp-resizeme zindex"
                                  data-x="center" data-hoffset="-15" data-y="250" data-speed="300" data-start="1000"
-                                 data-easing="easeInOut">Sole Distributor in <strong
-                                        class="strong-red">Indonesia</strong>
+                                 data-easing="easeInOut">Authorized Sole Distributor in <strong class="strong-red">Indonesia</strong>
                             </div>
                             <div class="tp-caption sfr stb text-center custom-size-8 white tp-resizeme zindex"
                                  data-x="center" data-hoffset="-15" data-y="320" data-speed="300" data-start="1800"
                                  data-easing="easeInOut">
-                                <a class="btn btn-color2 tp-resizeme" href="#about"><b>Learn more</b></a>
+                                <a class="btn btn-dark-red tp-resizeme" href="#about">
+                                    <b style="text-transform: uppercase">Learn more&ensp;<i
+                                                class="fa fa-search"></i></b></a>
                             </div>
                         </li>
                         <li class="slider-bg2" data-transition="fade" data-slotamount="7" data-masterspeed="500">
@@ -58,12 +75,13 @@
                             <div class="tp-caption sfr stb text-center custom-size-8 white tp-resizeme zindex"
                                  data-x="center" data-hoffset="-15" data-y="310" data-speed="300" data-start="1800"
                                  data-easing="easeInOut">
-                                <a class="btn btn-color2 tp-resizeme" href="{{route('show.product.overview')}}">
-                                    <b>Learn more</b></a>
+                                <a class="btn btn-dark-red tp-resizeme" href="{{route('show.product.overview')}}">
+                                    <b style="text-transform: uppercase">Learn more&ensp;<i
+                                                class="fa fa-search"></i></b></a>
                             </div>
                         </li>
                         <li class="slider-bg2" data-transition="fade" data-slotamount="7" data-masterspeed="500">
-                            <img src="{{asset('images/slider/home4.jpg')}}" alt="">
+                            <img src="{{asset('images/slider/home3.jpg')}}" alt="">
                             <div class="tp-caption sfr stb custom-size-2 white tp-resizeme zindex" data-x="center"
                                  data-hoffset="-15" data-y="170" data-speed="300" data-start="1400"
                                  data-easing="easeInOut">
@@ -77,7 +95,9 @@
                             <div class="tp-caption sfr stb text-center custom-size-8 white tp-resizeme zindex"
                                  data-x="center" data-hoffset="-15" data-y="310" data-speed="300" data-start="1800"
                                  data-easing="easeInOut">
-                                <a class="btn btn-color2 tp-resizeme" href="#blog"><b>Learn more</b></a>
+                                <a class="btn btn-dark-red tp-resizeme" href="#blog">
+                                    <b style="text-transform: uppercase">Learn more&ensp;<i
+                                                class="fa fa-search"></i></b></a>
                             </div>
                         </li>
                     </ul>
@@ -93,12 +113,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <h3 data-aos="fade-right">Premier Autostyling</h3>
-                    <p data-aos="fade-right" align="justify">We're the one and only distributor of <strong>Avery
-                            Dennison</strong> SWF (Supreme Wrap Film) in <strong>Indonesia</strong>.</p>
+                    <p data-aos="fade-right" align="justify">We're the one and only authorized distributor of
+                        <strong>Avery Dennison</strong> SWF (Supreme Wrap Film) in <strong>Indonesia</strong>.</p>
                     <p data-aos="fade-down" align="justify" class="text">The need for <strong>wrap film</strong>
                         products is now becoming a new trend that continues to grow among premium, luxury, sporty,
                         and dandy car lovers in Indonesia to maintain the durability of car paint and make the car
-                        look more luxurious. <strong>Premier Autostyling</strong> is the <strong>Sole
+                        look more luxurious. <strong>Premier Autostyling</strong> is the <strong>Authorized Sole
                             Distributor</strong> of SWF brand <strong>Avery Dennison</strong> in Indonesia who has
                         been appointed directly by the Principal based in Singapore to be able to distribute
                         optimally through cooperation with dealers in cities that have a large number of
@@ -113,26 +133,25 @@
                 <div class="col-lg-12">
                     <a href="javascript:void(0)" data-toggle="modal" data-target="#swfModal"
                        class="btn btn-dark-red ld ld-breath"><b>LEARN MORE&ensp;<i class="fa fa-search"></i></b></a>
-                    <div class="modal fade" id="swfModal" tabindex="-1" role="dialog">
+                    <div class="modal dark fade" id="swfModal" tabindex="-1" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <img src="{{asset('images/home/avspf2.png')}}" alt="Avery Dennison SPF"
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <img src="{{asset('images/home/about2.png')}}" alt="Avery Dennison SWF"
                                          class="img-responsive">
-                                    <h5>AVERY SPF-XI PAINT PROTECTION 1520MM</h5>
-                                    <p align="justify">Avery Dennison Supreme Protection Film (SPF-XI) will help
-                                        improve and safeguard
-                                        the vehicles aesthetics, all while helping to retain the cars resale value.
-                                        SPF-X1 is a high
-                                        quality Termoplastic Polyurethane film the prevents damage from a range of
-                                        things like, stone
-                                        chips, road debris, insect stains and weathering, thanks to the self-healing
-                                        top-coat. The film
-                                        is easy to apply and is ultra-clear to ensure excellent aesthetics. Wet
-                                        application is
-                                        recommended, with soap solution of 100% water with 2ml of soap per 1lt of
-                                        water.</p>
+                                    <h4 class="modal-title" style="text-align: left;margin: .5em auto">
+                                        Premium Vehicle Wrapping Film</h4>
+                                    <p align="justify" style="font-size: 16px">Avery Dennison Supreme Wrapping Film is a
+                                        premium cast, coloured vehicle wrap film with a 12 years durability. It is
+                                        available in 110+ colours and finishes and is designed for vehicle detailing and
+                                        full wraps providing excellent opacity to hide high-contrast surfaces.</p>
+                                    <p align="justify" style="font-size: 16px">Supreme is easy to position and apply as
+                                        well remove thanks to the Easy Apply adhesive with repositionable and slideable
+                                        (RS) technology. Supreme offers excellent 3D conformability on the most
+                                        demanding of recessed areas.</p>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +162,7 @@
     </section>
 
     <!-- why choose us -->
-    <section class="features-3">
+    <section class="block-section-4">
         <div class="container">
             <h2 data-aos="fade-right" class="text-heading text-center">Why <strong class="pri-color">Choose Us
                     ?</strong></h2>
@@ -158,45 +177,41 @@
                 <div class="col-md-3">
                     <div class="features-5">
                         <div data-aos="zoom-out" class="text-center">
-                            <i class="fa fa-cog"></i>
+                            <i class="fa fa-shield-alt"></i>
                         </div>
-                        <h2 data-aos="fade-down">Easy Customization</h2>
-                        <p data-aos="fade-down">Lorem ipsum dolor sit consectetuer tincidunt utfh laoreet dolore magna
-                            aliquam erat
-                            volutpat.</p>
+                        <h2 data-aos="fade-down">Durability Guarantee</h2>
+                        <p data-aos="fade-down">Avery Dennison SWF has the durability for product quality
+                            between 3 to 12 years since the installation on the car, depends on the usage level.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="features-5">
                         <div data-aos="zoom-out" class="text-center">
-                            <i class="fa fa-thumbs-up"></i>
+                            <i class="fa fa-drafting-compass"></i>
                         </div>
-                        <h2 data-aos="fade-down">Clean design</h2>
-                        <p data-aos="fade-down">Lorem ipsum dolor sit consectetuer tincidunt utfh laoreet dolore magna
-                            aliquam erat
-                            volutpat.</p>
+                        <h2 data-aos="fade-down">Printable & Conformable</h2>
+                        <p data-aos="fade-down">Avery Dennison SWF has the excellent of printability and it's
+                            exceptional 3D conformability on concave and convex shapes including deep channels.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="features-5">
                         <div data-aos="zoom-out" class="text-center">
-                            <i class="fab fa-html5"></i>
+                            <i class="fa fa-tools"></i>
                         </div>
-                        <h2 data-aos="fade-down">Html5 & CSS3</h2>
-                        <p data-aos="fade-down">Lorem ipsum dolor sit consectetuer tincidunt utfh laoreet dolore magna
-                            aliquam erat
-                            volutpat.</p>
+                        <h2 data-aos="fade-down">Easy Installation</h2>
+                        <p data-aos="fade-down">Avery Dennison SWF has the advantage because it's repositionability and
+                            slideability adhesive technology with long term removability.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="features-5">
                         <div data-aos="zoom-out" class="text-center">
-                            <i class="fa fa-laptop"></i>
+                            <i class="fa fa-palette"></i>
                         </div>
-                        <h2 data-aos="fade-down">Responsive Design</h2>
-                        <p data-aos="fade-down">Lorem ipsum dolor sit consectetuer tincidunt utfh laoreet dolore magna
-                            aliquam erat
-                            volutpat.</p>
+                        <h2 data-aos="fade-down">Various Colors & Designs</h2>
+                        <p data-aos="fade-down">Avery Dennison SWF provides more than 100 combinations of colored film
+                            and protective layer in one-piece construction.</p>
                     </div>
                 </div>
             </div>

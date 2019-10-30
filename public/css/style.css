@@ -919,7 +919,8 @@ h2.text-heading.coffee-color:after {
     border-color: #e31b23;
 }
 
-.btn.btn-color2, .btn.btn-color2:hover, .btn.btn-color2:focus, .btn.btn-color2:active {
+.btn.btn-color2, .btn.btn-color2:hover, .btn.btn-color2:focus, .btn.btn-color2:active,
+.btn.btn-dark-red, .btn.btn-dark-red:hover, .btn.btn-dark-red:focus, .btn.btn-dark-red:active {
     background: #e31b23 !important;
     color: #fff !important;
 }

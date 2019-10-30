@@ -139,8 +139,9 @@
                                     <ul data-aos="fade-down">
                                         <li><i class="fa fa-user"></i> <b>by</b> <span><a href="{{route('detail.blog',
                                         ['author' => $user->username])}}">{{$user->username}}</a></span></li>
-                                        <li><i class="fa fa-tag"></i> <span>{{strtoupper($blog->getBlogCategory
-                                        ->name)}}</span></li>
+                                        <li><i class="fa fa-tag"></i> <span><a href="{{route('show.blog',
+                                        ['category' => $blog->category_id])}}">{{strtoupper($blog->getBlogCategory
+                                        ->name)}}</a></span></li>
                                         <li><i class="fa fa-calendar-alt"></i> <span>{{\Illuminate\Support\Carbon::parse
                                         ($blog->created_at)->format('F d, Y')}}</span></li>
                                     </ul>
