@@ -75,7 +75,8 @@
                             <div class="tp-caption sfr stb text-center custom-size-8 white tp-resizeme zindex"
                                  data-x="center" data-hoffset="-15" data-y="310" data-speed="300" data-start="1800"
                                  data-easing="easeInOut">
-                                <a class="btn btn-dark-red tp-resizeme" href="{{route('show.product.overview')}}">
+                                <a class="btn btn-dark-red tp-resizeme"
+                                   href="{{route('show.product.overview', ['category' => 'mpi-series'])}}">
                                     <b style="text-transform: uppercase">Learn more&ensp;<i
                                                 class="fa fa-search"></i></b></a>
                             </div>
@@ -217,8 +218,8 @@
             </div>
             <div data-aos="fade-up" class="row text-center" style="padding: 3em 0 5em 0;">
                 <div class="col-lg-12">
-                    <a href="{{route('show.product.overview')}}" class="btn btn-dark-red ld ld-breath">
-                        <b>LEARN MORE&ensp;<i class="fa fa-search"></i></b></a>
+                    <a href="{{route('show.product.overview', ['category' => 'mpi-series'])}}"
+                       class="btn btn-dark-red ld ld-breath"><b>LEARN MORE&ensp;<i class="fa fa-search"></i></b></a>
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
     Route::group(['prefix' => 'product'], function () {
 
-        Route::get('overview', [
+        Route::get('overview/{category}', [
             'uses' => 'SWFController@showProductOverview',
             'as' => 'show.product.overview'
         ]);

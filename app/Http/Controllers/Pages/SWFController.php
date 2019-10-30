@@ -25,10 +25,21 @@ class SWFController extends Controller
         return view('pages.main.home', compact('posts', 'countries', 'blog'));
     }
 
-    public function showProductOverview()
+    public function showProductOverview($category)
     {
+        if ($category == 'mpi-series') {
+            $check = 1;
+            $title = 'MPI™ SERIES';
+        } elseif ($category == 'conform-chrome') {
+            $check = 2;
+            $title = 'Conform Chrome';
+        } else {
+            $check = 3;
+            $title = 'Solid Color';
+        }
+
         \App\Models\Visitor::hit();
-        return view('pages.main.product.overview');
+        return view('pages.main.product.overview', compact('check', 'title', 'category'));
     }
 
     public function showProductVisualizer()

@@ -1,12 +1,20 @@
 @extends('layouts.mst')
-@section('title', 'Product Overview | '.env('APP_TITLE'))
+@section('title', 'Product Overview: '.$title.' | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-tabs-responsive.css')}}">
     <link rel="stylesheet" href="{{asset('css/play-button.css')}}">
     <style>
-        .breadcrumbs {
-            background-image: url({{asset('images/slider/overview3.jpg')}});
+        .breadcrumbs.mpi-series {
+            background-image: url({{asset('images/slider/mpi-series3.jpg')}});
+        }
+
+        .breadcrumbs.conform-chrome {
+            background-image: url({{asset('images/slider/conform-chrome3.jpg')}});
+        }
+
+        .breadcrumbs.solid-color {
+            background-image: url({{asset('images/slider/solid-color3.jpg')}});
         }
 
         .content-area {
@@ -94,25 +102,28 @@
     </style>
 @endpush
 @section('content')
-    <div class="breadcrumbs">
+    <div class="breadcrumbs {{$category}}">
         <div class="breadcrumbs-overlay"></div>
         <div class="page-title">
             <h2>Our Product</h2>
+            <p>{{$check == 1 ? 'Product overview of '.$title.', films for digital prints.' :
+            'Product overview of '.$title.', films for color change.'}}</p>
         </div>
         <ul class="crumb">
             <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
             <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
             <li><i class="fa fa-angle-double-right"></i></li>
             <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
-            <li><a href="{{route('show.product.overview')}}"><i class="fa fa-car"></i></a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Overview</a></li>
+            <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
+            <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
+            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> {{$title}}</a></li>
         </ul>
     </div>
 
     <div class="page-content page-sidebar">
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <div data-aos="zoom-out" class="content-area">
                         <img id="img-switch" src="{{asset('images/home/exc_'.rand(1,5).'.jpg')}}"
                              class="img-responsive" alt="Product Excellence">
@@ -160,7 +171,7 @@
                                 <li role="presentation">
                                     <a href="#download" role="tab" id="download-tab" data-toggle="tab"
                                        aria-controls="download">
-                                        <span class="text">DOWNLOAD</span>
+                                        <span class="text">DOWNLOADS</span>
                                     </a>
                                 </li>
                             </ul>
@@ -243,7 +254,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <h4 data-aos="fade-left">Avery Dennison® SPF-XI Supreme Protection™ Film</h4>
                     <p data-aos="fade-down" align="justify">Avery Dennison Supreme Protection™ Film (SPF-XI)
                         improves and protects a vehicle’s appearance, while helping to retain resale value.
@@ -287,8 +298,8 @@
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
     <script>
-        var $img = $(".breadcrumbs"),
-            images = ['blog1.jpg', 'blog3.jpg', 'blog2.jpg'],
+        var $img = $(".{{$category}}"),
+            images = ['{{$category}}1.jpg', '{{$category}}3.jpg', '{{$category}}2.jpg'],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
                 var currentImage = images[index];
                 index = (index == maxImages) ? 0 : ++index;

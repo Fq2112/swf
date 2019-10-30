@@ -5,10 +5,20 @@
         <a class="{{\Illuminate\Support\Facades\Request::is('product*') ? 'active' : ''}}" href="#">
             <i class="fa fa-car" style="margin-right: .7em"></i>Products <i class="fa fa-angle-down"></i></a>
         <ul class="dropdown-menu dropdown-arrow">
-            <li class="menu-item-has-children"><a href="#">SUPREME WRAP FILM <i
-                        class="fa fa-angle-right dropdown-i"></i></a>
+            <li class="menu-item-has-children">
+                <a href="#">SUPREME WRAP FILM <i class="fa fa-angle-right dropdown-i"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{route('show.product.overview')}}">OVERVIEW</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#">OVERVIEW <i class="fa fa-angle-right dropdown-i"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{route('show.product.overview',
+                            ['category' => 'mpi-series'])}}">MPI&trade; SERIES</a></li>
+                            <li><a href="{{route('show.product.overview',
+                            ['category' => 'conform-chrome'])}}">CONFORM CHROME</a></li>
+                            <li><a href="{{route('show.product.overview',
+                            ['category' => 'solid-color'])}}">SOLID COLOR</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{route('show.product.visualizer')}}">VISUALIZER</a></li>
                 </ul>
             </li>

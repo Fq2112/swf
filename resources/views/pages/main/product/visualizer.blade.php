@@ -143,7 +143,7 @@
             <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
             <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
             <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.product.overview')}}"><i class="fa fa-car"></i></a></li>
+            <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
             <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Visualizer</a></li>
         </ul>
     </div>
