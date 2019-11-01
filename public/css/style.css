@@ -11998,11 +11998,11 @@ article.latest-post:hover {
 ========================================*/
 
 blockquote {
-    background: #fafafa;
+    background: #080808;
     border-color: #e31b23;
     font-family: "Raleway", Arial, sans-serif;
     font-size: 14px;
-    color: #777;
+    color: #eee;
 }
 
 .footer {

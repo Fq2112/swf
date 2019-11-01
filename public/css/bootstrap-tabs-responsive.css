@@ -1,9 +1,9 @@
 #myTab {
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #bbb;
 }
 
 #myTab a {
-    color: #777;
+    color: #bbb;
     font-weight: 600;
     text-transform: uppercase;
     border: 1px solid transparent;
@@ -12,14 +12,10 @@
     background: transparent;
 }
 
-#myTab a span {
-    color: #fff;
-}
-
 #myTab li.active a {
     color: #E31B23;
     font-weight: 600;
-    border-color: transparent transparent #777;
+    border-color: transparent transparent #bbb;
     border-bottom: 4px solid #E31B23 !important;
 }
 
@@ -27,8 +23,8 @@
     padding: 1.5em;
 }
 
-#myTabContent ul {
-    color: #777;
+#myTabContent ul, #myTabContent ol {
+    color: #bbb;
     line-height: 2;
     list-style: none;
 }
@@ -44,7 +40,7 @@
 
 #myTabContent table {
     line-height: 2;
-    color: #777;
+    color: #bbb;
 }
 
 @media screen and (max-width: 479px) {

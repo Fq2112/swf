@@ -18,7 +18,7 @@
     overflow: hidden;
     align-items: center;
     background: #080808;
-    color: #777;
+    color: #bbb;
     font-size: 16px;
     border-radius: 6px;
     text-decoration: none;
@@ -67,7 +67,7 @@
 }
 
 .blog-item .blog-content .blog-category .blog-date {
-    color: #777;
+    color: #bbb;
 }
 
 .blog-item .blog-content .blog-category .blog-date i {
@@ -76,7 +76,7 @@
 
 .blog-item .blog-content .blog-category .blog-author {
     text-transform: none;
-    color: #777;
+    color: #bbb;
 }
 
 .blog-item .blog-content .blog-category .blog-author span {
@@ -90,7 +90,7 @@
 }
 
 .blog-item .blog-content p {
-    color: #777;
+    color: #bbb;
 }
 
 .blog-item .item-arrow {

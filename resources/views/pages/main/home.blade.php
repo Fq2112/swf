@@ -35,6 +35,164 @@
         .lg-sub-html p {
             color: #bbb;
         }
+
+        .accordion {
+            width: 100%;
+            max-width: 1080px;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .accordion ul {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .accordion ul li {
+            display: table-cell;
+            vertical-align: bottom;
+            position: relative;
+            width: 16.666%;
+            height: 250px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            transition: all 500ms ease;
+        }
+
+        .accordion ul li div {
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            text-align: left;
+        }
+
+        .accordion ul li div a {
+            display: block;
+            height: 250px;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+            vertical-align: bottom;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            color: #fff;
+            text-decoration: none;
+            font-family: Open Sans, sans-serif;
+            transition: all 200ms ease;
+        }
+
+        .accordion ul li div a * {
+            opacity: 0;
+            margin: 0;
+            width: 100%;
+            text-overflow: ellipsis;
+            position: relative;
+            z-index: 5;
+            white-space: nowrap;
+            overflow: hidden;
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+            -webkit-transition: all 400ms ease;
+            transition: all 400ms ease;
+        }
+
+        .accordion ul li div a h2 {
+            font-family: Montserrat, sans-serif;
+            text-overflow: clip;
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+            top: 160px;
+            color: #eee;
+        }
+
+        .accordion ul li div a p {
+            top: 160px;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .accordion ul:hover li, .accordion ul:focus-within li {
+            width: 8%;
+        }
+
+        .accordion ul li:focus {
+            outline: none;
+        }
+
+        .accordion ul:hover li:hover,
+        .accordion ul li:focus, .accordion ul:focus-within li:focus {
+            width: 60%;
+        }
+
+        .accordion ul:hover li:hover a,
+        .accordion ul li:focus a, .accordion ul:focus-within li:focus a {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .accordion ul:hover li:hover a *,
+        .accordion ul li:focus a *, .accordion ul:focus-within li:focus a * {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        .accordion ul li:nth-child(1) {
+            background-image: url({{asset('images/home/mpi-series.jpg')}});
+        }
+
+        .accordion ul li:nth-child(2) {
+            background-image: url({{asset('images/home/conform-chrome.jpeg')}});
+        }
+
+        .accordion ul li:nth-child(3) {
+            background-image: url({{asset('images/home/solid-color.jpeg')}});
+        }
+
+        .accordion ul li:nth-child(4) {
+            background-image: url({{asset('images/home/supreme-wrap-care.jpg')}});
+        }
+
+        .accordion ul:hover li {
+            width: 8% !important;
+        }
+
+        .accordion ul:hover li a * {
+            opacity: 0 !important;
+        }
+
+        .accordion ul:hover li:hover {
+            width: 60% !important;
+        }
+
+        .accordion ul:hover li:hover a {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .accordion ul:hover li:hover a * {
+            opacity: 1 !important;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        @media screen and (max-width: 600px) {
+            .accordion {
+                height: auto;
+            }
+
+            .accordion ul li, .accordion ul li:hover, .accordion ul:hover li, .accordion ul:hover li:hover {
+                position: relative;
+                display: table;
+                table-layout: fixed;
+                width: 100%;
+                -webkit-transition: none;
+                transition: none;
+            }
+        }
     </style>
 @endpush
 @section('content')
@@ -75,9 +233,8 @@
                             <div class="tp-caption sfr stb text-center custom-size-8 white tp-resizeme zindex"
                                  data-x="center" data-hoffset="-15" data-y="310" data-speed="300" data-start="1800"
                                  data-easing="easeInOut">
-                                <a class="btn btn-dark-red tp-resizeme"
-                                   href="{{route('show.product.overview', ['category' => 'mpi-series'])}}">
-                                    <b style="text-transform: uppercase">Learn more&ensp;<i
+                                <a class="btn btn-dark-red tp-resizeme" href="javascript:void(0)" data-toggle="modal"
+                                   data-target="#productModal"><b style="text-transform: uppercase">Learn more&ensp;<i
                                                 class="fa fa-search"></i></b></a>
                             </div>
                         </li>
@@ -218,7 +375,7 @@
             </div>
             <div data-aos="fade-up" class="row text-center" style="padding: 3em 0 5em 0;">
                 <div class="col-lg-12">
-                    <a href="{{route('show.product.overview', ['category' => 'mpi-series'])}}"
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#productModal"
                        class="btn btn-dark-red ld ld-breath"><b>LEARN MORE&ensp;<i class="fa fa-search"></i></b></a>
                 </div>
             </div>
@@ -469,6 +626,61 @@
             </div>
         </div>
     </section>
+
+    <div class="modal dark fade" id="productModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" style="text-align: left">Our Products</h4>
+                </div>
+                <div class="modal-body" style="padding: 2em">
+                    <div class="accordion">
+                        <ul>
+                            <li tabindex="1">
+                                <div>
+                                    <a href="{{route('show.product.overview',
+                                                            ['category' => 'mpi-series'])}}">
+                                        <h2>MPI&trade; SERIES</h2>
+                                        <p>Films for digital print</p>
+                                    </a>
+                                </div>
+                            </li>
+                            <li tabindex="2">
+                                <div>
+                                    <a href="{{route('show.product.overview',
+                                                            ['category' => 'conform-chrome'])}}">
+                                        <h2>Conform Chrome</h2>
+                                        <p>Semi-conformable films for color change</p>
+                                    </a>
+                                </div>
+                            </li>
+                            <li tabindex="3">
+                                <div>
+                                    <a href="{{route('show.product.overview',
+                                                            ['category' => 'solid-color'])}}">
+                                        <h2>Solid Color</h2>
+                                        <p>Films with exceptional 3D conformability for color change</p>
+                                    </a>
+                                </div>
+                            </li>
+                            <li tabindex="4">
+                                <div>
+                                    <a href="{{route('show.product.overview',
+                                                            ['category' => 'supreme-wrap-care'])}}">
+                                        <h2>Supreme Wrap Care</h2>
+                                        <p>Caring for your vehicle graphics</p>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('scripts')
     <script src="{{asset('vendor/swiper/dist/js/swiper.min.js')}}"></script>

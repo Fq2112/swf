@@ -27,19 +27,24 @@ class SWFController extends Controller
 
     public function showProductOverview($category)
     {
-        if ($category == 'mpi-series') {
-            $check = 1;
-            $title = 'MPI™ SERIES';
-        } elseif ($category == 'conform-chrome') {
-            $check = 2;
-            $title = 'Conform Chrome';
-        } else {
-            $check = 3;
-            $title = 'Solid Color';
-        }
-
         \App\Models\Visitor::hit();
-        return view('pages.main.product.overview', compact('check', 'title', 'category'));
+
+        if ($category == 'mpi-series') {
+            $title = 'MPI™ SERIES';
+            return view('pages.main.product.overview.mpi-series', compact('title', 'category'));
+
+        } elseif ($category == 'conform-chrome') {
+            $title = 'Conform Chrome';
+            return view('pages.main.product.overview.conform-chrome', compact('title', 'category'));
+
+        } elseif ($category == 'solid-color') {
+            $title = 'Conform Chrome';
+            return view('pages.main.product.overview.solid-color', compact('title', 'category'));
+
+        } else {
+            $title = 'Supreme Wrap Care';
+            return view('pages.main.product.overview.supreme-wrap-care', compact('title', 'category'));
+        }
     }
 
     public function showProductVisualizer()
