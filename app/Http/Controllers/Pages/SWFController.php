@@ -30,20 +30,16 @@ class SWFController extends Controller
         \App\Models\Visitor::hit();
 
         if ($category == 'mpi-series') {
-            $title = 'MPI™ SERIES';
-            return view('pages.main.product.overview.mpi-series', compact('title', 'category'));
+            return view('pages.main.product.overview.mpi-series');
 
         } elseif ($category == 'conform-chrome') {
-            $title = 'Conform Chrome';
-            return view('pages.main.product.overview.conform-chrome', compact('title', 'category'));
+            return view('pages.main.product.overview.conform-chrome');
 
         } elseif ($category == 'solid-color') {
-            $title = 'Conform Chrome';
-            return view('pages.main.product.overview.solid-color', compact('title', 'category'));
+            return view('pages.main.product.overview.solid-color');
 
         } else {
-            $title = 'Supreme Wrap Care';
-            return view('pages.main.product.overview.supreme-wrap-care', compact('title', 'category'));
+            return view('pages.main.product.overview.supreme-wrap-care');
         }
     }
 

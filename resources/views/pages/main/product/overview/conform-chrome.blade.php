@@ -1,5 +1,5 @@
 @extends('layouts.mst')
-@section('title', 'Product Overview: '.$title.' | '.env('APP_TITLE'))
+@section('title', 'Product Overview: Conform Chrome | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-tabs-responsive.css')}}">
@@ -85,11 +85,11 @@
     </style>
 @endpush
 @section('content')
-    <div class="breadcrumbs {{$category}}">
+    <div class="breadcrumbs conform-chrome">
         <div class="breadcrumbs-overlay"></div>
         <div class="page-title">
             <h2>Our Product</h2>
-            <p>Product overview of {{$title}}, films for digital prints.</p>
+            <p>Conform Chrome, semi-conformable films for color change.</p>
         </div>
         <ul class="crumb">
             <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
@@ -98,7 +98,7 @@
             <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> {{$title}}</a></li>
+            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Conform Chrome</a></li>
         </ul>
     </div>
 
@@ -111,7 +111,8 @@
                              alt="MPI&trade; SERIES">
                         <div class="custom-overlay">
                             <div class="custom-text">
-                                <svg id="play-mpi-series" class="play" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                <svg id="play-conform-chrome" class="play" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px"
                                      width="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
                                      xml:space="preserve">
@@ -275,22 +276,17 @@
                                  aria-labelledby="download-tab" style="border: none">
                                 <ul align="justify">
                                     <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/ds-Avery-Dennison-MPI-1105-wrapping-series-EN.pdf')}}"
-                                           data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">MPI 1105 Wrapping Series</a></li>
+                                        <a href="{{asset('storage/datasheet/conform-chrome/po-eu-conform-chrome-en.pdf')}}"
+                                           data-toggle="tooltip" title="Click here to download!" data-placement="right">
+                                            Product Overview Avery Dennison® Conform Chrome Series</a></li>
                                     <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/ds-Avery-Dennison-MPI-1105-wrapping-series-EN.pdf')}}"
-                                           data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">MPI 1105 Wrapping Series Easy Apply RS</a></li>
+                                        <a href="{{asset('storage/datasheet/conform-chrome/ds-eu-avery-dennison-conform-chrome-en.pdf')}}"
+                                           data-toggle="tooltip" title="Click here to download!" data-placement="right">
+                                            Conform Chrome</a></li>
                                     <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/MPI-1105-Product-Overview-EN.pdf')}}"
-                                           data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">Avery Dennison MPI 1105 Product Overview</a></li>
-                                    <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/digital-portfolio-overview-en.pdf')}}"
-                                           data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">Product Portfolio Guide Avery Dennison Digital
-                                            Imaging Media</a></li>
+                                        <a href="{{asset('storage/datasheet/conform-chrome/pds-sf-100-conform-chrome-series.pdf')}}"
+                                           data-toggle="tooltip" title="Click here to download!" data-placement="right">
+                                            Conform Chrome Specialty Film</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -364,7 +360,7 @@
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
     <script>
-        var $img = $(".{{$category}}"), images = ['{{$category}}1.jpg', '{{$category}}3.jpg', '{{$category}}2.jpg'],
+        var $img = $(".conform-chrome"), images = ['conform-chrome1.jpg', 'conform-chrome2.jpg', 'conform-chrome3.jpg'],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
                 var currentImage = images[index];
                 index = (index == maxImages) ? 0 : ++index;
@@ -414,17 +410,21 @@
             }, 600);
         });
 
-        $('#play-mpi-series').on('click', function () {
+        $('#play-conform-chrome').on('click', function () {
             $(this).lightGallery({
                 dynamic: true,
                 dynamicEl: [
                     {
-                        "src": 'https://youtu.be/3qBJoG-ULJ0',
-                        'thumb': 'https://youtu.be/3qBJoG-ULJ0',
+                        "src": 'https://youtu.be/qd1QvnsvCto',
+                        'thumb': 'https://youtu.be/qd1QvnsvCto',
                     },
                     {
-                        "src": 'https://youtu.be/RMzQLZRlXss',
-                        'thumb': 'https://youtu.be/RMzQLZRlXss',
+                        "src": 'https://youtu.be/QeLJkYttvHY',
+                        'thumb': 'https://youtu.be/QeLJkYttvHY',
+                    },
+                    {
+                        "src": 'https://youtu.be/i7Nw9ig1Tik',
+                        'thumb': 'https://youtu.be/i7Nw9ig1Tik',
                     }]
             });
         });

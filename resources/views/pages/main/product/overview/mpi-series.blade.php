@@ -1,5 +1,5 @@
 @extends('layouts.mst')
-@section('title', 'Product Overview: '.$title.' | '.env('APP_TITLE'))
+@section('title', 'Product Overview: MPI™ SERIES | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-tabs-responsive.css')}}">
@@ -85,11 +85,11 @@
     </style>
 @endpush
 @section('content')
-    <div class="breadcrumbs {{$category}}">
+    <div class="breadcrumbs mpi-series">
         <div class="breadcrumbs-overlay"></div>
         <div class="page-title">
             <h2>Our Product</h2>
-            <p>Product overview of {{$title}}, films for digital prints.</p>
+            <p>MPI&trade; SERIES, films for digital prints.</p>
         </div>
         <ul class="crumb">
             <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
@@ -98,7 +98,7 @@
             <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> {{$title}}</a></li>
+            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> MPI&trade; SERIES</a></li>
         </ul>
     </div>
 
@@ -275,17 +275,21 @@
                                  aria-labelledby="download-tab" style="border: none">
                                 <ul align="justify">
                                     <li>
+                                        <a href="{{asset('storage/datasheet/mpi-series/MPI-1105-Product-Overview-EN.pdf')}}"
+                                           data-toggle="tooltip" title="Click here to download!"
+                                           data-placement="right">Avery Dennison MPI 1105 Product Overview</a></li>
+                                    <li>
+                                        <a href="{{asset('storage/datasheet/mpi-series/pds-mpi-1105-sc-series.pdf')}}"
+                                           data-toggle="tooltip" title="Click here to download!"
+                                           data-placement="right">MPI 1105 SuperCast Series</a></li>
+                                    <li>
                                         <a href="{{asset('storage/datasheet/mpi-series/ds-Avery-Dennison-MPI-1105-wrapping-series-EN.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!"
                                            data-placement="right">MPI 1105 Wrapping Series</a></li>
                                     <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/ds-Avery-Dennison-MPI-1105-wrapping-series-EN.pdf')}}"
+                                        <a href="{{asset('storage/datasheet/mpi-series/digital-media-selector.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">MPI 1105 Wrapping Series Easy Apply RS</a></li>
-                                    <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/MPI-1105-Product-Overview-EN.pdf')}}"
-                                           data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">Avery Dennison MPI 1105 Product Overview</a></li>
+                                           data-placement="right">Digital Media Selector</a></li>
                                     <li>
                                         <a href="{{asset('storage/datasheet/mpi-series/digital-portfolio-overview-en.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!"
@@ -298,9 +302,10 @@
                 </div>
                 <div class="col-md-4">
                     <h4 data-aos="fade-left" style="color: #eee">Avery Dennison® MPI&trade; 1105 Series</h4>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">A series of
-                        super cast and cast films, offering a range of adhesive features to tackle any application.
-                    </p>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Avery Dennison has
+                        launched MPI 1105, the next generation of digital Supercast wrapping films for all vehicle and
+                        outdoor graphics needs. Ensure each job is completed on time with reliable, high-quality print
+                        performance across all digital platforms: latex, solvent, eco-solvent and UV.</p>
                     <blockquote data-aos="fade-left">Supreme 3D conformability, stunning printability, and reliable
                         performance.
                     </blockquote>
@@ -364,7 +369,7 @@
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
     <script>
-        var $img = $(".{{$category}}"), images = ['{{$category}}1.jpg', '{{$category}}3.jpg', '{{$category}}2.jpg'],
+        var $img = $(".mpi-series"), images = ['mpi-series1.jpg', 'mpi-series2.jpg', 'mpi-series3.jpg'],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
                 var currentImage = images[index];
                 index = (index == maxImages) ? 0 : ++index;

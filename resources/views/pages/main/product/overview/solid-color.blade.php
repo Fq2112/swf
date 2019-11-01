@@ -1,5 +1,5 @@
 @extends('layouts.mst')
-@section('title', 'Product Overview: '.$title.' | '.env('APP_TITLE'))
+@section('title', 'Product Overview: Solid Color | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-tabs-responsive.css')}}">
@@ -85,11 +85,11 @@
     </style>
 @endpush
 @section('content')
-    <div class="breadcrumbs {{$category}}">
+    <div class="breadcrumbs solid-color">
         <div class="breadcrumbs-overlay"></div>
         <div class="page-title">
             <h2>Our Product</h2>
-            <p>Product overview of {{$title}}, films for digital prints.</p>
+            <p>Solid Color, films with 3D exceptional conformability for color change.</p>
         </div>
         <ul class="crumb">
             <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
@@ -98,7 +98,7 @@
             <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> {{$title}}</a></li>
+            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Solid Color</a></li>
         </ul>
     </div>
 
@@ -364,7 +364,7 @@
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
     <script>
-        var $img = $(".{{$category}}"), images = ['{{$category}}1.jpg', '{{$category}}3.jpg', '{{$category}}2.jpg'],
+        var $img = $(".solid-color"), images = ['solid-color1.jpg', 'solid-color2.jpg', 'solid-color3.jpg'],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
                 var currentImage = images[index];
                 index = (index == maxImages) ? 0 : ++index;
