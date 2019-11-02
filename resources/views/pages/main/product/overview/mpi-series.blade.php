@@ -82,6 +82,21 @@
         .lg-sub-html p {
             color: #bbb;
         }
+
+        .features-3 ul {
+            margin-left: 1em;
+            margin-bottom: 1.5em;
+            list-style: none;
+        }
+
+        .features-3 ul li:before {
+            font-family: "Font Awesome 5 Free";
+            content: '\f054';
+            font-weight: 900;
+            color: #E31B23;
+            margin-left: -1.1em;
+            padding-right: .5em;
+        }
     </style>
 @endpush
 @section('content')
@@ -287,8 +302,8 @@
                         launched MPI 1105, the next generation of digital Supercast wrapping films for all vehicle and
                         outdoor graphics needs. Ensure each job is completed on time with reliable, high-quality print
                         performance across all digital platforms: latex, solvent, eco-solvent and UV.</p>
-                    <blockquote data-aos="fade-left">Supreme 3D conformability, stunning printability, and reliable
-                        performance.
+                    <blockquote data-aos="fade-left">Supreme 3D conformability, stunning
+                        printability, and reliable performance.
                     </blockquote>
                     <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The ultimate
                         wrapping solution - new MPI 1105 Wrapping series films bring new levels of printability,
@@ -350,40 +365,52 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 data-aos="fade-right">How should I outgas?</h3>
-                    <p data-aos="fade-down" align="justify">Outgassing is the process of removing
-                        solvents from the printed graphic. Prior to lamination, prints should be
-                        left at 23°C, for a minimum of 48 Hours. Images with dense colours may
-                        need more time. There should be a constant flow of air over the graphics
-                        to ensure the solvent is moved away from the face. As solvent is heavier
-                        than air, it will not move unless aided from airflow.</p>
+                    <h4 data-aos="fade-right" style="color: #eee">How should I outgas?</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Outgassing is the process of removing
+                            solvents from the printed graphic. Prior to lamination, prints should be
+                            left at 23°C, for a minimum of 48 Hours. Images with dense colours may
+                            need more time. There should be a constant flow of air over the graphics
+                            to ensure the solvent is moved away from the face. As solvent is heavier
+                            than air, it will not move unless aided from airflow.
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-md-6">
-                    <h3 data-aos="fade-left">Why should I outgas?</h3>
-                    <p data-aos="fade-down" align="justify">Solvents still within the prints
-                        will cause the film to feel tacky when applying. Solvents soften the
-                        adhesive, removing any adhesive benefits. Once the graphic is applied,
-                        the solvent continues to soften and weaken the adhesive. Beware on panel
-                        edges and recesses, where the adhesive is weakened and no longer able to
-                        adhere, causing the film to ‘pop’ from the recess.</p>
+                    <h4 data-aos="fade-left" style="color: #eee">Why should I outgas?</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Solvents still within the prints
+                            will cause the film to feel tacky when applying. Solvents soften the
+                            adhesive, removing any adhesive benefits. Once the graphic is applied,
+                            the solvent continues to soften and weaken the adhesive. Beware on panel
+                            edges and recesses, where the adhesive is weakened and no longer able to
+                            adhere, causing the film to ‘pop’ from the recess.
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h3 data-aos="fade-right">How should I post heat?</h3>
-                    <p data-aos="fade-down" align="justify">Post heating must be done after each
-                        panel is completed using a digital thermometer for accurate
-                        temperatures. Always remove the heat gun from the area you’re measuring,
-                        heat and measure every 3-4 inches referring to product bulletins for
-                        recommended temperatures. Use a small channel roller in the
-                        recesses.</p>
+                    <h4 data-aos="fade-right" style="color: #eee">How should I post heat?</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Post heating must be done after each
+                            panel is completed using a digital thermometer for accurate
+                            temperatures. Always remove the heat gun from the area you’re measuring,
+                            heat and measure every 3-4 inches referring to product bulletins for
+                            recommended temperatures. Use a small channel roller in the
+                            recesses.
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-md-6">
-                    <h3 data-aos="fade-left">Why should I post heat?</h3>
-                    <p data-aos="fade-down" align="justify">Post heating speeds up the process
-                        of adhesive flow and helps reach maximum adhesive bond over a short
-                        amount of time. Post heating removes the film memory. If you do not post
-                        heat correctly this will cause the film to pop from a recess</p>
+                    <h4 data-aos="fade-left" style="color: #eee">Why should I post heat?</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Post heating speeds up the process
+                            of adhesive flow and helps reach maximum adhesive bond over a short
+                            amount of time. Post heating removes the film memory. If you do not post
+                            heat correctly this will cause the film to pop from a recess
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

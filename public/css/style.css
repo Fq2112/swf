@@ -5441,6 +5441,13 @@ a.search-bgdark:hover {
     color: #bbb;
 }
 
+.features-3 ul {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #bbb;
+}
+
 .features-3 .text {
     font-family: 'Raleway', Arial, sans-serif;
     font-size: 14px;
@@ -28397,6 +28404,10 @@ footer.footer-color9 .copyright .back-top:hover a {
 
     .features-3 p {
         font-size: 14px;
+    }
+
+    .features-3 ul {
+        font-size: 13px;
     }
 
     .our-latest-work-warp h2 {

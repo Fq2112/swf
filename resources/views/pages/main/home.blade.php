@@ -670,8 +670,8 @@
                                 <div>
                                     <a href="{{route('show.product.overview',
                                                             ['category' => 'supreme-wrap-care'])}}">
-                                        <h2>Supreme Wrap Care</h2>
-                                        <p>Caring for your vehicle graphics</p>
+                                        <h2>Supreme Wrap&trade; Care</h2>
+                                        <p>Designed to keep Avery Dennison vehicle graphic films in peak condition</p>
                                     </a>
                                 </div>
                             </li>

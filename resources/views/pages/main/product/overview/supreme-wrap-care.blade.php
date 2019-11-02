@@ -1,5 +1,5 @@
 @extends('layouts.mst')
-@section('title', 'Product Overview: Supreme Wrap Care | '.env('APP_TITLE'))
+@section('title', 'Product Overview: Supreme Wrap™ Care | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-tabs-responsive.css')}}">
@@ -82,6 +82,21 @@
         .lg-sub-html p {
             color: #bbb;
         }
+
+        .features-3 ul {
+            margin-left: 1em;
+            margin-bottom: 1.5em;
+            list-style: none;
+        }
+
+        .features-3 ul li:before {
+            font-family: "Font Awesome 5 Free";
+            content: '\f054';
+            font-weight: 900;
+            color: #E31B23;
+            margin-left: -1.1em;
+            padding-right: .5em;
+        }
     </style>
 @endpush
 @section('content')
@@ -89,7 +104,7 @@
         <div class="breadcrumbs-overlay"></div>
         <div class="page-title">
             <h2>Our Product</h2>
-            <p>Supreme Wrap Care, caring for your vehicle graphics.</p>
+            <p>Supreme Wrap&trade; Care, designed to keep Avery Dennison vehicle graphic films in peak condition.</p>
         </div>
         <ul class="crumb">
             <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
@@ -98,20 +113,22 @@
             <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Supreme Wrap Care</a></li>
+            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Supreme Wrap&trade; Care</a>
+            </li>
         </ul>
     </div>
 
     <div class="page-content page-sidebar">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <div data-aos="zoom-out" class="content-area">
-                        <img id="mpi-switch" src="{{asset('images/home/about.png')}}" class="img-responsive"
-                             alt="MPI&trade; SERIES">
+                        <img id="swc-switch" src="{{asset('images/product-overview/swc4.png')}}"
+                             class="img-responsive" alt="Supreme Wrap&trade; Care">
                         <div class="custom-overlay">
                             <div class="custom-text">
-                                <svg id="play-mpi-series" class="play" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                <svg id="play-supreme-wrap-care" class="play" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px"
                                      width="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
                                      xml:space="preserve">
@@ -128,193 +145,94 @@
                          data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
                             <li role="presentation" class="active">
+                                <a href="#po" role="tab" id="po-tab" data-toggle="tab"
+                                   aria-controls="cleaner"><span class="text">PRODUCT OVERVIEW</span></a>
+                            </li>
+                            <li role="presentation" class="next">
                                 <a href="#kf" id="kf-tab" role="tab" data-toggle="tab" aria-controls="kf"
-                                   aria-expanded="true"><span class="text">FEATURES</span></a>
-                            </li>
-                            <li role="presentation" class="next">
-                                <a href="#cc" id="cc-tab" role="tab" data-toggle="tab" aria-controls="cc"
-                                   aria-expanded="true"><span class="text">COLORS</span></a>
-                            </li>
-                            <li role="presentation" class="next">
-                                <a href="#ro" role="tab" id="ro-tab" data-toggle="tab" aria-controls="ro">
-                                    <span class="text">OVERLAMINATE</span>
-                                </a>
-                            </li>
-                            <li role="presentation" class="next">
-                                <a href="#ht" role="tab" id="ht-tab" data-toggle="tab" aria-controls="ht">
-                                    <span class="text">HINTS & TIPS</span>
-                                </a>
+                                   aria-expanded="true"><span class="text">KEY FEATURES</span></a>
                             </li>
                             <li role="presentation">
                                 <a href="#download" role="tab" id="download-tab" data-toggle="tab"
                                    aria-controls="download">
-                                    <span class="text">DOWNLOADS</span>
+                                    <span class="text">DATA SHEETS DOWNLOAD</span>
                                 </a>
                             </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="kf"
-                                 aria-labelledby="kf-tab" style="border: none">
+                            <div role="tabpanel" class="tab-pane fade in active" id="po"
+                                 aria-labelledby="po-tab" style="border: none">
                                 <ul align="justify">
-                                    <li>MPI&trade; 1105 gives maximum life with up to 10 year durability and
-                                        MPI&trade; 1104 and 1106 give a long life with up to 7 year durability.
+                                    <li>Supreme Wrap&trade; <strong>Cleaner</strong> is a general cleaning product for
+                                        regular use –
+                                        eliminates dust, light dirt, fingerprints and other marks.
                                     </li>
-                                    <li>All 50 micron films.</li>
-                                    <li>Premium cast MPI&trade; 1105 offers unparalleled performance on the most
-                                        demanding 3D applications, whilst MPI&trade; 1104 offers an economy cast
-                                        solution for versatile 3D performance.
+                                    <li>Supreme Wrap&trade; <strong>Power Cleaner</strong> delivers extra power to deal
+                                        with difficult
+                                        localized stains such as bird droppings, road grime, tree sap and much more.
                                     </li>
-                                    <li>MPI&trade; 1106 features a hi-tack adhesive suitable for low-energy and
-                                        difficult substrates.
+                                    <li>Supreme Wrap&trade; <strong>Sealant</strong> provides a protective layer on the
+                                        wrap, making it
+                                        easier to clean off everyday challenges like dirt, bird droppings and tree sap.
                                     </li>
-                                    <li>Excellent printability on all platforms.</li>
-                                    <li>MPI&trade; 1105 also features Long Term Removability.</li>
-                                    <li>UV, solvent, eco-solvent and latex inks compatible</li>
-                                    <li>Easy Apply RS&trade; adhesive technology with air-egress, repositionability
-                                        and slideability
-                                    </li>
-                                    <li>Covered by ICS Performance Guarantee</li>
                                 </ul>
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="cc"
-                                 aria-labelledby="cc-tab" style="border: none">
-                                <table>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1104</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White Repositionable</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1104 EA</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White Repositionable Easy Apply&trade;</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1105</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1105 EA RS</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White Easy Apply&trade;</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">&nbsp;</th>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>Repositionable Slideable</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1106 Hi-tack EA</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White Hi-tack Easy Apply&trade;</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="ro"
-                                 aria-labelledby="ro-tab" style="border: none">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <ul align="justify">
-                                            <li>DOL 1000 Gloss</li>
-                                            <li>DOL 1100 Matt</li>
-                                            <li>DOL 1460 Gloss</li>
-                                            <li>DOL 1480 Matt</li>
-                                            <li>DOL 1460 Z Gloss</li>
-                                            <li>DOL 1480 Z Matt</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <img src="{{asset('images/product-overview/mpi-overlaminate.png')}}"
-                                             class="img-responsive" alt="Recommended Overlaminate">
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="ht"
-                                 aria-labelledby="ht-tab" style="border: none">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4 style="color: #eee">How should I outgas?</h4>
-                                        <p align="justify" style="color: #bbb">Outgassing is the process of removing
-                                            solvents from the printed graphic. Prior to lamination, prints should be
-                                            left at 23°C, for a minimum of 48 Hours. Images with dense colours may
-                                            need more time. There should be a constant flow of air over the graphics
-                                            to ensure the solvent is moved away from the face. As solvent is heavier
-                                            than air, it will not move unless aided from airflow.</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4 style="color: #eee">Why should I outgas?</h4>
-                                        <p align="justify" style="color: #bbb;">Solvents still within the prints
-                                            will cause the film to feel tacky when applying. Solvents soften the
-                                            adhesive, removing any adhesive benefits. Once the graphic is applied,
-                                            the solvent continues to soften and weaken the adhesive. Beware on panel
-                                            edges and recesses, where the adhesive is weakened and no longer able to
-                                            adhere, causing the film to ‘pop’ from the recess.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4 style="color: #eee">How should I post heat?</h4>
-                                        <p align="justify" style="color: #bbb">Post heating must be done after each
-                                            panel is completed using a digital thermometer for accurate
-                                            temperatures. Always remove the heat gun from the area you’re measuring,
-                                            heat and measure every 3-4 inches referring to product bulletins for
-                                            recommended temperatures. Use a small channel roller in the
-                                            recesses.</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4 style="color: #eee">Why should I post heat?</h4>
-                                        <p align="justify" style="color: #bbb;">Post heating speeds up the process
-                                            of adhesive flow and helps reach maximum adhesive bond over a short
-                                            amount of time. Post heating removes the film memory. If you do not post
-                                            heat correctly this will cause the film to pop from a recess</p>
-                                    </div>
-                                </div>
+                            <div role="tabpanel" class="tab-pane fade" id="kf"
+                                 aria-labelledby="kf-tab" style="border: none">
+                                <ul align="justify">
+                                    <li>Protects & cleans vehicle graphics – helping to maintain the freshly wrapped
+                                        look
+                                    </li>
+                                    <li>Suitable for all car wrap finishes*</li>
+                                    <li>Fully tested with all Avery Dennison vehicle graphic films, including Supreme
+                                        Wrapping&trade; Film
+                                    </li>
+                                    <li>Easy to use water based products</li>
+                                    <li>An alternative to traditional car wash</li>
+                                    <li>No additional water required</li>
+                                </ul>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="download"
                                  aria-labelledby="download-tab" style="border: none">
                                 <ul align="justify">
                                     <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/ds-Avery-Dennison-MPI-1105-wrapping-series-EN.pdf')}}"
+                                        <a href="{{asset('storage/datasheet/supreme-wrap-care/supreme-wrap-care-product-overview-EN.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">MPI 1105 Wrapping Series</a></li>
+                                           data-placement="right">Product Overview: Supreme Wrap™ Care</a></li>
                                     <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/ds-Avery-Dennison-MPI-1105-wrapping-series-EN.pdf')}}"
+                                        <a href="{{asset('storage/datasheet/supreme-wrap-care/Avery-Dennison-Supreme-Wrap-Care-Cleaner-safety-data-sheet.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">MPI 1105 Wrapping Series Easy Apply RS</a></li>
+                                           data-placement="right">Safety Data Sheet: Supreme Wrap™ Care Cleaner</a></li>
                                     <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/MPI-1105-Product-Overview-EN.pdf')}}"
+                                        <a href="{{asset('storage/datasheet/supreme-wrap-care/Avery-Dennison-Supreme-Wrap-Care-Power-Cleaner-safety-data-sheet.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">Avery Dennison MPI 1105 Product Overview</a></li>
+                                           data-placement="right">Safety Data Sheet: Supreme Wrap™ Care Power
+                                            Cleaner</a></li>
                                     <li>
-                                        <a href="{{asset('storage/datasheet/mpi-series/digital-portfolio-overview-en.pdf')}}"
+                                        <a href="{{asset('storage/datasheet/supreme-wrap-care/Avery-Dennison-Supreme-Wrap-Care-Sealant-safety-data-sheet.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!"
-                                           data-placement="right">Product Portfolio Guide Avery Dennison Digital
-                                            Imaging Media</a></li>
+                                           data-placement="right">Safety Data Sheet: Supreme Wrap™ Care Sealant</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <h4 data-aos="fade-left" style="color: #eee">Avery Dennison® MPI&trade; 1105 Series</h4>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">A series of
-                        super cast and cast films, offering a range of adhesive features to tackle any application.
-                    </p>
-                    <blockquote data-aos="fade-left">Supreme 3D conformability, stunning printability, and reliable
-                        performance.
+                <div class="col-md-5">
+                    <h4 data-aos="fade-left" style="color: #eee">New Avery Dennison® Supreme Wrap&trade; Care</h4>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Vehicle wraps have
+                        to deal with a whole range of tough challenges on the road.</p>
+                    <blockquote data-aos="fade-left" style="text-align: justify">The premium finish made possible by
+                        Avery Dennison vehicle graphic films deserves the very best in after care - if it looks great,
+                        it should stay great.
                     </blockquote>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The ultimate
-                        wrapping solution - new MPI 1105 Wrapping series films bring new levels of printability,
-                        image quality and 3D conformability to vehicle wraps. Outstanding colour 'pop' and an
-                        ability to cope easily with challenges such as rivets and corrugations make MPI 1105 the
-                        product of choice across many different applications.</p>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb">With best-in-class 3D
-                        conformability, MPI 1105 uses Easy Apply RS technology to ensure the same application speed
-                        and convenience as Avery Dennison® Supreme Wrapping Film. That means endless creative
-                        possibilities for the most demanding private vehicle and commercial fleet wraps. To protect
-                        MPI 1105 series and enhance both colours and durability, we recommend using it in
-                        combination with DOL 1460 Z Gloss and DOL 1480 Z Matt overlaminates.</p>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The Avery Dennison
+                        Supreme Wrap&trade; Care range is designed to help maintain vehicle graphics in premium
+                        condition. It includes a Cleaner, Power Cleaner and Sealant – suitable for all types of vehicle
+                        wrap films (matt, satin and gloss).</p>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb">These easy to use products have been
+                        fully tested with all Avery Dennison vehicle graphic films, and are all you need to protect and
+                        clean the graphics during their life. They are eco-responsible: being water-based, with no
+                        hazardous solvents, and do not require any additional water.</p>
                 </div>
             </div>
 
@@ -328,32 +246,102 @@
     </div>
 
     <section class="features-3">
-        <h2>Benchmark <strong>Test Results</strong></h2>
+        <h2 data-aos="fade-down">Hints & <strong>Tips</strong></h2>
         <div class="container">
             <div class="row">
-                <div class="col-md-5">
-                    <h3 data-aos="fade-right">Avery Dennison® MPI&trade; 1105 EA RS</h3>
-                    <p data-aos="fade-right" align="justify"><strong>8</strong> digitally printable vehicle wrapping
-                        films produced by major media manufactures and <strong>4</strong> independent applicators.</p>
-                    <p data-aos="fade-down" align="justify" class="text">Media chosen for this benchmark was consisting
-                        of EA RS equivalents <sub>(RS if available)</sub> in the market and rated for conformability,
-                        slideability, etc.</p>
+                <div class="col-md-6">
+                    <h4 data-aos="fade-right" style="color: #eee">Caring for Your Vehicle Graphics</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Care for your vehicle graphics like you would any fine paint finish.
+                            Using high quality products designed specifically for car care, these cleaning and
+                            maintenance procedures will help keep your vehicle graphics looking their best.
+                        </li>
+                    </ul>
+                    <h4 data-aos="fade-right" style="color: #eee">Wash regularly</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Wash whenever the car appears dirty. Contaminants allowed to remain on
+                            the graphic may be more difficult to remove during cleaning.
+                        </li>
+                        <li data-aos="fade-down">Rinse off as much dirt and grit as possible with water. Use a wet,
+                            non-abrasive detergent such as VION Car Care Cleaner and a soft, clean cloth or sponge.
+                        </li>
+                        <li data-aos="fade-down">Rinse thoroughly with clean water. To reduce water spotting,
+                            immediately use a silicone squeegee to remove water and finish with a clean microfibre
+                            cloth.
+                        </li>
+                    </ul>
+                    <h4 data-aos="fade-right" style="color: #eee">Automated car washes</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Brush-type car washes are not recommended as they can abrade the film
+                            and cause edges to lift or chip, as well as dulling the film’s appearance. Brushless car
+                            washes are acceptable.
+                        </li>
+                    </ul>
+                    <h4 data-aos="fade-right" style="color: #eee">Pressure washing</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Although hand washing is the preferred cleaning method, pressure
+                            washing may be used, providing these conditions are strictly followed:
+                        </li>
+                        <li data-aos="fade-down">Ensure the water pressure is kept below 2000 psi (14 MPa). Keep water
+                            temperature below 80°C (180°F).
+                        </li>
+                        <li data-aos="fade-down">Use a spray nozzle with a 40 degree wide angle spray pattern.</li>
+                        <li data-aos="fade-down">Keep the nozzle at least 300 mm (1 foot) away from and perpendicular
+                            (at 90 degrees) to the graphic.
+                        </li>
+                        <li data-aos="fade-down">Beware holding the nozzle of a pressure washer at an angle to the
+                            graphic, as it may lift the edges of the film.
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-7">
-                    <h3 data-aos="fade-left">Peak Performance</h3>
-                    <p data-aos="fade-left" align="justify">The Independent Test Results</p>
-                    <img data-aos="zoom-out" src="{{asset('images/product-overview/mpi-bm1.png')}}" alt="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-7">
-                    <h3 data-aos="fade-right">TOP 5</h3>
-                    <p data-aos="fade-right" align="justify">Overall Performance</p>
-                    <img data-aos="zoom-out" src="{{asset('images/product-overview/mpi-bm2.png')}}" alt=""
-                         style="margin-top: -6em">
-                </div>
-                <div class="col-md-5">
-                    <img data-aos="fade-left" src="{{asset('images/home/installer.png')}}" alt="">
+                <div class="col-md-6">
+                    <h4 data-aos="fade-right" style="color: #eee">Difficult contaminants</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Soften difficult contaminants such as bug splatter, bird droppings,
+                            tree sap and similar contaminants by soaking them for several minutes with very hot, soapy
+                            water as early as possible. Rinse thoroughly and dry.
+                        </li>
+                        <li data-aos="fade-down">If further cleaning is needed, test one of these products in an
+                            inconspicuous area to ensure no damage to the graphics. Spot clean the contaminants.
+                        </li>
+                        <li data-aos="fade-down">Do not use rough scrubbing or abrasive tools, which will scratch the
+                            film. Wash and rinse off all residue immediately.
+                        </li>
+                    </ul>
+                    <h4 data-aos="fade-right" style="color: #eee">Fuel spills</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Wipe off immediately to avoid degrading the vinyl and adhesive. Then
+                            wash, rinse and dry as soon as possible.
+                        </li>
+                    </ul>
+                    <h4 data-aos="fade-right" style="color: #eee">Polish and wax</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Most standard graphic films and overlaminates can be polished or waxed
+                            with a high quality car wax.
+                        </li>
+                        <li data-aos="fade-down">Before use, test and approve in an inconspicuous area. Do not use any
+                            abrasive polishes or cutting compounds.
+                        </li>
+                        <li data-aos="fade-down">3M do not recommend any polishing or wax product for the matt or
+                            textured films.
+                        </li>
+                    </ul>
+                    <h4 data-aos="fade-right" style="color: #eee">Store indoors or under cover whenever possible</h4>
+                    <ul align="justify">
+                        <li data-aos="fade-down">Vinyl graphics (just like paint) are degraded by prolonged exposure to
+                            sun and atmospheric pollutants, particularly on the horizontal surfaces such as bonnet, boot
+                            lid and roof.
+                        </li>
+                        <li data-aos="fade-down">Whenever possible, store in a garage or at least in a shaded area
+                            during the day. At night protect the car from dew or rain, which may contain acidic
+                            pollutants (a common problem in many large metropolitan areas).
+                        </li>
+                        <li data-aos="fade-down">When a garage is not available, consider using a cloth car cover at
+                            night. If your graphics start to discolour or turn brown (which is caused by acidic
+                            pollution), immediately remove the graphics from the vehicle to avoid staining the
+                            underlying paint.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -375,13 +363,13 @@
                 });
             }, 5000),
 
-            $img_mpi = $("#mpi-switch"), images_mpi = ['about2.png', 'about.png'],
-            index_mpi = 0, maxImages_mpi = images_mpi.length - 1, timer_mpi = setInterval(function () {
-                var currentImage_mpi = images_mpi[index_mpi];
-                index_mpi = (index_mpi == maxImages_mpi) ? 0 : ++index_mpi;
-                $img_mpi.fadeOut("slow", function () {
-                    $img_mpi.attr("src", '{{asset('images/home')}}/' + currentImage_mpi);
-                    $img_mpi.fadeIn("slow");
+            $img_swc = $("#swc-switch"), images_swc = ['swc1.png', 'swc2.png', 'swc3.png', 'swc4.png'],
+            index_swc = 0, maxImages_swc = images_swc.length - 1, timer_swc = setInterval(function () {
+                var currentImage_swc = images_swc[index_swc];
+                index_swc = (index_swc == maxImages_swc) ? 0 : ++index_swc;
+                $img_swc.fadeOut("slow", function () {
+                    $img_swc.attr("src", '{{asset('images/product-overview')}}/' + currentImage_swc);
+                    $img_swc.fadeIn("slow");
                 });
             }, 5000);
 
@@ -415,17 +403,25 @@
             }, 600);
         });
 
-        $('#play-mpi-series').on('click', function () {
+        $('#play-supreme-wrap-care').on('click', function () {
             $(this).lightGallery({
                 dynamic: true,
                 dynamicEl: [
                     {
-                        "src": 'https://youtu.be/3qBJoG-ULJ0',
-                        'thumb': 'https://youtu.be/3qBJoG-ULJ0',
+                        "src": 'https://youtu.be/KnHCGe6KFcE',
+                        'thumb': 'https://youtu.be/KnHCGe6KFcE',
                     },
                     {
-                        "src": 'https://youtu.be/RMzQLZRlXss',
-                        'thumb': 'https://youtu.be/RMzQLZRlXss',
+                        "src": 'https://youtu.be/zBLcefmKKGw',
+                        'thumb': 'https://youtu.be/zBLcefmKKGw',
+                    },
+                    {
+                        "src": 'https://youtu.be/tdp6MnlQafM',
+                        'thumb': 'https://youtu.be/tdp6MnlQafM',
+                    },
+                    {
+                        "src": 'https://youtu.be/ijevgOD5zSk',
+                        'thumb': 'https://youtu.be/ijevgOD5zSk',
                     }]
             });
         });

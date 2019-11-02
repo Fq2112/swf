@@ -319,7 +319,9 @@
                         graphics markets where high-end chrome accents are desired. The patented Avery Dennison™ Easy
                         Apply RS feature allows for faster positioning, bubble-free application, and long-term
                         removability.</p>
-                    <blockquote data-aos="fade-left">Striking accents, premium look, and immediate impact.</blockquote>
+                    <blockquote data-aos="fade-left">Striking accents, premium look, and
+                        immediate impact.
+                    </blockquote>
                     <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Create a real chrome
                         effect with fast and easy application. Make your design shine with mirror sharp premium chrome
                         detailing. Now in a wider size and 3 new colors; Rose Gold, Violet and Matte Silver.</p>
