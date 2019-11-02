@@ -35,8 +35,8 @@ class SWFController extends Controller
         } elseif ($category == 'conform-chrome') {
             return view('pages.main.product.overview.conform-chrome');
 
-        } elseif ($category == 'solid-color') {
-            return view('pages.main.product.overview.solid-color');
+        } elseif ($category == 'supreme-wrapping-films') {
+            return view('pages.main.product.overview.supreme-wrapping-films');
 
         } else {
             return view('pages.main.product.overview.supreme-wrap-care');

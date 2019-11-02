@@ -150,7 +150,7 @@
         }
 
         .accordion ul li:nth-child(3) {
-            background-image: url({{asset('images/home/solid-color.jpeg')}});
+            background-image: url({{asset('images/home/supreme-wrapping-films.jpeg')}});
         }
 
         .accordion ul li:nth-child(4) {
@@ -659,17 +659,15 @@
                             </li>
                             <li tabindex="3">
                                 <div>
-                                    <a href="{{route('show.product.overview',
-                                                            ['category' => 'solid-color'])}}">
-                                        <h2>Solid Color</h2>
+                                    <a href="{{route('show.product.overview', ['category' => 'supreme-wrapping-films'])}}">
+                                        <h2>Supreme Wrapping&trade; Films</h2>
                                         <p>Films with exceptional 3D conformability for color change</p>
                                     </a>
                                 </div>
                             </li>
                             <li tabindex="4">
                                 <div>
-                                    <a href="{{route('show.product.overview',
-                                                            ['category' => 'supreme-wrap-care'])}}">
+                                    <a href="{{route('show.product.overview', ['category' => 'supreme-wrap-care'])}}">
                                         <h2>Supreme Wrap&trade; Care</h2>
                                         <p>Designed to keep Avery Dennison vehicle graphic films in peak condition</p>
                                     </a>

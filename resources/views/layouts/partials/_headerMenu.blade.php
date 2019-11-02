@@ -16,7 +16,7 @@
                             <li><a href="{{route('show.product.overview',
                             ['category' => 'conform-chrome'])}}">CONFORM CHROME</a></li>
                             <li><a href="{{route('show.product.overview',
-                            ['category' => 'solid-color'])}}">SOLID COLOR</a></li>
+                            ['category' => 'supreme-wrapping-films'])}}">SUPREME WRAPPING&trade; FILMS</a></li>
                             <li><a href="{{route('show.product.overview',
                             ['category' => 'supreme-wrap-care'])}}">SUPREME WRAP&trade; CARE</a></li>
                         </ul>

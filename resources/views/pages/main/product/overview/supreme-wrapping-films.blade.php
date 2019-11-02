@@ -1,13 +1,13 @@
 @extends('layouts.mst')
-@section('title', 'Product Overview: Solid Color | '.env('APP_TITLE'))
+@section('title', 'Product Overview: Supreme Wrapping™ Films | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-tabs-responsive.css')}}">
     <link rel="stylesheet" href="{{asset('css/play-button.css')}}">
     <link rel="stylesheet" href="{{asset('css/ig-feed.css')}}">
     <style>
-        .breadcrumbs.solid-color {
-            background-image: url({{asset('images/slider/solid-color3.jpg')}});
+        .breadcrumbs.supreme-wrapping-films {
+            background-image: url({{asset('images/slider/supreme-wrapping-films3.jpg')}});
         }
 
         .content-area {
@@ -96,11 +96,11 @@
     </style>
 @endpush
 @section('content')
-    <div class="breadcrumbs solid-color">
+    <div class="breadcrumbs supreme-wrapping-films">
         <div class="breadcrumbs-overlay"></div>
         <div class="page-title">
             <h2>Our Product</h2>
-            <p>Solid Color, films with 3D exceptional conformability for color change.</p>
+            <p>Supreme Wrap&trade; Care, films with 3D exceptional conformability for color change.</p>
         </div>
         <ul class="crumb">
             <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
@@ -109,7 +109,8 @@
             <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
             <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Solid Color</a></li>
+            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Supreme Wrap&trade; Care</a>
+            </li>
         </ul>
     </div>
 
@@ -118,11 +119,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <div data-aos="zoom-out" class="content-area">
-                        <img id="solid-switch" src="{{asset('images/product-overview/solid-overview1.png')}}"
-                             class="img-responsive" alt="Solid Color">
+                        <img id="swf-switch" src="{{asset('images/product-overview/swf-overview1.png')}}"
+                             class="img-responsive" alt="Supreme Wrap&trade; Care">
                         <div class="custom-overlay">
                             <div class="custom-text">
-                                <svg id="play-solid-color" class="play" version="1.1"
+                                <svg id="play-supreme-wrapping-films" class="play" version="1.1"
                                      xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px"
                                      width="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
@@ -286,22 +287,22 @@
                                         wraps or covering vehicle proximity sensors.
                                     </li>
                                 </ul>
-                                <img src="{{asset('images/product-overview/solid-overlaminate.png')}}"
+                                <img src="{{asset('images/product-overview/swf-overlaminate.png')}}"
                                      class="img-responsive" alt="Recommended Overlaminate">
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="download"
                                  aria-labelledby="download-tab" style="border: none">
                                 <ul align="justify">
                                     <li>
-                                        <a href="{{asset('storage/datasheet/solid-color/po-eu-solid-color-en.pdf')}}"
+                                        <a href="{{asset('storage/datasheet/supreme-wrapping-films/po-eu-supreme-wrapping-films-en.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!" data-placement="right">
                                             Product Overview Avery Dennison® Conform Chrome Series</a></li>
                                     <li>
-                                        <a href="{{asset('storage/datasheet/solid-color/ds-eu-avery-dennison-solid-color-en.pdf')}}"
+                                        <a href="{{asset('storage/datasheet/supreme-wrapping-films/ds-eu-avery-dennison-supreme-wrapping-films-en.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!" data-placement="right">
                                             Conform Chrome</a></li>
                                     <li>
-                                        <a href="{{asset('storage/datasheet/solid-color/pds-sf-100-solid-color-series.pdf')}}"
+                                        <a href="{{asset('storage/datasheet/supreme-wrapping-films/pds-sf-100-supreme-wrapping-films-series.pdf')}}"
                                            data-toggle="tooltip" title="Click here to download!" data-placement="right">
                                             Conform Chrome Specialty Film</a></li>
                                 </ul>
@@ -374,7 +375,8 @@
             $('#ig-feed').lightGallery({selector: '.content-area'});
         });
 
-        var $img = $(".solid-color"), images = ['solid-color1.jpg', 'solid-color2.jpg', 'solid-color3.jpg'],
+        var $img = $(".supreme-wrapping-films"),
+            images = ['supreme-wrapping-films1.jpg', 'supreme-wrapping-films2.jpg', 'supreme-wrapping-films3.jpg'],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
                 var currentImage = images[index];
                 index = (index == maxImages) ? 0 : ++index;
@@ -384,13 +386,13 @@
                 });
             }, 5000),
 
-            $img_solid = $("#solid-switch"), images_solid = ['solid-overview2.png', 'solid-overview1.png'],
-            index_solid = 0, maxImages_solid = images_solid.length - 1, timer_solid = setInterval(function () {
-                var currentImage_solid = images_solid[index_solid];
-                index_solid = (index_solid == maxImages_solid) ? 0 : ++index_solid;
-                $img_solid.fadeOut("slow", function () {
-                    $img_solid.attr("src", '{{asset('images/product-overview')}}/' + currentImage_solid);
-                    $img_solid.fadeIn("slow");
+            $img_swf = $("#swf-switch"), images_swf = ['swf-overview2.png', 'swf-overview1.png'],
+            index_swf = 0, maxImages_swf = images_swf.length - 1, timer_swf = setInterval(function () {
+                var currentImage_swf = images_swf[index_swf];
+                index_swf = (index_swf == maxImages_swf) ? 0 : ++index_swf;
+                $img_swf.fadeOut("slow", function () {
+                    $img_swf.attr("src", '{{asset('images/product-overview')}}/' + currentImage_swf);
+                    $img_swf.fadeIn("slow");
                 });
             }, 5000);
 
@@ -424,7 +426,7 @@
             }, 600);
         });
 
-        $('#play-solid-color').on('click', function () {
+        $('#play-supreme-wrapping-films').on('click', function () {
             $(this).lightGallery({
                 dynamic: true,
                 dynamicEl: [
