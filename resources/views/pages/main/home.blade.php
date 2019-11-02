@@ -266,7 +266,7 @@
 
     <!-- about -->
     <section id="about" class="features-3">
-        <h2>Our <strong>Company</strong></h2>
+        <h2 data-aos="fade-down">Our <strong>Company</strong></h2>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -604,7 +604,7 @@
             @foreach($posts as $post)
                 <div data-aos="zoom-out" class="item content-area"
                      data-src="{{$post->images->standard_resolution->url}}"
-                     data-sub-html="<h4><a href='{{$post->link}}' target='_blank' class='ig-link'><i class='fa fa-external-link-alt'></i>&ensp;ORIGINAL POST</a></h4><p style='color: #fff;'>{{\Illuminate\Support\Str::words($post->caption->text, 20, '...')}}</h4>">
+                     data-sub-html="<h4><a href='{{$post->link}}' target='_blank' class='ig-link'><i class='fa fa-external-link-alt'></i>&ensp;ORIGINAL POST</a></h4><p style='color: #fff;'>{{\Illuminate\Support\Str::words($post->caption->text, 20, '...')}}</p>">
                     <img src="{{$post->images->standard_resolution->url}}" alt="{{$post->user->username}}'s Feed">
                     <div class="custom-overlay">
                         <div class="custom-text">

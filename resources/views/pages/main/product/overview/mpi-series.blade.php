@@ -132,17 +132,17 @@
                                    aria-expanded="true"><span class="text">FEATURES</span></a>
                             </li>
                             <li role="presentation" class="next">
+                                <a href="#kb" role="tab" id="kb-tab" data-toggle="tab" aria-controls="kb">
+                                    <span class="text">BENEFITS</span>
+                                </a>
+                            </li>
+                            <li role="presentation" class="next">
                                 <a href="#cc" id="cc-tab" role="tab" data-toggle="tab" aria-controls="cc"
                                    aria-expanded="true"><span class="text">COLORS</span></a>
                             </li>
                             <li role="presentation" class="next">
-                                <a href="#ro" role="tab" id="ro-tab" data-toggle="tab" aria-controls="ro">
-                                    <span class="text">OVERLAMINATE</span>
-                                </a>
-                            </li>
-                            <li role="presentation" class="next">
-                                <a href="#ht" role="tab" id="ht-tab" data-toggle="tab" aria-controls="ht">
-                                    <span class="text">HINTS & TIPS</span>
+                                <a href="#ta" role="tab" id="ta-tab" data-toggle="tab" aria-controls="ta">
+                                    <span class="text">APPLICATIONS</span>
                                 </a>
                             </li>
                             <li role="presentation">
@@ -174,6 +174,21 @@
                                         and slideability
                                     </li>
                                     <li>Covered by ICS Performance Guarantee</li>
+                                </ul>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="kb"
+                                 aria-labelledby="kb-tab" style="border: none">
+                                <ul align="justify">
+                                    <li>Faster, easier installation, conforming to the most demanding corrugations</li>
+                                    <li>Up to 30% application time savings with Easy Apply RS™ technology and its
+                                        air-egress capability
+                                    </li>
+                                    <li>Ease of application with low initial tack, repositionabilty & slideability</li>
+                                    <li>Creative freedom thanks to outstanding printed image quality and longer printed
+                                        graphics lifespan (up to 6 years*)
+                                    </li>
+                                    <li>Lower costs and time savings when films are removed at end of life</li>
+                                    <li>End-user peace-of-mind with the Avery Dennison ICS Performance Guarantee</li>
                                 </ul>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="cc"
@@ -211,11 +226,12 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="ro"
-                                 aria-labelledby="ro-tab" style="border: none">
+                            <div role="tabpanel" class="tab-pane fade" id="ta"
+                                 aria-labelledby="ta-tab" style="border: none">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <ul align="justify">
+                                        <h4 style="color: #bbb">Recommended Overlaminate</h4>
+                                        <ul align="justify" style="margin-left: 1em">
                                             <li>DOL 1000 Gloss</li>
                                             <li>DOL 1100 Matt</li>
                                             <li>DOL 1460 Gloss</li>
@@ -225,49 +241,14 @@
                                         </ul>
                                     </div>
                                     <div class="col-md-9">
+                                        <h4 style="color: #bbb">Recommended Uses</h4>
+                                        <ul align="justify" style="margin-left: 1em">
+                                            <li>Partial and full wraps on private vehicles</li>
+                                            <li>Partial and full wraps on commercial fleet</li>
+                                            <li>Interior & exterior signs</li>
+                                        </ul>
                                         <img src="{{asset('images/product-overview/mpi-overlaminate.png')}}"
                                              class="img-responsive" alt="Recommended Overlaminate">
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="ht"
-                                 aria-labelledby="ht-tab" style="border: none">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4 style="color: #eee">How should I outgas?</h4>
-                                        <p align="justify" style="color: #bbb">Outgassing is the process of removing
-                                            solvents from the printed graphic. Prior to lamination, prints should be
-                                            left at 23°C, for a minimum of 48 Hours. Images with dense colours may
-                                            need more time. There should be a constant flow of air over the graphics
-                                            to ensure the solvent is moved away from the face. As solvent is heavier
-                                            than air, it will not move unless aided from airflow.</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4 style="color: #eee">Why should I outgas?</h4>
-                                        <p align="justify" style="color: #bbb;">Solvents still within the prints
-                                            will cause the film to feel tacky when applying. Solvents soften the
-                                            adhesive, removing any adhesive benefits. Once the graphic is applied,
-                                            the solvent continues to soften and weaken the adhesive. Beware on panel
-                                            edges and recesses, where the adhesive is weakened and no longer able to
-                                            adhere, causing the film to ‘pop’ from the recess.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4 style="color: #eee">How should I post heat?</h4>
-                                        <p align="justify" style="color: #bbb">Post heating must be done after each
-                                            panel is completed using a digital thermometer for accurate
-                                            temperatures. Always remove the heat gun from the area you’re measuring,
-                                            heat and measure every 3-4 inches referring to product bulletins for
-                                            recommended temperatures. Use a small channel roller in the
-                                            recesses.</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4 style="color: #eee">Why should I post heat?</h4>
-                                        <p align="justify" style="color: #bbb;">Post heating speeds up the process
-                                            of adhesive flow and helps reach maximum adhesive bond over a short
-                                            amount of time. Post heating removes the film memory. If you do not post
-                                            heat correctly this will cause the film to pop from a recess</p>
                                     </div>
                                 </div>
                             </div>
@@ -333,7 +314,7 @@
     </div>
 
     <section class="features-3">
-        <h2>Benchmark <strong>Test Results</strong></h2>
+        <h2 data-aos="fade-down">Benchmark <strong>Test Results</strong></h2>
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
@@ -359,6 +340,50 @@
                 </div>
                 <div class="col-md-5">
                     <img data-aos="fade-left" src="{{asset('images/home/installer.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-3">
+        <h2 data-aos="fade-down">Hints & <strong>Tips</strong></h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 data-aos="fade-right">How should I outgas?</h3>
+                    <p data-aos="fade-down" align="justify">Outgassing is the process of removing
+                        solvents from the printed graphic. Prior to lamination, prints should be
+                        left at 23°C, for a minimum of 48 Hours. Images with dense colours may
+                        need more time. There should be a constant flow of air over the graphics
+                        to ensure the solvent is moved away from the face. As solvent is heavier
+                        than air, it will not move unless aided from airflow.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3 data-aos="fade-left">Why should I outgas?</h3>
+                    <p data-aos="fade-down" align="justify">Solvents still within the prints
+                        will cause the film to feel tacky when applying. Solvents soften the
+                        adhesive, removing any adhesive benefits. Once the graphic is applied,
+                        the solvent continues to soften and weaken the adhesive. Beware on panel
+                        edges and recesses, where the adhesive is weakened and no longer able to
+                        adhere, causing the film to ‘pop’ from the recess.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 data-aos="fade-right">How should I post heat?</h3>
+                    <p data-aos="fade-down" align="justify">Post heating must be done after each
+                        panel is completed using a digital thermometer for accurate
+                        temperatures. Always remove the heat gun from the area you’re measuring,
+                        heat and measure every 3-4 inches referring to product bulletins for
+                        recommended temperatures. Use a small channel roller in the
+                        recesses.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3 data-aos="fade-left">Why should I post heat?</h3>
+                    <p data-aos="fade-down" align="justify">Post heating speeds up the process
+                        of adhesive flow and helps reach maximum adhesive bond over a short
+                        amount of time. Post heating removes the film memory. If you do not post
+                        heat correctly this will cause the film to pop from a recess</p>
                 </div>
             </div>
         </div>
