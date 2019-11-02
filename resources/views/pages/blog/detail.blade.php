@@ -210,8 +210,7 @@
                     <div class="sidebar">
                         <div class="widget widget_search">
                             <form id="form-search" class="search-form input-group" action="{{route('show.blog')}}">
-                                <input id="keyword" type="text" name="q" class="form-control" autocomplete="off"
-                                       placeholder="Search&hellip;" required>
+                                <input type="text" name="q" class="form-control" placeholder="Search&hellip;" required>
                                 <span class="input-group-btn">
                                     <button class="btn btn-dark-red" type="submit"><i class="fa fa-search"></i></button>
                                 </span>
@@ -246,7 +245,6 @@
     </div>
 @endsection
 @push('scripts')
-    <script src="{{asset('vendor/jquery-ui/jquery-ui.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/lib/picturefill.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
@@ -289,24 +287,6 @@
                     @endforeach
                 ]
             });
-        });
-
-        $("#keyword").autocomplete({
-            source: function (request, response) {
-                $.getJSON('{{route('get.title.blog', ['title' => ''])}}/' + $("#keyword").val(), {
-                    name: request.term,
-                }, function (data) {
-                    response(data);
-                });
-            },
-            focus: function (event, ui) {
-                event.preventDefault();
-            },
-            select: function (event, ui) {
-                event.preventDefault();
-                $("#keyword").val(ui.item.title);
-                $("#form-search")[0].submit();
-            }
         });
 
         function shareBlog(url) {
