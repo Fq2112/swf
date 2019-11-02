@@ -228,7 +228,7 @@
                     <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The Avery Dennison
                         Supreme Wrap&trade; Care range is designed to help maintain vehicle graphics in premium
                         condition. It includes a Cleaner, Power Cleaner and Sealant – suitable for all types of vehicle
-                        wrap films (matt, satin and gloss).</p>
+                        wrap films (matte, satin and gloss).</p>
                     <p data-aos="fade-down" align="justify" style="color: #bbb">These easy to use products have been
                         fully tested with all Avery Dennison vehicle graphic films, and are all you need to protect and
                         clean the graphics during their life. They are eco-responsible: being water-based, with no
@@ -266,7 +266,7 @@
                             non-abrasive detergent such as VION Car Care Cleaner and a soft, clean cloth or sponge.
                         </li>
                         <li data-aos="fade-down">Rinse thoroughly with clean water. To reduce water spotting,
-                            immediately use a silicone squeegee to remove water and finish with a clean microfibre
+                            immediately use a silicone squeegee to remove water and finish with a clean microfiber
                             cloth.
                         </li>
                     </ul>
@@ -322,7 +322,7 @@
                         <li data-aos="fade-down">Before use, test and approve in an inconspicuous area. Do not use any
                             abrasive polishes or cutting compounds.
                         </li>
-                        <li data-aos="fade-down">3M do not recommend any polishing or wax product for the matt or
+                        <li data-aos="fade-down">3M do not recommend any polishing or wax product for the matte or
                             textured films.
                         </li>
                     </ul>
@@ -337,7 +337,7 @@
                             pollutants (a common problem in many large metropolitan areas).
                         </li>
                         <li data-aos="fade-down">When a garage is not available, consider using a cloth car cover at
-                            night. If your graphics start to discolour or turn brown (which is caused by acidic
+                            night. If your graphics start to discolor or turn brown (which is caused by acidic
                             pollution), immediately remove the graphics from the vehicle to avoid staining the
                             underlying paint.
                         </li>

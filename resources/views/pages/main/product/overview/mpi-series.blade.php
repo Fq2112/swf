@@ -248,11 +248,11 @@
                                         <h4 style="color: #bbb">Recommended Overlaminate</h4>
                                         <ul align="justify" style="margin-left: 1em">
                                             <li>DOL 1000 Gloss</li>
-                                            <li>DOL 1100 Matt</li>
+                                            <li>DOL 1100 Matte</li>
                                             <li>DOL 1460 Gloss</li>
-                                            <li>DOL 1480 Matt</li>
+                                            <li>DOL 1480 Matte</li>
                                             <li>DOL 1460 Z Gloss</li>
-                                            <li>DOL 1480 Z Matt</li>
+                                            <li>DOL 1480 Z Matte</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-9">
@@ -307,15 +307,15 @@
                     </blockquote>
                     <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The ultimate
                         wrapping solution - new MPI 1105 Wrapping series films bring new levels of printability,
-                        image quality and 3D conformability to vehicle wraps. Outstanding colour 'pop' and an
+                        image quality and 3D conformability to vehicle wraps. Outstanding color 'pop' and an
                         ability to cope easily with challenges such as rivets and corrugations make MPI 1105 the
                         product of choice across many different applications.</p>
                     <p data-aos="fade-down" align="justify" style="color: #bbb">With best-in-class 3D
                         conformability, MPI 1105 uses Easy Apply RS technology to ensure the same application speed
                         and convenience as Avery Dennison® Supreme Wrapping Film. That means endless creative
                         possibilities for the most demanding private vehicle and commercial fleet wraps. To protect
-                        MPI 1105 series and enhance both colours and durability, we recommend using it in
-                        combination with DOL 1460 Z Gloss and DOL 1480 Z Matt overlaminates.</p>
+                        MPI 1105 series and enhance both colors and durability, we recommend using it in
+                        combination with DOL 1460 Z Gloss and DOL 1480 Z Matte overlaminates.</p>
                 </div>
             </div>
 
@@ -369,7 +369,7 @@
                     <ul align="justify">
                         <li data-aos="fade-down">Outgassing is the process of removing
                             solvents from the printed graphic. Prior to lamination, prints should be
-                            left at 23°C, for a minimum of 48 Hours. Images with dense colours may
+                            left at 23°C, for a minimum of 48 Hours. Images with dense colors may
                             need more time. There should be a constant flow of air over the graphics
                             to ensure the solvent is moved away from the face. As solvent is heavier
                             than air, it will not move unless aided from airflow.

@@ -172,7 +172,8 @@
                                     <li>UV, temperature, humidity, and salt-spray resistance.</li>
                                     <li>Very high gloss semi-conformable film.</li>
                                     <li>Suitable for flat, concave and convex surfaces.</li>
-                                    <li>Features Easy ApplyTM, repositionability and slideability adhesive technology
+                                    <li>Features Easy Apply&trade;, repositionability and slideability adhesive
+                                        technology
                                         with long term removability.
                                     </li>
                                     <li>Available in 1220mm width and variable roll lengths.</li>
@@ -193,9 +194,9 @@
                                  aria-labelledby="cc-tab" style="border: none">
                                 <div id="ig-feed" class="owl-carousel">
                                     <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc/001.png')}}"
+                                         data-src="{{asset('images/product-overview/colors/cc-001.png')}}"
                                          data-sub-html="<h4>CC 001</h4><p style='color: #fff;'>Conform Chrome Silver</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc/001.png')}}" alt="CC 001">
+                                        <img src="{{asset('images/product-overview/colors/cc-001.png')}}" alt="CC 001">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
                                                 <h4>CC 001</h4>
@@ -203,9 +204,9 @@
                                         </div>
                                     </div>
                                     <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc/002.png')}}"
+                                         data-src="{{asset('images/product-overview/colors/cc-002.png')}}"
                                          data-sub-html="<h4>CC 002</h4><p style='color: #fff;'>Conform Chrome Black</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc/002.png')}}" alt="CC 002">
+                                        <img src="{{asset('images/product-overview/colors/cc-002.png')}}" alt="CC 002">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
                                                 <h4>CC 002</h4>
@@ -213,9 +214,9 @@
                                         </div>
                                     </div>
                                     <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc/003.png')}}"
+                                         data-src="{{asset('images/product-overview/colors/cc-003.png')}}"
                                          data-sub-html="<h4>CC 003</h4><p style='color: #fff;'>Conform Chrome Blue</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc/003.png')}}" alt="CC 003">
+                                        <img src="{{asset('images/product-overview/colors/cc-003.png')}}" alt="CC 003">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
                                                 <h4>CC 003</h4>
@@ -223,9 +224,9 @@
                                         </div>
                                     </div>
                                     <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc/004.png')}}"
+                                         data-src="{{asset('images/product-overview/colors/cc-004.png')}}"
                                          data-sub-html="<h4>CC 004</h4><p style='color: #fff;'>Conform Chrome Red</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc/004.png')}}" alt="CC 004">
+                                        <img src="{{asset('images/product-overview/colors/cc-004.png')}}" alt="CC 004">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
                                                 <h4>CC 004</h4>
@@ -233,9 +234,9 @@
                                         </div>
                                     </div>
                                     <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc/005.png')}}"
+                                         data-src="{{asset('images/product-overview/colors/cc-005.png')}}"
                                          data-sub-html="<h4>CC 005</h4><p style='color: #fff;'>Conform Chrome Gold</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc/005.png')}}" alt="CC 005">
+                                        <img src="{{asset('images/product-overview/colors/cc-005.png')}}" alt="CC 005">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
                                                 <h4>CC 005</h4>
@@ -243,9 +244,9 @@
                                         </div>
                                     </div>
                                     <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc/006.png')}}"
-                                         data-sub-html="<h4>CC 006</h4><p style='color: #fff;'>Conform Chrome Matt Silver</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc/006.png')}}" alt="CC 006">
+                                         data-src="{{asset('images/product-overview/colors/cc-006.png')}}"
+                                         data-sub-html="<h4>CC 006</h4><p style='color: #fff;'>Conform Chrome Matte Silver</p>">
+                                        <img src="{{asset('images/product-overview/colors/cc-006.png')}}" alt="CC 006">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
                                                 <h4>CC 006</h4>
@@ -253,9 +254,9 @@
                                         </div>
                                     </div>
                                     <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc/007.png')}}"
+                                         data-src="{{asset('images/product-overview/colors/cc-007.png')}}"
                                          data-sub-html="<h4>CC 007</h4><p style='color: #fff;'>Conform Chrome Violet</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc/007.png')}}" alt="CC 007">
+                                        <img src="{{asset('images/product-overview/colors/cc-007.png')}}" alt="CC 007">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
                                                 <h4>CC 007</h4>
@@ -263,9 +264,9 @@
                                         </div>
                                     </div>
                                     <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc/008.png')}}"
+                                         data-src="{{asset('images/product-overview/colors/cc-008.png')}}"
                                          data-sub-html="<h4>CC 008</h4><p style='color: #fff;'>Conform Chrome Rose Gold</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc/008.png')}}" alt="CC 008">
+                                        <img src="{{asset('images/product-overview/colors/cc-008.png')}}" alt="CC 008">
                                         <div class="custom-overlay">
                                             <div class="custom-text">
                                                 <h4>CC 008</h4>
