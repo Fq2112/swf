@@ -145,23 +145,16 @@
             <p>Feel free to get in touch with our certified installers! We've been set up a network of approved
                 installers with a high-performance and responsive service.</p>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.installers')}}"><i class="fa fa-tools"></i></a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Installers</a></li>
-        </ul>
     </div>
 
     <section class="no-padding">
         <div class="row">
             <div class="col-lg-6">
-                <div data-aos="fade-right" id="map" style="width: 100%;height: 600px"></div>
-                <input data-aos="zoom-out" data-aos-delay="100" id="pac-input" class="form-control"
+                <div data-aos="fade-down" id="map" style="width: 100%;height: 600px"></div>
+                <input data-aos="fade-down" data-aos-delay="100" id="pac-input" class="form-control"
                        type="text" placeholder="Enter your location">
             </div>
-            <div data-aos="fade-left" class="col-lg-6">
+            <div data-aos="fade-down" class="col-lg-6">
                 <div class="ajax-loader">
                     <div class="preloader4"></div>
                 </div>
@@ -282,13 +275,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="call-action">
-                        <div data-aos="fade-right" class="text">
+                        <div data-aos="fade-down" class="text">
                             <p>Do you want to be a <strong class="strong-red">certified installer?</strong> To integrate
                                 the certified installers network, we will evaluate your technical skills and knowledge.
                             </p>
                         </div>
-                        <a data-aos="fade-left" href="javascript:void(0)" data-toggle="modal" data-target="#certModal"
-                           class="btn btn-dark-red ld ld-breath">APPLY NOW</a>
+                        <a data-aos="fade-down" href="javascript:void(0)" data-toggle="modal" data-target="#certModal"
+                           class="btn btn-dark-red">APPLY NOW</a>
                         <div class="modal dark fade" id="certModal" tabindex="-1" role="dialog"
                              aria-labelledby="certModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" style="width: 40%" role="document">
@@ -645,9 +638,6 @@
                 $("#form-contact-installer input[name='ins_email']").val('{{$ins->email}}');
                 $("#map").css('height', map_height_form);
                 $('html,body').animate({scrollTop: $("#ins-contacts").parent().offset().top}, 500);
-                setTimeout(function () {
-                    $('.use-nicescroll, .nicescroll').getNiceScroll().resize()
-                }, 600);
             }
         })(marker, i));
 
@@ -864,9 +854,6 @@
 
             $("#map").css('height', map_height_form);
             $('html,body').animate({scrollTop: $("#ins-contacts").parent().offset().top}, 500);
-            setTimeout(function () {
-                $('.use-nicescroll, .nicescroll').getNiceScroll().resize()
-            }, 600);
         }
 
         $("#form-contact-installer .close").on('click', function () {
@@ -880,9 +867,6 @@
 
             $("#map").css('height', map_height);
             $('html,body').animate({scrollTop: $("#ins-contacts").parent().offset().top}, 500);
-            setTimeout(function () {
-                $('.use-nicescroll, .nicescroll').getNiceScroll().resize()
-            }, 600);
         });
 
         function goToAnchor() {

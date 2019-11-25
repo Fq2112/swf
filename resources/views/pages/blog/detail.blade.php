@@ -91,15 +91,6 @@
         <div class="page-title">
             <h2>Our Blog</h2>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
-            <li><a href="{{route('show.blog')}}"><i class="fa fa-angle-double-right"></i> Blog</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> {{$blog->getBlogCategory
-            ->name}}</a></li>
-        </ul>
     </div>
 
     <div class="page-content page-sidebar">
@@ -110,7 +101,7 @@
                         <div class="blog-list single-post">
                             <article class="item-post">
                                 @if($blog->getBlogGallery->count() > 0)
-                                    <div data-aos="zoom-out" class="content-area">
+                                    <div data-aos="fade-down" class="content-area">
                                         <img src="{{asset('storage/blog/thumbnail/'.$blog->thumbnail)}}"
                                              class="img-responsive" alt="Thumbnail">
                                         <div class="custom-overlay">
@@ -130,12 +121,12 @@
                                         </div>
                                     </div>
                                 @else
-                                    <img data-aos="zoom-out" src="{{asset('storage/blog/thumbnail/'.$blog->thumbnail)}}"
+                                    <img data-aos="fade-down" src="{{asset('storage/blog/thumbnail/'.$blog->thumbnail)}}"
                                          class="img-responsive" alt="Thumbnail">
                                 @endif
 
                                 <div class="post-content none-margin">
-                                    <h2 data-aos="fade-right">{{$blog->title}}</h2>
+                                    <h2 data-aos="fade-down">{{$blog->title}}</h2>
                                     <ul data-aos="fade-down">
                                         <li><i class="fa fa-user"></i> <b>by</b> <span><a href="{{route('detail.blog',
                                         ['author' => $user->username])}}">{{$user->username}}</a></span></li>
@@ -151,23 +142,23 @@
                                 </div>
 
                                 <div class="meta-single">
-                                    <h3 data-aos="fade-right"><i class="fa fa-share"></i> Share this post</h3>
+                                    <h3 data-aos="fade-down"><i class="fa fa-share"></i> Share this post</h3>
                                     <ul class="none-style">
-                                        <li data-aos="fade-up">
+                                        <li data-aos="fade-down">
                                             <a href="mailto:?subject={{$blog->title}}&body=Hi, I thought you'd like this: {{$uri}}">
                                                 <i class="fa fa-envelope email-color"></i></a></li>
-                                        <li data-aos="fade-up">
+                                        <li data-aos="fade-down">
                                             <a href="whatsapp://send?text=Hi, I thought you'd like this: {{$uri}}">
                                                 <i class="fab fa-whatsapp whatsapp-color"></i></a></li>
-                                        <li data-aos="fade-up">
+                                        <li data-aos="fade-down">
                                             <a href="https://facebook.com/sharer/sharer.php?u={{$uri}}"
                                                target="popup" onclick="shareBlog($(this).attr('href'))">
                                                 <i class="fab fa-facebook-f fb-color"></i></a></li>
-                                        <li data-aos="fade-up">
+                                        <li data-aos="fade-down">
                                             <a href="https://linkedin.com/shareArticle?mini=true&url={{$uri}}"
                                                target="popup" onclick="shareBlog($(this).attr('href'))">
                                                 <i class="fab fa-linkedin-in linkedin-color"></i></a></li>
-                                        <li data-aos="fade-up">
+                                        <li data-aos="fade-down">
                                             <a href="https://twitter.com/intent/tweet?text=Hi, I thought you'd like this: {{$uri}}"
                                                target="popup" onclick="shareBlog($(this).attr('href'))">
                                                 <i class="fab fa-twitter tw-color"></i></a></li>
@@ -176,7 +167,7 @@
 
                                 @if(count($relates) > 0)
                                     <div class="related-post default-owl">
-                                        <h4 data-aos="fade-right" class="title-block">RELATED POSTS</h4>
+                                        <h4 data-aos="fade-down" class="title-block">RELATED POSTS</h4>
                                         <div id="related-post">
                                             @foreach($relates as $post)
                                                 @php
@@ -185,7 +176,7 @@
                                                     'y' => $date->format('Y'), 'm' => $date->format('m'), 'd' => $date->format('d'),
                                                     'title' => $post->title_uri]);
                                                 @endphp
-                                                <div data-aos="zoom-out" class="tabs-post">
+                                                <div data-aos="fade-down" class="tabs-post">
                                                     <a class="thumb" href="{{$url}}">
                                                         <img src="{{asset('storage/blog/thumbnail/'.$post->thumbnail)}}"
                                                              alt="Thumbnail">
@@ -206,7 +197,7 @@
                     </div>
                 </div>
 
-                <div data-aos="fade-left" class="col-md-4 col-lg-3">
+                <div data-aos="fade-down" class="col-md-4 col-lg-3">
                     <div class="sidebar">
                         <div class="widget widget_search">
                             <form id="form-search" class="search-form input-group" action="{{route('show.blog')}}">

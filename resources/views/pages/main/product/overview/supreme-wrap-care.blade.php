@@ -106,25 +106,15 @@
             <h2>Our Product</h2>
             <p>Supreme Wrap&trade; Care, designed to keep Avery Dennison vehicle graphic films in peak condition.</p>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
-            <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
-            <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Supreme Wrap&trade; Care</a>
-            </li>
-        </ul>
     </div>
 
     <div class="page-content page-sidebar">
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
-                    <div data-aos="zoom-out" class="content-area">
+                <div class="col-md-12">
+                    <div data-aos="fade-down" class="content-area">
                         <img id="swc-switch" src="{{asset('images/product-overview/swc4.png')}}"
-                             class="img-responsive" alt="Supreme Wrap&trade; Care">
+                             class="img-responsive" alt="Supreme Wrap&trade; Care" width="65%">
                         <div class="custom-overlay">
                             <div class="custom-text">
                                 <svg id="play-supreme-wrap-care" class="play" version="1.1"
@@ -141,6 +131,39 @@
                             </div>
                         </div>
                     </div>
+                    <h4 data-aos="fade-down" style="color: #eee">New Avery Dennison® Supreme Wrap&trade; Care</h4>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Vehicle wraps have
+                        to deal with a whole range of tough challenges on the road.</p>
+                    <blockquote data-aos="fade-down" style="text-align: justify">The premium finish made possible by
+                        Avery Dennison vehicle graphic films deserves the very best in after care - if it looks great,
+                        it should stay great.
+                    </blockquote>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The Avery Dennison
+                        Supreme Wrap&trade; Care range is designed to help maintain vehicle graphics in premium
+                        condition. It includes a Cleaner, Power Cleaner and Sealant – suitable for all types of vehicle
+                        wrap films (matte, satin and gloss).</p>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb">These easy to use products have been
+                        fully tested with all Avery Dennison vehicle graphic films, and are all you need to protect and
+                        clean the graphics during their life. They are eco-responsible: being water-based, with no
+                        hazardous solvents, and do not require any additional water.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- stellar parallax -->
+    <section class="stellar-parallax no-padding">
+        <div class="third" data-stellar-background-ratio="0.5" style="background-image: url({{asset('images/stellar-parallax/swf-care.jpg')}});">
+            <div class="stellar-overlay"></div>
+            <h1>SUPREME WRAP<span style="color: #e31b23">&trade;</span> CARE<br><sub>The premium finish made possible by Avery Dennison vehicle graphic films deserves the very best in after care - if it looks great, it should stay great.</sub>
+            </h1>
+        </div>
+    </section>
+
+    <div class="page-content page-sidebar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
                     <div data-aos="fade-down" class="bs-example bs-example-tabs" role="tabpanel"
                          data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
@@ -217,28 +240,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
-                    <h4 data-aos="fade-left" style="color: #eee">New Avery Dennison® Supreme Wrap&trade; Care</h4>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Vehicle wraps have
-                        to deal with a whole range of tough challenges on the road.</p>
-                    <blockquote data-aos="fade-left" style="text-align: justify">The premium finish made possible by
-                        Avery Dennison vehicle graphic films deserves the very best in after care - if it looks great,
-                        it should stay great.
-                    </blockquote>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The Avery Dennison
-                        Supreme Wrap&trade; Care range is designed to help maintain vehicle graphics in premium
-                        condition. It includes a Cleaner, Power Cleaner and Sealant – suitable for all types of vehicle
-                        wrap films (matte, satin and gloss).</p>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb">These easy to use products have been
-                        fully tested with all Avery Dennison vehicle graphic films, and are all you need to protect and
-                        clean the graphics during their life. They are eco-responsible: being water-based, with no
-                        hazardous solvents, and do not require any additional water.</p>
-                </div>
             </div>
 
-            <div data-aos="fade-up" class="row text-center" style="padding: 0 0 3em 0;">
+            <div data-aos="fade-down" class="row text-center" style="padding: 0 0 6em 0;">
                 <div class="col-lg-12">
-                    <a href="{{route('show.gallery')}}" class="btn btn-dark-red ld ld-breath">
+                    <a href="{{route('show.gallery')}}" class="btn btn-dark-red">
                         <b><i class="fa fa-photo-video"></i>&ensp;MORE VIDEOS</b></a>
                 </div>
             </div>
@@ -250,14 +256,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 data-aos="fade-right" style="color: #eee">Caring for Your Vehicle Graphics</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Caring for Your Vehicle Graphics</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Care for your vehicle graphics like you would any fine paint finish.
                             Using high quality products designed specifically for car care, these cleaning and
                             maintenance procedures will help keep your vehicle graphics looking their best.
                         </li>
                     </ul>
-                    <h4 data-aos="fade-right" style="color: #eee">Wash regularly</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Wash regularly</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Wash whenever the car appears dirty. Contaminants allowed to remain on
                             the graphic may be more difficult to remove during cleaning.
@@ -270,14 +276,14 @@
                             cloth.
                         </li>
                     </ul>
-                    <h4 data-aos="fade-right" style="color: #eee">Automated car washes</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Automated car washes</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Brush-type car washes are not recommended as they can abrade the film
                             and cause edges to lift or chip, as well as dulling the film’s appearance. Brushless car
                             washes are acceptable.
                         </li>
                     </ul>
-                    <h4 data-aos="fade-right" style="color: #eee">Pressure washing</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Pressure washing</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Although hand washing is the preferred cleaning method, pressure
                             washing may be used, providing these conditions are strictly followed:
@@ -295,7 +301,7 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <h4 data-aos="fade-right" style="color: #eee">Difficult contaminants</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Difficult contaminants</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Soften difficult contaminants such as bug splatter, bird droppings,
                             tree sap and similar contaminants by soaking them for several minutes with very hot, soapy
@@ -308,13 +314,13 @@
                             film. Wash and rinse off all residue immediately.
                         </li>
                     </ul>
-                    <h4 data-aos="fade-right" style="color: #eee">Fuel spills</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Fuel spills</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Wipe off immediately to avoid degrading the vinyl and adhesive. Then
                             wash, rinse and dry as soon as possible.
                         </li>
                     </ul>
-                    <h4 data-aos="fade-right" style="color: #eee">Polish and wax</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Polish and wax</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Most standard graphic films and overlaminates can be polished or waxed
                             with a high quality car wax.
@@ -326,7 +332,7 @@
                             textured films.
                         </li>
                     </ul>
-                    <h4 data-aos="fade-right" style="color: #eee">Store indoors or under cover whenever possible</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Store indoors or under cover whenever possible</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Vinyl graphics (just like paint) are degraded by prolonged exposure to
                             sun and atmospheric pollutants, particularly on the horizontal surfaces such as bonnet, boot
@@ -352,6 +358,11 @@
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
     <script>
+        $(function () {
+            $("#kf-tab").click();
+            $("#po-tab").click();
+        });
+
         var $img = $(".supreme-wrap-care"),
             images = ['supreme-wrap-care1.jpg', 'supreme-wrap-care2.jpg', 'supreme-wrap-care3.jpg'],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
@@ -425,9 +436,5 @@
                     }]
             });
         });
-
-        function goToAnchor() {
-            $('html,body').animate({scrollTop: $(".page-content").offset().top}, 500);
-        }
     </script>
 @endpush

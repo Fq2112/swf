@@ -54,24 +54,16 @@
         <div class="page-title">
             <h2>Blog Author</h2>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
-            <li><a href="{{route('show.blog')}}"><i class="fa fa-angle-double-right"></i> Blog</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Author</a></li>
-        </ul>
     </div>
 
     <div class="page-content page-sidebar">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <img data-aos="zoom-out" class="img-thumbnail" alt="Avatar" src="{{$user->ava == "" ?
+                    <img data-aos="fade-down" class="img-thumbnail" alt="Avatar" src="{{$user->ava == "" ?
                     asset('admins/img/avatar/avatar-'.rand(1,5).'.png') : asset('storage/admins/ava/'.$user->ava)}}"
                          style="width:15%;border-radius: 100%;float: left;margin: 0 1.5em 1.5em 0">
-                    <h3 data-aos="fade-right" style="color: #eee">{{$user->name}}</h3>
+                    <h3 data-aos="fade-down" style="color: #eee">{{$user->name}}</h3>
                     <h4 data-aos="fade-down" class="author">
                         <a href="{{route('detail.blog', ['author' => $user->username])}}">{{$user
                         ->username}}</a>&ensp;<span data-toggle="tooltip" data-placement="bottom" title="TOTAL POST">
@@ -84,7 +76,7 @@
                         <p data-aos="fade-down" align="justify" style="font-size: 15px"><em>The author hasn't written
                                 anything yet&hellip;</em></p>
                     @endif
-                    <ul data-aos="fade-up" class="social-media-2 auth">
+                    <ul data-aos="fade-down" class="social-media-2 auth">
                         <li><a href="mailto:{{$user->email}}">
                                 <i class="fa fa-envelope"></i></a></li>
                         <li><a href="{{$user->facebook != "" ? 'https://fb.com/'.$user->facebook : '#'}}"
@@ -103,7 +95,7 @@
             <div data-aos="fade-down" class="row">
                 <div class="col-lg-12">
                     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                        <ul data-aos="zoom-in-up" id="myTab" class="nav nav-tabs nav-tabs-responsive"
+                        <ul data-aos="fade-down" id="myTab" class="nav nav-tabs nav-tabs-responsive"
                             role="tablist">
                             <li role="presentation" class="active">
                                 <a class="nav-item nav-link" href="#latest" id="latest-tab" role="tab"
@@ -127,7 +119,7 @@
                                             'y' => $date->format('Y'), 'm' => $date->format('m'), 'd' => $date->format('d'),
                                             'title' => $row->title_uri]);
                                         @endphp
-                                        <div data-aos="zoom-out" class="blog-item">
+                                        <div data-aos="fade-down" class="blog-item">
                                             <a href="{{$url}}">
                                                 <div class="icon">
                                                     <img src="{{asset('storage/blog/thumbnail/'.$row->thumbnail)}}"

@@ -96,7 +96,7 @@
     <a href="{{route('home')}}">Redirect me to the Home Page!</a>
 @endif
 <!-- jquery -->
-<script src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('vendor/checkMobileDevice.js')}}"></script>
 <!-- Nicescroll -->
 <script src="{{asset('vendor/nicescroll/jquery.nicescroll.js')}}"></script>

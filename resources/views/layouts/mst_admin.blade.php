@@ -168,7 +168,7 @@
 @stack('scripts')
 
 <!-- Template JS File -->
-<script src="{{asset('admins/js/scripts.js')}}"></script>
+<script src="{{asset('admins/js/main.js')}}"></script>
 <script src="{{asset('admins/js/custom.js')}}"></script>
 <script>
     @if(session('signed'))

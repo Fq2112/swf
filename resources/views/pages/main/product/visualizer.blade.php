@@ -139,20 +139,15 @@
                 over 120 different colors, your creativity and options are endless with Supreme Wrapping Film and
                 Conform Chrome Series products.</p>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Visualizer</a></li>
-        </ul>
     </div>
 
-    <section class="avd no-padding">
-        <div class="frame-pureweb">
-            <iframe data-aos="zoom-out" class="purewebIframe"
-                    src="https://reality.pureweb.io/?name=adocv2gnp4e24f&amp;minSize=1080p&amp;maxSize=1080p"
-                    width="100%" scrolling="no" frameborder="0" allowfullscreen="{true}"></iframe>
+    <section class="block-section-4">
+        <div class="container avd">
+            <div class="frame-pureweb">
+                <iframe data-aos="fade-down" class="purewebIframe"
+                        src="https://reality.pureweb.io/?name=adocv2gnp4e24f&amp;minSize=1080p&amp;maxSize=1080p"
+                        width="100%" scrolling="no" frameborder="0" allowfullscreen="{true}"></iframe>
+            </div>
         </div>
     </section>
 
@@ -161,13 +156,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="call-action">
-                        <div data-aos="fade-right" class="text">
+                        <div data-aos="fade-down" class="text">
                             <p align="justify"><strong class="strong-red">Avery Dennison</strong> doesn't recommend the
                                 use of <b>Conform Chrome</b> for full car wraps or covering vehicle proximity sensors.
                                 Are you interested in wrapping your vehicle?</p>
                         </div>
-                        <a data-aos="fade-left" href="{{route('show.installers')}}"
-                           class="btn btn-dark-red ld ld-breath">FIND AN INSTALLER</a>
+                        <a data-aos="fade-down" href="{{route('show.installers')}}" class="btn btn-dark-red">
+                            FIND AN INSTALLER</a>
                     </div>
                 </div>
             </div>

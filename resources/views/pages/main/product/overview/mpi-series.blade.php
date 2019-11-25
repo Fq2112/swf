@@ -106,24 +106,15 @@
             <h2>Our Product</h2>
             <p>MPI&trade; SERIES, films for digital prints.</p>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
-            <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
-            <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> MPI&trade; SERIES</a></li>
-        </ul>
     </div>
 
     <div class="page-content page-sidebar">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <div data-aos="zoom-out" class="content-area">
+                <div class="col-md-12">
+                    <div data-aos="fade-down" class="content-area">
                         <img id="mpi-switch" src="{{asset('images/home/about.png')}}" class="img-responsive"
-                             alt="MPI&trade; SERIES">
+                             alt="MPI&trade; SERIES" width="65%">
                         <div class="custom-overlay">
                             <div class="custom-text">
                                 <svg id="play-mpi-series" class="play" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -139,6 +130,43 @@
                             </div>
                         </div>
                     </div>
+                    <h4 data-aos="fade-down" style="color: #eee">Avery Dennison® MPI&trade; 1105 Series</h4>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Avery Dennison has
+                        launched MPI 1105, the next generation of digital Supercast wrapping films for all vehicle and
+                        outdoor graphics needs. Ensure each job is completed on time with reliable, high-quality print
+                        performance across all digital platforms: latex, solvent, eco-solvent and UV.</p>
+                    <blockquote data-aos="fade-down">Supreme 3D conformability, stunning
+                        printability, and reliable performance.
+                    </blockquote>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The ultimate
+                        wrapping solution - new MPI 1105 Wrapping series films bring new levels of printability,
+                        image quality and 3D conformability to vehicle wraps. Outstanding color 'pop' and an
+                        ability to cope easily with challenges such as rivets and corrugations make MPI 1105 the
+                        product of choice across many different applications.</p>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb">With best-in-class 3D
+                        conformability, MPI 1105 uses Easy Apply RS technology to ensure the same application speed
+                        and convenience as Avery Dennison® Supreme Wrapping Film. That means endless creative
+                        possibilities for the most demanding private vehicle and commercial fleet wraps. To protect
+                        MPI 1105 series and enhance both colors and durability, we recommend using it in
+                        combination with DOL 1460 Z Gloss and DOL 1480 Z Matte overlaminates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- stellar parallax -->
+    <section class="stellar-parallax no-padding">
+        <div class="third" data-stellar-background-ratio="0.5" style="background-image: url({{asset('images/stellar-parallax/mpi-1105-series.jpg')}});">
+            <div class="stellar-overlay"></div>
+            <h1>MPI<span style="color: #e31b23">&trade;</span> SERIES<br><sub>Supreme 3D conformability, stunning printability, and reliable performance.</sub>
+            </h1>
+        </div>
+    </section>
+
+    <div class="page-content page-sidebar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
                     <div data-aos="fade-down" class="bs-example bs-example-tabs" role="tabpanel"
                          data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
@@ -209,42 +237,19 @@
                             <div role="tabpanel" class="tab-pane fade" id="cc"
                                  aria-labelledby="cc-tab" style="border: none">
                                 <table>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1104</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White Repositionable</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1104 EA</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White Repositionable Easy Apply&trade;</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1105</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1105 EA RS</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White Easy Apply&trade;</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">&nbsp;</th>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>Repositionable Slideable</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #E31B23">MPI 1106 Hi-tack EA</th>
-                                        <td>&nbsp;:&nbsp;</td>
-                                        <td>Gloss White Hi-tack Easy Apply&trade;</td>
-                                    </tr>
+                                    @foreach($data as $color)
+                                        <tr>
+                                            <th style="color: #E31B23">{{$color->code}}</th>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td>{{$color->name}}</td>
+                                        </tr>
+                                    @endforeach
                                 </table>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="ta"
                                  aria-labelledby="ta-tab" style="border: none">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <h4 style="color: #bbb">Recommended Overlaminate</h4>
                                         <ul align="justify" style="margin-left: 1em">
                                             <li>DOL 1000 Gloss</li>
@@ -255,7 +260,7 @@
                                             <li>DOL 1480 Z Matte</li>
                                         </ul>
                                     </div>
-                                    <div class="col-md-9">
+                                    <div class="col-md-8">
                                         <h4 style="color: #bbb">Recommended Uses</h4>
                                         <ul align="justify" style="margin-left: 1em">
                                             <li>Partial and full wraps on private vehicles</li>
@@ -296,32 +301,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <h4 data-aos="fade-left" style="color: #eee">Avery Dennison® MPI&trade; 1105 Series</h4>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Avery Dennison has
-                        launched MPI 1105, the next generation of digital Supercast wrapping films for all vehicle and
-                        outdoor graphics needs. Ensure each job is completed on time with reliable, high-quality print
-                        performance across all digital platforms: latex, solvent, eco-solvent and UV.</p>
-                    <blockquote data-aos="fade-left">Supreme 3D conformability, stunning
-                        printability, and reliable performance.
-                    </blockquote>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">The ultimate
-                        wrapping solution - new MPI 1105 Wrapping series films bring new levels of printability,
-                        image quality and 3D conformability to vehicle wraps. Outstanding color 'pop' and an
-                        ability to cope easily with challenges such as rivets and corrugations make MPI 1105 the
-                        product of choice across many different applications.</p>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb">With best-in-class 3D
-                        conformability, MPI 1105 uses Easy Apply RS technology to ensure the same application speed
-                        and convenience as Avery Dennison® Supreme Wrapping Film. That means endless creative
-                        possibilities for the most demanding private vehicle and commercial fleet wraps. To protect
-                        MPI 1105 series and enhance both colors and durability, we recommend using it in
-                        combination with DOL 1460 Z Gloss and DOL 1480 Z Matte overlaminates.</p>
-                </div>
             </div>
 
-            <div data-aos="fade-up" class="row text-center" style="padding: 0 0 3em 0;">
+            <div data-aos="fade-down" class="row text-center" style="padding: 0 0 6em 0;">
                 <div class="col-lg-12">
-                    <a href="{{route('show.gallery')}}" class="btn btn-dark-red ld ld-breath">
+                    <a href="{{route('show.gallery')}}" class="btn btn-dark-red">
                         <b><i class="fa fa-photo-video"></i>&ensp;MORE VIDEOS</b></a>
                 </div>
             </div>
@@ -333,28 +317,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <h3 data-aos="fade-right">Avery Dennison® MPI&trade; 1105 EA RS</h3>
-                    <p data-aos="fade-right" align="justify"><strong>8</strong> digitally printable vehicle wrapping
+                    <h3 data-aos="fade-down">Avery Dennison® MPI&trade; 1105 EA RS</h3>
+                    <p data-aos="fade-down" align="justify"><strong>8</strong> digitally printable vehicle wrapping
                         films produced by major media manufactures and <strong>4</strong> independent applicators.</p>
                     <p data-aos="fade-down" align="justify" class="text">Media chosen for this benchmark was consisting
                         of EA RS equivalents <sub>(RS if available)</sub> in the market and rated for conformability,
                         slideability, etc.</p>
                 </div>
                 <div class="col-md-7">
-                    <h3 data-aos="fade-left">Peak Performance</h3>
-                    <p data-aos="fade-left" align="justify">The Independent Test Results</p>
-                    <img data-aos="zoom-out" src="{{asset('images/product-overview/mpi-bm1.png')}}" alt="">
+                    <h3 data-aos="fade-down">Peak Performance</h3>
+                    <p data-aos="fade-down" align="justify">The Independent Test Results</p>
+                    <img data-aos="fade-down" src="{{asset('images/product-overview/mpi-bm1.png')}}" alt="">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-7">
-                    <h3 data-aos="fade-right">TOP 5</h3>
-                    <p data-aos="fade-right" align="justify">Overall Performance</p>
-                    <img data-aos="zoom-out" src="{{asset('images/product-overview/mpi-bm2.png')}}" alt=""
+                    <h3 data-aos="fade-down">TOP 5</h3>
+                    <p data-aos="fade-down" align="justify">Overall Performance</p>
+                    <img data-aos="fade-down" src="{{asset('images/product-overview/mpi-bm2.png')}}" alt=""
                          style="margin-top: -6em">
                 </div>
                 <div class="col-md-5">
-                    <img data-aos="fade-left" src="{{asset('images/home/installer.png')}}" alt="">
+                    <img data-aos="fade-down" src="{{asset('images/home/installer.png')}}" alt="">
                 </div>
             </div>
         </div>
@@ -365,7 +349,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 data-aos="fade-right" style="color: #eee">How should I outgas?</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">How should I outgas?</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Outgassing is the process of removing
                             solvents from the printed graphic. Prior to lamination, prints should be
@@ -377,7 +361,7 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <h4 data-aos="fade-left" style="color: #eee">Why should I outgas?</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Why should I outgas?</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Solvents still within the prints
                             will cause the film to feel tacky when applying. Solvents soften the
@@ -391,7 +375,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h4 data-aos="fade-right" style="color: #eee">How should I post heat?</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">How should I post heat?</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Post heating must be done after each
                             panel is completed using a digital thermometer for accurate
@@ -403,7 +387,7 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <h4 data-aos="fade-left" style="color: #eee">Why should I post heat?</h4>
+                    <h4 data-aos="fade-down" style="color: #eee">Why should I post heat?</h4>
                     <ul align="justify">
                         <li data-aos="fade-down">Post heating speeds up the process
                             of adhesive flow and helps reach maximum adhesive bond over a short
@@ -421,6 +405,11 @@
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
     <script>
+        $(function () {
+            $("#kb-tab").click();
+            $("#kf-tab").click();
+        });
+
         var $img = $(".mpi-series"), images = ['mpi-series1.jpg', 'mpi-series2.jpg', 'mpi-series3.jpg'],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
                 var currentImage = images[index];
@@ -485,9 +474,5 @@
                     }]
             });
         });
-
-        function goToAnchor() {
-            $('html,body').animate({scrollTop: $(".page-content").offset().top}, 500);
-        }
     </script>
 @endpush

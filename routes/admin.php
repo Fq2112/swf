@@ -125,64 +125,6 @@ Route::group(['namespace' => 'Pages\Admins', 'prefix' => 'scott.royce', 'middlew
 
         });
 
-        Route::group(['prefix' => 'galleries', 'middleware' => 'root'], function () {
-
-            Route::get('/', [
-                'uses' => 'GalleriesController@showGalleriesTable',
-                'as' => 'table.galleries'
-            ]);
-
-            Route::post('create', [
-                'uses' => 'GalleriesController@createGalleries',
-                'as' => 'create.galleries'
-            ]);
-
-            Route::put('update', [
-                'uses' => 'GalleriesController@updateGalleries',
-                'as' => 'update.galleries'
-            ]);
-
-            Route::get('{id}/delete', [
-                'uses' => 'GalleriesController@deleteGalleries',
-                'as' => 'delete.galleries'
-            ]);
-
-            Route::post('deletes', [
-                'uses' => 'GalleriesController@massDeleteGalleries',
-                'as' => 'massDelete.galleries'
-            ]);
-
-        });
-
-        Route::group(['prefix' => 'installers', 'middleware' => 'root'], function () {
-
-            Route::get('/', [
-                'uses' => 'InstallersController@showInstallersTable',
-                'as' => 'table.installers'
-            ]);
-
-            Route::post('create', [
-                'uses' => 'InstallersController@createInstallers',
-                'as' => 'create.installers'
-            ]);
-
-            Route::put('update', [
-                'uses' => 'InstallersController@updateInstallers',
-                'as' => 'update.installers'
-            ]);
-
-            Route::get('{id}/delete', [
-                'uses' => 'InstallersController@deleteInstallers',
-                'as' => 'delete.installers'
-            ]);
-
-            Route::post('deletes', [
-                'uses' => 'InstallersController@massDeleteInstallers',
-                'as' => 'massDelete.installers'
-            ]);
-
-        });
-
         Route::group(['prefix' => 'blog', 'middleware' => 'admin'], function () {
 
             Route::group(['prefix' => 'categories'], function () {
@@ -276,6 +218,126 @@ Route::group(['namespace' => 'Pages\Admins', 'prefix' => 'scott.royce', 'middlew
                 });
 
             });
+
+        });
+
+        Route::group(['prefix' => 'color', 'middleware' => 'root'], function () {
+
+            Route::group(['prefix' => 'categories'], function () {
+
+                Route::get('/', [
+                    'uses' => 'ColorController@showColorCategoriesTable',
+                    'as' => 'table.color.categories'
+                ]);
+
+                Route::post('create', [
+                    'uses' => 'ColorController@createColorCategories',
+                    'as' => 'create.color.categories'
+                ]);
+
+                Route::put('update', [
+                    'uses' => 'ColorController@updateColorCategories',
+                    'as' => 'update.color.categories'
+                ]);
+
+                Route::get('{id}/delete', [
+                    'uses' => 'ColorController@deleteColorCategories',
+                    'as' => 'delete.color.categories'
+                ]);
+
+                Route::post('deletes', [
+                    'uses' => 'ColorController@massDeleteColorCategories',
+                    'as' => 'massDelete.color.categories'
+                ]);
+
+            });
+
+            Route::group(['prefix' => 'codes'], function () {
+
+                Route::get('/', [
+                    'uses' => 'ColorController@showColorCodesTable',
+                    'as' => 'table.color.codes'
+                ]);
+
+                Route::post('create', [
+                    'uses' => 'ColorController@createColorCodes',
+                    'as' => 'create.color.codes'
+                ]);
+
+                Route::put('update', [
+                    'uses' => 'ColorController@updateColorCodes',
+                    'as' => 'update.color.codes'
+                ]);
+
+                Route::get('{id}/delete', [
+                    'uses' => 'ColorController@deleteColorCodes',
+                    'as' => 'delete.color.codes'
+                ]);
+
+                Route::post('deletes', [
+                    'uses' => 'ColorController@massDeleteColorCodes',
+                    'as' => 'massDelete.color.codes'
+                ]);
+
+            });
+
+        });
+
+        Route::group(['prefix' => 'galleries', 'middleware' => 'root'], function () {
+
+            Route::get('/', [
+                'uses' => 'GalleriesController@showGalleriesTable',
+                'as' => 'table.galleries'
+            ]);
+
+            Route::post('create', [
+                'uses' => 'GalleriesController@createGalleries',
+                'as' => 'create.galleries'
+            ]);
+
+            Route::put('update', [
+                'uses' => 'GalleriesController@updateGalleries',
+                'as' => 'update.galleries'
+            ]);
+
+            Route::get('{id}/delete', [
+                'uses' => 'GalleriesController@deleteGalleries',
+                'as' => 'delete.galleries'
+            ]);
+
+            Route::post('deletes', [
+                'uses' => 'GalleriesController@massDeleteGalleries',
+                'as' => 'massDelete.galleries'
+            ]);
+
+        });
+
+        Route::group(['prefix' => 'installers', 'middleware' => 'root'], function () {
+
+            Route::get('/', [
+                'uses' => 'InstallersController@showInstallersTable',
+                'as' => 'table.installers'
+            ]);
+
+            Route::post('create', [
+                'uses' => 'InstallersController@createInstallers',
+                'as' => 'create.installers'
+            ]);
+
+            Route::put('update', [
+                'uses' => 'InstallersController@updateInstallers',
+                'as' => 'update.installers'
+            ]);
+
+            Route::get('{id}/delete', [
+                'uses' => 'InstallersController@deleteInstallers',
+                'as' => 'delete.installers'
+            ]);
+
+            Route::post('deletes', [
+                'uses' => 'InstallersController@massDeleteInstallers',
+                'as' => 'massDelete.installers'
+            ]);
 
         });
 

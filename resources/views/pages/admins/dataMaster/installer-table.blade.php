@@ -580,5 +580,10 @@
             }), text = names[0];
             $("#txt_logo").text(text.length > 60 ? text.slice(0, 60) + "..." : text);
         });
+
+        $("#link").on("blur", function () {
+            var $uri = $(this).val().substr(0, 4) != 'http' ? 'http://' + $(this).val() : $(this).val();
+            $(this).val($uri);
+        });
     </script>
 @endpush

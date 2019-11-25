@@ -83,20 +83,14 @@
             <h2>Contact Us</h2>
             <p>Feel free to get in touch with us!</p>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Contact</a></li>
-        </ul>
     </div>
 
     <section class="no-padding">
         <div class="row">
             <div class="col-lg-6">
-                <div data-aos="fade-right" id="map" style="width: 100%;height: 600px"></div>
+                <div data-aos="fade-down" id="map" style="width: 100%;height: 600px"></div>
             </div>
-            <div data-aos="fade-left" class="col-lg-6" style="padding: 3em 5em 0px 3em;">
+            <div data-aos="fade-down" class="col-lg-6" style="padding: 3em 5em 0px 3em;">
                 <form action="{{route('submit.contact')}}" method="post">
                     @csrf
                     <div class="row form-group">

@@ -22,6 +22,11 @@
             background: #E31B23;
             color: #fff;
             border-color: #E31B23;
+        }
+
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active,
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active:hover,
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active:focus {
             border-radius: 0 0 1rem 1rem;
         }
 
@@ -90,18 +95,11 @@
             <h2>Our Blog</h2>
             <p>We're also provide you with a recent news related to wrap film or any automobile things.</p>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Blog</a></li>
-        </ul>
     </div>
 
     <div class="page-content page-sidebar">
         <div class="container">
-            <form data-aos="zoom-out" id="form-loadBlog">
+            <form data-aos="fade-down" id="form-loadBlog">
                 <input type="hidden" name="category" id="category">
                 <div class="form-group has-feedback">
                     <input id="keyword" type="text" name="q" class="form-control" autocomplete="off"
@@ -111,7 +109,7 @@
                 </div>
             </form>
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                <ul data-aos="zoom-in-up" id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+                <ul data-aos="fade-down" id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
                     <li role="presentation" class="active">
                         <a class="nav-item nav-link" href="#all" id="all-tab" role="tab" data-toggle="tab"
                            aria-controls="all" aria-expanded="true" onclick="filterBlog('all')">
@@ -138,7 +136,7 @@
                         <div class="row" id="blog"></div>
                         <div class="row text-right">
                             <div class="col-12 myPagination">
-                                <ul class="pagination justify-content-end" data-aos="fade-left"></ul>
+                                <ul class="pagination justify-content-end" data-aos="fade-down"></ul>
                             </div>
                         </div>
                     </div>
@@ -196,6 +194,7 @@
             @if($category != '')
             $("#{{$category}}-tab").click();
             @else
+            $("#all-tab").parent().next().click();
             $("#all-tab").click();
             @endif
         });
@@ -336,7 +335,7 @@
 
             $.each(data.data, function (i, val) {
                 $result +=
-                    '<div data-aos="zoom-out" class="blog-item">' +
+                    '<div data-aos="fade-down" class="blog-item">' +
                     '<a href="' + val._url + '"><div class="icon"><img src="' + val._thumbnail + '" alt="Thumbnail"></div>' +
                     '<div class="blog-content"><p class="blog-category">' + val.category + '<span class="blog-date">' +
                     '<i class="fa fa-calendar-alt"></i>' + val.date + '</span><br><sub class="blog-author">by <span>' + val.author + '</span></sub></p>' +

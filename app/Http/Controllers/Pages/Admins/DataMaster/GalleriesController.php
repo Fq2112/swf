@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages\Admins\DataMaster;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
+use App\Models\ColorCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,9 +12,10 @@ class GalleriesController extends Controller
 {
     public function showGalleriesTable()
     {
+        $categories = ColorCategory::orderBy('name')->get();
         $galleries = Gallery::all();
 
-        return view('pages.admins.dataMaster.gallery-table', compact('galleries'));
+        return view('pages.admins.dataMaster.gallery-table', compact('categories', 'galleries'));
     }
 
     public function createGalleries(Request $request)
@@ -41,6 +43,7 @@ class GalleriesController extends Controller
         }
 
         $gallery = Gallery::create([
+            'color_id' => $request->color_id,
             'type' => $request->type,
             'title' => $request->title,
             'caption' => $request->caption,
@@ -83,6 +86,7 @@ class GalleriesController extends Controller
         }
 
         $gallery->update([
+            'color_id' => $request->color_id,
             'type' => $request->type,
             'title' => $request->title,
             'caption' => $request->caption,

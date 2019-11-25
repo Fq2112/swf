@@ -19,6 +19,28 @@
         </a>
     </li>
 
+    <li class="dropdown {{\Illuminate\Support\Facades\Request::is('scott.royce/tables/blog*') ? 'active' : ''}}">
+        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+            <i class="fas fa-blog"></i><span>Blog</span></a>
+        <ul class="dropdown-menu">
+            <li class="{{\Illuminate\Support\Facades\Request::is('scott.royce/tables/blog/categories*') ?
+            'active' : ''}}"><a href="{{route('table.blog.categories')}}" class="nav-link">Categories</a></li>
+            <li class="{{\Illuminate\Support\Facades\Request::is('scott.royce/tables/blog/posts*') ?
+            'active' : ''}}"><a href="{{route('table.blog.posts')}}" class="nav-link">Posts</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown {{\Illuminate\Support\Facades\Request::is('scott.royce/tables/color*') ? 'active' : ''}}">
+        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+            <i class="fas fa-palette"></i><span>Color</span></a>
+        <ul class="dropdown-menu">
+            <li class="{{\Illuminate\Support\Facades\Request::is('scott.royce/tables/color/categories*') ?
+            'active' : ''}}"><a href="{{route('table.color.categories')}}" class="nav-link">Categories</a></li>
+            <li class="{{\Illuminate\Support\Facades\Request::is('scott.royce/tables/color/codes*') ?
+            'active' : ''}}"><a href="{{route('table.color.codes')}}" class="nav-link">Codes</a></li>
+        </ul>
+    </li>
+
     @if(Auth::user()->isRoot())
         <li class="dropdown {{\Illuminate\Support\Facades\Request::is('scott.royce/tables/galleries*') ? 'active' : ''}}">
             <a href="{{route('table.galleries')}}" class="nav-link">
@@ -31,17 +53,6 @@
             </a>
         </li>
     @endif
-    
-    <li class="dropdown {{\Illuminate\Support\Facades\Request::is('scott.royce/tables/blog*') ? 'active' : ''}}">
-        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
-            <i class="fas fa-blog"></i><span>Blog</span></a>
-        <ul class="dropdown-menu">
-            <li class="{{\Illuminate\Support\Facades\Request::is('scott.royce/tables/blog/categories*') ?
-            'active' : ''}}"><a href="{{route('table.blog.categories')}}" class="nav-link">Categories</a></li>
-            <li class="{{\Illuminate\Support\Facades\Request::is('scott.royce/tables/blog/posts*') ?
-            'active' : ''}}"><a href="{{route('table.blog.posts')}}" class="nav-link">Posts</a></li>
-        </ul>
-    </li>
 </ul>
 
 <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

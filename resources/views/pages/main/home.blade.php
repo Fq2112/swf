@@ -193,6 +193,18 @@
                 transition: none;
             }
         }
+
+        video {
+            margin: 0 auto;
+            width: 75%;
+            border-radius: 25px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        video:hover, video:focus, video:active {
+            border-radius: 25px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, .4)
+        }
     </style>
 @endpush
 @section('content')
@@ -217,7 +229,7 @@
                                  data-easing="easeInOut">
                                 <a class="btn btn-dark-red tp-resizeme" href="#about">
                                     <b style="text-transform: uppercase">Learn more&ensp;<i
-                                                class="fa fa-search"></i></b></a>
+                                            class="fa fa-search"></i></b></a>
                             </div>
                         </li>
                         <li class="slider-bg2" data-transition="fade" data-slotamount="7" data-masterspeed="500">
@@ -235,7 +247,7 @@
                                  data-easing="easeInOut">
                                 <a class="btn btn-dark-red tp-resizeme" href="javascript:void(0)" data-toggle="modal"
                                    data-target="#productModal"><b style="text-transform: uppercase">Learn more&ensp;<i
-                                                class="fa fa-search"></i></b></a>
+                                            class="fa fa-search"></i></b></a>
                             </div>
                         </li>
                         <li class="slider-bg2" data-transition="fade" data-slotamount="7" data-masterspeed="500">
@@ -255,7 +267,7 @@
                                  data-easing="easeInOut">
                                 <a class="btn btn-dark-red tp-resizeme" href="#blog">
                                     <b style="text-transform: uppercase">Learn more&ensp;<i
-                                                class="fa fa-search"></i></b></a>
+                                            class="fa fa-search"></i></b></a>
                             </div>
                         </li>
                     </ul>
@@ -269,11 +281,12 @@
         <h2 data-aos="fade-down">Our <strong>Company</strong></h2>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h3 data-aos="fade-right">Premier Autostyling</h3>
-                    <p data-aos="fade-right" align="justify">We're the one and only authorized distributor of
+                <div class="col-md-12">
+                    <img width="65%" src="{{asset('images/home/about.png')}}" alt="">
+                    <h3 data-aos="fade-down" style="text-align: center">Premier Autostyling</h3>
+                    <p data-aos="fade-down" align="center">We're the one and only authorized distributor of
                         <strong>Avery Dennison</strong> SWF (Supreme Wrap Film) in <strong>Indonesia</strong>.</p>
-                    <p data-aos="fade-down" align="justify" class="text">The need for <strong>wrap film</strong>
+                    <p data-aos="fade-down" align="center" class="text">The need for <strong>wrap film</strong>
                         products is now becoming a new trend that continues to grow among premium, luxury, sporty,
                         and dandy car lovers in Indonesia to maintain the durability of car paint and make the car
                         look more luxurious. <strong>Premier Autostyling</strong> is the <strong>Authorized Sole
@@ -282,38 +295,13 @@
                         optimally through cooperation with dealers in cities that have a large number of
                         product-user markets, such as Jakarta, Bandung, Semarang, Yogyakarta, Denpasar, Banjarmasin,
                         Balikpapan, Makassar, Medan, Palembang.</p>
-                </div>
-                <div data-aos="fade-left" class="col-md-6">
-                    <img src="{{asset('images/home/about.png')}}" alt="">
-                </div>
-            </div>
-            <div data-aos="fade-up" class="row text-center" style="padding: 3em 0 0 0;">
-                <div class="col-lg-12">
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#swfModal"
-                       class="btn btn-dark-red ld ld-breath"><b>LEARN MORE&ensp;<i class="fa fa-search"></i></b></a>
-                    <div class="modal dark fade" id="swfModal" tabindex="-1" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <img src="{{asset('images/home/about2.png')}}" alt="Avery Dennison SWF"
-                                         class="img-responsive">
-                                    <h4 class="modal-title" style="text-align: left;margin: .5em auto">
-                                        Premium Vehicle Wrapping Film</h4>
-                                    <p align="justify" style="font-size: 16px">Avery Dennison Supreme Wrapping Film is a
-                                        premium cast, coloured vehicle wrap film with a 12 years durability. It is
-                                        available in 110+ colours and finishes and is designed for vehicle detailing and
-                                        full wraps providing excellent opacity to hide high-contrast surfaces.</p>
-                                    <p align="justify" style="font-size: 16px">Supreme is easy to position and apply as
-                                        well remove thanks to the Easy Apply adhesive with repositionable and slideable
-                                        (RS) technology. Supreme offers excellent 3D conformability on the most
-                                        demanding of recessed areas.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <p data-aos="fade-down" align="center" class="text">Avery Dennison Supreme Wrapping Film is a
+                        premium cast, coloured vehicle wrap film with a 12 years durability. It is available in 110+
+                        colours and finishes and is designed for vehicle detailing and full wraps providing excellent
+                        opacity to hide high-contrast surfaces.</p>
+                    <p data-aos="fade-down" align="center" class="text">Supreme is easy to position and apply as well
+                        remove thanks to the Easy Apply adhesive with repositionable and slideable (RS) technology.
+                        Supreme offers excellent 3D conformability on the most demanding of recessed areas.</p>
                 </div>
             </div>
         </div>
@@ -322,7 +310,7 @@
     <!-- why choose us -->
     <section class="block-section-4">
         <div class="container">
-            <h2 data-aos="fade-right" class="text-heading text-center">Why <strong class="pri-color">Choose Us
+            <h2 data-aos="fade-down" class="text-heading text-center">Why <strong class="pri-color">Choose Us
                     ?</strong></h2>
             <p data-aos="fade-down" class="text-heading text-center">Avery Dennison Corporation is a global manufacturer
                 and distributor of pressure-sensitive adhesive materials (such as self-adhesive labels), apparel
@@ -334,7 +322,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="features-5">
-                        <div data-aos="zoom-out" class="text-center">
+                        <div data-aos="fade-down" class="text-center">
                             <i class="fa fa-shield-alt"></i>
                         </div>
                         <h2 data-aos="fade-down">Durability Guarantee</h2>
@@ -344,7 +332,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="features-5">
-                        <div data-aos="zoom-out" class="text-center">
+                        <div data-aos="fade-down" class="text-center">
                             <i class="fa fa-drafting-compass"></i>
                         </div>
                         <h2 data-aos="fade-down">Printable & Conformable</h2>
@@ -354,7 +342,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="features-5">
-                        <div data-aos="zoom-out" class="text-center">
+                        <div data-aos="fade-down" class="text-center">
                             <i class="fa fa-tools"></i>
                         </div>
                         <h2 data-aos="fade-down">Easy Installation</h2>
@@ -364,7 +352,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="features-5">
-                        <div data-aos="zoom-out" class="text-center">
+                        <div data-aos="fade-down" class="text-center">
                             <i class="fa fa-palette"></i>
                         </div>
                         <h2 data-aos="fade-down">Various Colors & Designs</h2>
@@ -373,10 +361,39 @@
                     </div>
                 </div>
             </div>
-            <div data-aos="fade-up" class="row text-center" style="padding: 3em 0 5em 0;">
+            <div data-aos="fade-down" class="row text-center" style="padding: 3em 0 4em 0;">
                 <div class="col-lg-12">
                     <a href="javascript:void(0)" data-toggle="modal" data-target="#productModal"
-                       class="btn btn-dark-red ld ld-breath"><b>LEARN MORE&ensp;<i class="fa fa-search"></i></b></a>
+                       class="btn btn-dark-red"><b>LEARN MORE&ensp;<i class="fa fa-search"></i></b></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- stellar parallax -->
+    <section class="stellar-parallax no-padding">
+        <div class="third" data-stellar-background-ratio="0.5" style="background-image: url({{asset('images/stellar-parallax/home.jpg')}});">
+            <div class="stellar-overlay"></div>
+            <h1>Supreme Wrapping<span style="color: #e31b23">&trade;</span> Film<br>
+                <sub>Superior performance, fast and easy application and removability.</sub>
+            </h1>
+        </div>
+    </section>
+
+    <!-- try our new visualizer -->
+    <section class="block-section-4">
+        <div class="container">
+            <h2 data-aos="fade-down" class="text-heading text-center">Try Our <strong class="pri-color">New
+                    Visualizer</strong></h2>
+            <p data-aos="fade-down" class="text-heading text-center">Take the guesswork out of choosing a vehicle wrap!
+                Use our Wrap Visualizer Tool to help you decide. With over 120 different colors, your creativity and
+                options are endless with Supreme Wrapping Film and Conform Chrome Series products.</p>
+            <video class="img-responsive" src="{{asset('images/car-wrap-visualizer.mp4')}}" controls loop
+                           autoplay></video>
+            <div data-aos="fade-down" class="row text-center" style="padding: 3em 0 5em 0;">
+                <div class="col-lg-12">
+                    <a href="{{route('show.product.visualizer')}}" class="btn btn-dark-red ld ld-breath">
+                        <b><i class="fa fa-car"></i>&ensp;TRY NOW</b></a>
                 </div>
             </div>
         </div>
@@ -390,13 +407,13 @@
                 <div class="row">
                     <div class="call-center">
                         <div class="left-call">
-                            <img data-aos="fade-up" src="{{asset('images/layer-slider/call-center.png')}}" alt="">
+                            <img data-aos="fade-down" src="{{asset('images/layer-slider/call-center.png')}}" alt="">
                         </div>
-                        <div class="right-call">
-                            <h2 data-aos="fade-right">Do you need a certified installer ?</h2>
-                            <p data-aos="fade-down" align="justify">We've been set up a network of approved installers
+                        <div data-aos="fade-down" class="right-call">
+                            <h2>Do you need a certified installer?</h2>
+                            <p align="justify">We've been set up a network of approved installers
                                 with a high-performance and responsive service.</p>
-                            <a data-aos="fade-up" href="{{route('show.installers')}}" class="btn btn-cars ld ld-breath">
+                            <a href="{{route('show.installers')}}" class="btn btn-cars">
                                 <b><i class="fa fa-map-marked-alt"></i> FIND ONE</b></a>
                         </div>
                     </div>
@@ -407,12 +424,12 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="call-center bg1">
-                        <div class="right-call padd-left">
-                            <h2 data-aos="fade-left">Do you want to be a certified installer ?</h2>
-                            <p data-aos="fade-down" align="justify">To integrate the certified installers network, we
+                        <div data-aos="fade-down" class="right-call padd-left">
+                            <h2>Do you want to be a certified installer?</h2>
+                            <p align="justify">To integrate the certified installers network, we
                                 will evaluate your technical skills and knowledge.</p>
-                            <a data-aos="fade-up" href="javascript:void(0)" data-toggle="modal"
-                               data-target="#certModal" class="btn btn-cars color-white ld ld-breath">
+                            <a href="javascript:void(0)" data-toggle="modal"
+                               data-target="#certModal" class="btn btn-cars color-white">
                                 <b><i class="fa fa-paper-plane"></i> APPLY NOW</b></a>
                             <div class="modal dark fade" id="certModal" tabindex="-1" role="dialog"
                                  aria-labelledby="certModalLabel" aria-hidden="true">
@@ -432,10 +449,10 @@
                                                     <div class="col-md-6">
                                                         <label class="form-control-label" for="fname">First Name
                                                             <span
-                                                                    class="required">*</span></label>
+                                                                class="required">*</span></label>
                                                         <div class="input-group">
                                                         <span class="input-group-addon"><i
-                                                                    class="fa fa-user"></i></span>
+                                                                class="fa fa-user"></i></span>
                                                             <input id="fname" type="text" class="form-control"
                                                                    name="fname"
                                                                    placeholder="First name" required>
@@ -444,10 +461,10 @@
                                                     <div class="col-md-6">
                                                         <label class="form-control-label" for="lname">Last Name
                                                             <span
-                                                                    class="required">*</span></label>
+                                                                class="required">*</span></label>
                                                         <div class="input-group">
                                                         <span class="input-group-addon"><i
-                                                                    class="fa fa-user"></i></span>
+                                                                class="fa fa-user"></i></span>
                                                             <input id="lname" type="text" class="form-control"
                                                                    name="lname"
                                                                    placeholder="Last name" required>
@@ -457,10 +474,10 @@
                                                 <div class="row form-group">
                                                     <div class="col-md-12">
                                                         <label class="form-control-label" for="email">Email <span
-                                                                    class="required">*</span></label>
+                                                                class="required">*</span></label>
                                                         <div class="input-group">
                                                         <span class="input-group-addon"><i
-                                                                    class="fa fa-envelope"></i></span>
+                                                                class="fa fa-envelope"></i></span>
                                                             <input id="email" type="email" class="form-control"
                                                                    name="email"
                                                                    placeholder="Email" required>
@@ -470,10 +487,10 @@
                                                 <div class="row form-group">
                                                     <div class="col-md-12">
                                                         <label class="form-control-label" for="phone">Phone <span
-                                                                    class="required">*</span></label>
+                                                                class="required">*</span></label>
                                                         <div class="input-group">
                                                         <span class="input-group-addon"><i
-                                                                    class="fa fa-phone"></i></span>
+                                                                class="fa fa-phone"></i></span>
                                                             <input placeholder="Phone number" type="text"
                                                                    maxlength="13"
                                                                    class="form-control"
@@ -500,10 +517,10 @@
                                                     <div class="col-md-8">
                                                         <label class="form-control-label" for="company">Company
                                                             <span
-                                                                    class="required">*</span></label>
+                                                                class="required">*</span></label>
                                                         <div class="input-group">
                                                         <span class="input-group-addon"><i
-                                                                    class="fa fa-building"></i></span>
+                                                                class="fa fa-building"></i></span>
                                                             <input id="company" type="text" class="form-control"
                                                                    name="company"
                                                                    placeholder="Company name" required>
@@ -516,12 +533,13 @@
                                                                for="country">Country</label>
                                                         <div class="input-group">
                                                         <span class="input-group-addon"><i
-                                                                    class="fa fa-flag"></i></span>
+                                                                class="fa fa-flag"></i></span>
                                                             <select id="country" class="form-control"
                                                                     name="country">
                                                                 <option value="" selected>Rather not say</option>
                                                                 @foreach($countries as $row)
-                                                                    <option value="{{$row->name}}">{{$row->name}}</option>
+                                                                    <option
+                                                                        value="{{$row->name}}">{{$row->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
@@ -540,7 +558,7 @@
                             </div>
                         </div>
                         <div class="left-call">
-                            <img data-aos="fade-up" src="{{asset('images/layer-slider/call-center-2.png')}}" alt="">
+                            <img data-aos="fade-down" src="{{asset('images/layer-slider/call-center-2.png')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -553,7 +571,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 data-aos="fade-right" class="text-heading text-center">Our <strong>Blog</strong></h2>
+                    <h2 data-aos="fade-down" class="text-heading text-center">Our <strong>Blog</strong></h2>
                     <p data-aos="fade-down" class="text-heading text-center bot-40">We're also provide you with a recent
                         news related to wrap film or any automobile things. Click SHOW MORE button below if you don't
                         wanna miss anything about it!</p>
@@ -576,10 +594,12 @@
                                     </div>
                                     <div class="blog-slider__content">
                                         <span class="blog-slider__code">{{$date->format('F d, Y')}}<br>
-                                            <sub>by <a href="{{route('detail.blog', ['author' => $row->getUser->username])}}">{{$row->getUser->username}}</a></sub>
+                                            <sub>by <a
+                                                    href="{{route('detail.blog', ['author' => $row->getUser->username])}}">{{$row->getUser->username}}</a></sub>
                                         </span>
                                         <div class="blog-slider__title">{{$row->title}}</div>
-                                        <div class="blog-slider__text">{!!\Illuminate\Support\Str::words($row->content, 20, '...')!!}</div>
+                                        <div
+                                            class="blog-slider__text">{!!\Illuminate\Support\Str::words($row->content, 20, '...')!!}</div>
                                         <a href="{{$url}}" class="blog-slider__button">READ MORE</a>
                                     </div>
                                 </div>
@@ -589,9 +609,9 @@
                     </div>
                 </div>
             </div>
-            <div data-aos="fade-up" class="row text-center" style="padding: 3em 0 3em 0;">
+            <div data-aos="fade-down" class="row text-center" style="padding: 3em 0 3em 0;">
                 <div class="col-lg-12">
-                    <a href="{{route('show.blog')}}" class="btn btn-dark-red ld ld-breath">
+                    <a href="{{route('show.blog')}}" class="btn btn-dark-red">
                         <b><i class="fa fa-blog"></i> SHOW MORE</b></a>
                 </div>
             </div>
@@ -602,7 +622,7 @@
     <section class="no-padding">
         <div id="ig-feed" class="owl-carousel">
             @foreach($posts as $post)
-                <div data-aos="zoom-out" class="item content-area"
+                <div data-aos="fade-down" class="item content-area"
                      data-src="{{$post->images->standard_resolution->url}}"
                      data-sub-html="<h4><a href='{{$post->link}}' target='_blank' class='ig-link'><i class='fa fa-external-link-alt'></i>&ensp;ORIGINAL POST</a></h4><p style='color: #fff;'>{{\Illuminate\Support\Str::words($post->caption->text, 20, '...')}}</p>">
                     <img src="{{$post->images->standard_resolution->url}}" alt="{{$post->user->username}}'s Feed">
@@ -619,9 +639,9 @@
                 </div>
             @endforeach
         </div>
-        <div data-aos="fade-up" class="row text-center" style="padding: 3em 0 6em 0;">
+        <div data-aos="fade-down" class="row text-center" style="padding: 3em 0 6em 0;">
             <div class="col-lg-12">
-                <a href="https://instagram.com/averydennison.id" target="_blank" class="btn btn-dark-red ld ld-breath">
+                <a href="https://instagram.com/averydennison.id" target="_blank" class="btn btn-dark-red">
                     <b><i class="fab fa-instagram"></i> averydennison.id</b></a>
             </div>
         </div>
@@ -651,8 +671,8 @@
                             <li tabindex="2">
                                 <div>
                                     <a href="{{route('show.product.overview',
-                                                            ['category' => 'conform-chrome'])}}">
-                                        <h2>Conform Chrome</h2>
+                                                            ['category' => 'conform-chrome-series'])}}">
+                                        <h2>Conform Chrome&trade; Series</h2>
                                         <p>Semi-conformable films for color change</p>
                                     </a>
                                 </div>

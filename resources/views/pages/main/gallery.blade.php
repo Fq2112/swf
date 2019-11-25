@@ -22,6 +22,11 @@
             background: #E31B23;
             color: #fff;
             border-color: #E31B23;
+        }
+
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active,
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active:hover,
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active:focus {
             border-radius: 0 0 1rem 1rem;
         }
 
@@ -138,6 +143,42 @@
         .lg-sub-html p {
             color: #bbb;
         }
+
+        .select2-container {
+            border-radius: 1rem;
+            border: 1px solid #777;
+        }
+
+        .select2-container .select2-search--inline .select2-search__field {
+            background-image: url({{asset('images/color-swatch2-o.png')}});
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: contain;
+            color: #777 !important;
+            font-weight: 600 !important;
+            padding-left: 6px;
+        }
+
+        .select2-selection {
+            background-color: #0e0e0e !important;
+            color: #fff;
+            border-radius: 1rem !important;
+            border: none !important;
+        }
+
+        .select2-container.select2-container--focus {
+            border-color: #E31B23 !important;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 27, 35, 0.6);
+        }
+
+        .select2-container .select2-selection--multiple .select2-selection__choice {
+            background-color: #e31b23;
+            border: none;
+        }
+
+        .select2-container .select2-selection--multiple .select2-selection__choice__remove {
+            color: #fff;
+        }
     </style>
 @endpush
 @section('content')
@@ -146,35 +187,38 @@
         <div class="page-title">
             <h2>Our Gallery</h2>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.gallery')}}"><i class="fa fa-photo-video"></i></a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Gallery</a></li>
-        </ul>
     </div>
 
     <div class="page-content page-sidebar">
         <div class="container">
-            <form data-aos="zoom-out" id="form-loadGallery">
+            <form data-aos="fade-down" id="form-loadGallery">
                 <input type="hidden" name="type" id="type">
-                <div class="form-group has-feedback">
+                <div class="form-group" style="display: none">
                     <input id="keyword" type="text" name="q" class="form-control" autocomplete="off"
                            value="{{$keyword}}" placeholder="Search&hellip;"
                            style="border-radius: 1rem;margin: 1em auto">
                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
+                <div class="form-group">
+                    <select id="colors" class="form-control" name="colors[]" multiple>
+                        @foreach($categories as $row)
+                            <optgroup label="{{$row->name}}">
+                                @foreach($row->getColorCode as $color)
+                                    <option value="{{$color->id}}" data-image="{{$color->file}}" {{$colors == $color->id ?
+                        'selected' : ''}}>{{$color->name.' ['.$color->code.']'}}</option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
+                    </select>
+                </div>
             </form>
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                <ul data-aos="zoom-in-up" id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+                <ul data-aos="fade-down" id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
                     <li role="presentation" class="active">
                         <a class="nav-item nav-link" href="#all" id="all-tab" role="tab" data-toggle="tab"
                            aria-controls="all" aria-expanded="true" onclick="filterGallery('all')">
                             <i class="fa fa-sort-alpha-up"></i>&ensp;SHOW ALL&ensp;<span
-                                class="badge badge-secondary">{{count($gallery)}}</span>
-                        </a>
-                    </li>
+                                class="badge badge-secondary">{{count($gallery)}}</span></a></li>
                     <li role="presentation" class="next">
                         <a class="nav-item nav-link" href="#photos" id="photos-tab" role="tab" data-toggle="tab"
                            aria-controls="photos" aria-expanded="true" onclick="filterGallery('photos')">
@@ -199,7 +243,7 @@
                         <div class="row" id="lightgallery"></div>
                         <div class="row text-right">
                             <div class="col-12 myPagination">
-                                <ul class="pagination justify-content-end" data-aos="fade-left"></ul>
+                                <ul class="pagination justify-content-end" data-aos="fade-down"></ul>
                             </div>
                         </div>
                     </div>
@@ -250,7 +294,7 @@
             updateDropdownMenu($next, 'right');
         });
 
-        var last_page, $keyword = $("#keyword");
+        var last_page, $keyword = $("#keyword"), $colors = $("#colors");
 
         $(function () {
             $('.ajax-loader').hide();
@@ -260,6 +304,7 @@
             @if($type != '')
             $("#{{$type}}-tab").click();
             @else
+            $("#photos-tab").click();
             $("#all-tab").click();
             @endif
         });
@@ -287,6 +332,35 @@
                 $("#all-tab").click();
                 loadGallery();
             }
+        });
+
+        $colors.select2({
+            placeholder: "Pick colors...",
+            allowClear: true,
+            width: '100%',
+            templateResult: format,
+            templateSelection: format,
+            escapeMarkup: function (m) {
+                return m;
+            }
+        });
+
+        function format(option) {
+            var optimage = $(option.element).data('image');
+
+            if (!option.id) {
+                return option.text;
+            }
+
+            if (!optimage) {
+                return option.text;
+            } else {
+                return '<img width="64" src="{{asset('storage/colors')}}/' + optimage + '" style="padding: 5px">' + option.text;
+            }
+        }
+
+        $colors.on("select2:select select2:unselect", function (e) {
+            loadGallery();
         });
 
         $("#form-loadGallery").on('submit', function (e) {
@@ -396,7 +470,7 @@
         });
 
         function successLoad(data, page) {
-            var $result = '', pagination = '', $page = '';
+            var $result = '', pagination = '', colors = '', $page = '';
 
             $.each(data.data, function (i, val) {
                 var thumbnail = val.type == 'photos' ? '{{asset('storage/gallery')}}/' + val.file :
@@ -404,7 +478,7 @@
                     file = val.type == 'photos' ? '{{asset('storage/gallery')}}/' + val.file : val.file;
 
                 $result +=
-                    '<div data-aos="zoom-out" class="col-md-3 item" ' +
+                    '<div data-aos="fade-down" class="col-md-3 item" ' +
                     'data-src="' + file + '" data-sub-html="<h4>' + val.title + '</h4><p>' + val.caption + '</p>">' +
                     '<div class="content-area">' +
                     '<img src="' + thumbnail + '" alt="Thumbnail" class="img-responsive">' +
@@ -469,13 +543,17 @@
             }
             $('.myPagination ul').html(pagination);
 
+            if ($colors.val()) {
+                colors = '&colors=' + $colors.val()
+            }
+
             if (page != "" && page != undefined) {
                 $page = '&page=' + page;
             }
-            window.history.replaceState("", "", '{{url('/gallery')}}?q=' + $keyword.val() + '&type=' + $("#type").val() + $page);
+
+            window.history.replaceState("", "", '{{url('/gallery')}}?type=' + $("#type").val() + colors + $page);
 
             setTimeout(function () {
-                // $('.use-nicescroll').getNiceScroll().resize();
                 reloadGallery();
             }, 600);
             return false;

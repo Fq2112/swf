@@ -195,7 +195,7 @@ class BlogController extends Controller
         }
 
         $message = count($posts) > 1 ? count($posts) . ' blog posts are ' :
-            count($posts) . ' category is ';
+            count($posts) . ' blog post is ';
 
         return back()->with('success', $message . 'successfully deleted!');
     }

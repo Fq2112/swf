@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Pages;
 
+use App\Models\ColorCode;
+use App\Models\ColorCategory;
 use App\Models\Contact;
 use App\Models\Blog;
 use App\Models\Gallery;
@@ -30,13 +32,16 @@ class SWFController extends Controller
         \App\Models\Visitor::hit();
 
         if ($category == 'mpi-series') {
-            return view('pages.main.product.overview.mpi-series');
+            $data = ColorCode::where('category_id', 1)->get();
+            return view('pages.main.product.overview.mpi-series', compact('data'));
 
-        } elseif ($category == 'conform-chrome') {
-            return view('pages.main.product.overview.conform-chrome');
+        } elseif ($category == 'conform-chrome-series') {
+            $data = ColorCode::where('category_id', 2)->get();
+            return view('pages.main.product.overview.conform-chrome', compact('data'));
 
         } elseif ($category == 'supreme-wrapping-films') {
-            return view('pages.main.product.overview.supreme-wrapping-films');
+            $data = ColorCategory::whereNotIn('id', [1, 2])->get();
+            return view('pages.main.product.overview.supreme-wrapping-films', compact('data'));
 
         } else {
             return view('pages.main.product.overview.supreme-wrap-care');
@@ -54,22 +59,40 @@ class SWFController extends Controller
         $gallery = Gallery::orderBy('title')->get();
         $photos = Gallery::where('type', 'photos')->orderByDesc('title')->get();
         $videos = Gallery::where('type', 'videos')->orderByDesc('title')->get();
+        $categories = ColorCategory::orderBy('name')->get();
         $keyword = $request->q;
         $type = $request->type;
+        $colors = $request->colors;
         $page = $request->page;
 
         \App\Models\Visitor::hit();
-        return view('pages.main.gallery', compact('gallery', 'keyword', 'photos', 'videos', 'type', 'page'));
+        return view('pages.main.gallery', compact('gallery', 'keyword', 'photos', 'videos',
+            'categories', 'type', 'colors', 'page'));
     }
 
     public function getDataGallery(Request $request)
     {
+        $colors = $request->colors;
+        $color_ids = '';
+        foreach ((array)$colors as $select) {
+            $color_ids .= $select . ', ';
+        }
+        $color_ids = explode(",", substr($color_ids, 0, -2));
+
         if ($request->type == 'all') {
             $gallery = Gallery::where('title', 'LIKE', '%' . $request->q . '%')
-                ->orderByDesc('id')->paginate(12)->toArray();
+                ->when($colors, function ($query) use ($color_ids) {
+                    $query->whereHas('getColorCode', function ($query) use ($color_ids) {
+                        $query->whereIn('id', $color_ids);
+                    });
+                })->orderByDesc('id')->paginate(12)->toArray();
         } else {
-            $gallery = Gallery::where('title', 'LIKE', '%' . $request->q . '%')
-                ->where('type', $request->type)->orderByDesc('id')->paginate(12)->toArray();
+            $gallery = Gallery::where('title', 'LIKE', '%' . $request->q . '%')->where('type', $request->type)
+                ->when($colors, function ($query) use ($color_ids) {
+                    $query->whereHas('getColorCode', function ($query) use ($color_ids) {
+                        $query->whereIn('id', $color_ids);
+                    });
+                })->orderByDesc('id')->paginate(12)->toArray();
         }
 
         return $gallery;

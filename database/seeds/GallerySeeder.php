@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ColorCode;
 use App\Models\Gallery;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
@@ -18,8 +19,9 @@ class GallerySeeder extends Seeder
         $x = 1;
         $y = 1;
         $z = 1;
-        for ($i = 0; $i < 47; $i++) {
+        foreach (ColorCode::take(47)->get() as $row) {
             Gallery::create([
+                'color_id' => $row->id,
                 'type' => 'photos',
                 'title' => 'Photo ' . $x++,
                 'caption' => $faker->paragraph,
@@ -29,6 +31,7 @@ class GallerySeeder extends Seeder
         }
 
         Gallery::create([
+            'color_id' => 1,
             'type' => 'videos',
             'title' => 'Wrap Like a King 2019 - Enter and Win',
             'caption' => 'It’s time to put your creativity front and center. Use your wrap skills to make a statement with your submission. Unique designs, outstanding technique and showmanship are what make the challenge awesome. Just don’t be shy if you want to reign supreme. Show us what you got! Enter the 2019 Wrap Like a King Challenge here: https://www.wraplikeaking.com/',
@@ -37,6 +40,7 @@ class GallerySeeder extends Seeder
         ]);
 
         Gallery::create([
+            'color_id' => 1,
             'type' => 'videos',
             'title' => 'Wrap Like a King 2019 Regional Winners',
             'caption' => 'Thank you all for submitting your entries! After another competitive year of Wrap Like A King, we have named our Regional Wrap Kings! #WLAK2019',
@@ -45,6 +49,7 @@ class GallerySeeder extends Seeder
         ]);
 
         Gallery::create([
+            'color_id' => 1,
             'type' => 'videos',
             'title' => 'BIG MONEY CAR - Wrap Like a King 2019',
             'caption' => 'BIG MONEY CAR  for Wrap Like a King 2019 by Custom Wrap Design @cwdwrap https://www.instagram.com/cwdwrap/',
@@ -53,6 +58,7 @@ class GallerySeeder extends Seeder
         ]);
 
         Gallery::create([
+            'color_id' => 1,
             'type' => 'videos',
             'title' => 'Gundam GTR - Wrap Like A King 2019',
             'caption' => 'Gundam GTR features a fully printed chrome wrap with Avery Silver Conform Chrome, DOL 1460Z laminate and SWF Satin Black accents. The design process started with hand drawn characters that were illustrated digitally, and then brought to life with countless hours of wrap design. The design was printed directly on Avery Silver Chrome and laminated with 1460Z which gives it an amazing look and finish. Some fine details of the wrap include matching wheel spoke wrap, satin black accents, ghosted Japanese lettering, smoke tail light wrap, hidden design elements.',
@@ -61,6 +67,7 @@ class GallerySeeder extends Seeder
         ]);
 
         Gallery::create([
+            'color_id' => 1,
             'type' => 'videos',
             'title' => 'Wrap Like A King 2019 from DC Town Shanghai China SLS AMG Wrapping',
             'caption' => 'DC Town Shanghai China SLS AMG Wrapping #WLAK2019',
@@ -69,6 +76,7 @@ class GallerySeeder extends Seeder
         ]);
 
         Gallery::create([
+            'color_id' => 1,
             'type' => 'videos',
             'title' => 'Installation Process for Wrap Like a King 2019 Entry - Acura NSX - Creature Wrap',
             'caption' => 'Wrap Like a King 2019 competition... Follow along as our team prints on silver chrome, creates custom embossing, and fine-tunes the details on this one-of-a-kind car. Feel the emotions as the wrap project starts to take shape. Our amazing team put forth an incredible effort to create our creature. This video highlights their hard work.',

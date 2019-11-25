@@ -8,25 +8,18 @@
             <li class="menu-item-has-children">
                 <a href="#">SUPREME WRAP FILM <i class="fa fa-angle-right dropdown-i"></i></a>
                 <ul class="dropdown-menu">
-                    <li class="menu-item-has-children">
-                        <a href="#">OVERVIEW <i class="fa fa-angle-right dropdown-i"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{route('show.product.overview',
-                            ['category' => 'mpi-series'])}}">MPI&trade; SERIES</a></li>
-                            <li><a href="{{route('show.product.overview',
-                            ['category' => 'conform-chrome'])}}">CONFORM CHROME</a></li>
-                            <li><a href="{{route('show.product.overview',
-                            ['category' => 'supreme-wrapping-films'])}}">SUPREME WRAPPING&trade; FILMS</a></li>
-                            <li><a href="{{route('show.product.overview',
-                            ['category' => 'supreme-wrap-care'])}}">SUPREME WRAP&trade; CARE</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{route('show.product.visualizer')}}">VISUALIZER</a></li>
+                    <li><a href="{{route('show.product.overview', ['category' =>
+                    'mpi-series'])}}">MPI&trade; SERIES</a></li>
+                    <li><a href="{{route('show.product.overview', ['category' =>
+                    'conform-chrome-series'])}}">CONFORM CHROME&trade; SERIES</a></li>
+                    <li><a href="{{route('show.product.overview', ['category' =>
+                    'supreme-wrapping-films'])}}">SUPREME WRAPPING&trade; FILMS</a></li>
+                    <li><a href="{{route('show.product.overview', ['category' =>
+                    'supreme-wrap-care'])}}">SUPREME WRAP&trade; CARE</a></li>
+                    <li><a href="{{route('show.product.visualizer')}}">CAR WRAP VISUALIZER</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="http://ppf.co.id" target="_blank">PPF (SPF-XI)</a>
-            </li>
+            <li><a href="http://ppf.co.id" target="_blank">PPF (SPF-XI)</a></li>
         </ul>
     </li>
     <li><a class="{{\Illuminate\Support\Facades\Request::is('gallery*') ? 'active' : ''}}"

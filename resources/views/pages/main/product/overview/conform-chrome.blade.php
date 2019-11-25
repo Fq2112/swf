@@ -84,13 +84,13 @@
             color: #bbb;
         }
 
-        #ig-feed .custom-text h4 {
+        .ig-feed .custom-text h4 {
             color: #E31B23;
             text-transform: uppercase;
             transition: all .5s ease-in-out;
         }
 
-        #ig-feed .content-area:hover .custom-text h4 {
+        .ig-feed .content-area:hover .custom-text h4 {
             color: #fff;
         }
     </style>
@@ -102,24 +102,15 @@
             <h2>Our Product</h2>
             <p>Conform Chrome, semi-conformable films for color change.</p>
         </div>
-        <ul class="crumb">
-            <li><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('home')}}"><i class="fa fa-angle-double-right"></i> Home</a></li>
-            <li><i class="fa fa-angle-double-right"></i></li>
-            <li><a href="{{route('show.blog')}}"><i class="fa fa-blog"></i></a></li>
-            <li><a href="{{url()->current()}}"><i class="fa fa-car"></i></a></li>
-            <li><a href="{{url()->current()}}"><i class="fa fa-angle-double-right"></i> Overview</a></li>
-            <li><a href="#" onclick="goToAnchor()"><i class="fa fa-angle-double-right"></i> Conform Chrome</a></li>
-        </ul>
     </div>
 
     <div class="page-content page-sidebar">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <div data-aos="zoom-out" class="content-area">
+                <div class="col-md-12">
+                    <div data-aos="fade-down" class="content-area">
                         <img id="chrome-switch" src="{{asset('images/product-overview/chrome-overview1.png')}}"
-                             class="img-responsive" alt="Conform Chrome">
+                             class="img-responsive" alt="Conform Chrome" width="65%">
                         <div class="custom-overlay">
                             <div class="custom-text">
                                 <svg id="play-conform-chrome" class="play" version="1.1"
@@ -136,6 +127,43 @@
                             </div>
                         </div>
                     </div>
+                    <h4 data-aos="fade-down" style="color: #eee">Avery Dennison® Conform Chrome</h4>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Allow the Avery
+                        Dennison conform chrome to add immediate impact to your next vehicle wrap project. Films
+                        designed to add special effects and a sporty touch to vehicles.</p>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Avery Dennison
+                        Conform Accent Chrome is a premium quality specialty film designed for use in vehicle wraps and
+                        graphics markets where high-end chrome accents are desired. The patented Avery Dennison™ Easy
+                        Apply RS feature allows for faster positioning, bubble-free application, and long-term
+                        removability.</p>
+                    <blockquote data-aos="fade-down">Striking accents, premium look, and
+                        immediate impact.
+                    </blockquote>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Create a real chrome
+                        effect with fast and easy application. Make your design shine with mirror sharp premium chrome
+                        detailing. Now in a wider size and 3 new colors; Rose Gold, Violet and Matte Silver.</p>
+                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px"> Conform Chrome
+                        Series is quick and easy to apply. Bring your design to the next level with sharp, eye-popping
+                        chrome accents and details. The mirror-like finish of glossy Conform Chrome film creates a
+                        distinctive and premium result - perfect for striking accents and special effects.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- stellar parallax -->
+    <section class="stellar-parallax no-padding">
+        <div class="third" data-stellar-background-ratio="0.5" style="background-image: url({{asset('images/stellar-parallax/conform-chrome.jpeg')}});">
+            <div class="stellar-overlay"></div>
+            <h1>CONFORM CHROME<span style="color: #e31b23">&trade;</span> SERIES<br><sub>Striking accents, premium look, and immediate impact.</sub>
+            </h1>
+        </div>
+    </section>
+
+    <div class="page-content page-sidebar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
                     <div data-aos="fade-down" class="bs-example bs-example-tabs" role="tabpanel"
                          data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
@@ -192,87 +220,20 @@
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="cc"
                                  aria-labelledby="cc-tab" style="border: none">
-                                <div id="ig-feed" class="owl-carousel">
-                                    <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc-001.png')}}"
-                                         data-sub-html="<h4>CC 001</h4><p style='color: #fff;'>Conform Chrome Silver</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc-001.png')}}" alt="CC 001">
-                                        <div class="custom-overlay">
-                                            <div class="custom-text">
-                                                <h4>CC 001</h4>
+                                <div class="ig-feed owl-carousel">
+                                    @foreach($data as $color)
+                                        <div data-aos="fade-down" class="item content-area"
+                                             data-src="{{asset('storage/colors/'.$color->file)}}"
+                                             data-sub-html="<h4>{{$color->code}}</h4><p style='color: #fff;'>{{$color->name}}</p>">
+                                            <img src="{{asset('storage/colors/'.$color->file)}}"
+                                                 alt="{{$color->code}}">
+                                            <div class="custom-overlay">
+                                                <div class="custom-text">
+                                                    <h4>{{$color->code}}</h4>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc-002.png')}}"
-                                         data-sub-html="<h4>CC 002</h4><p style='color: #fff;'>Conform Chrome Black</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc-002.png')}}" alt="CC 002">
-                                        <div class="custom-overlay">
-                                            <div class="custom-text">
-                                                <h4>CC 002</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc-003.png')}}"
-                                         data-sub-html="<h4>CC 003</h4><p style='color: #fff;'>Conform Chrome Blue</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc-003.png')}}" alt="CC 003">
-                                        <div class="custom-overlay">
-                                            <div class="custom-text">
-                                                <h4>CC 003</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc-004.png')}}"
-                                         data-sub-html="<h4>CC 004</h4><p style='color: #fff;'>Conform Chrome Red</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc-004.png')}}" alt="CC 004">
-                                        <div class="custom-overlay">
-                                            <div class="custom-text">
-                                                <h4>CC 004</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc-005.png')}}"
-                                         data-sub-html="<h4>CC 005</h4><p style='color: #fff;'>Conform Chrome Gold</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc-005.png')}}" alt="CC 005">
-                                        <div class="custom-overlay">
-                                            <div class="custom-text">
-                                                <h4>CC 005</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc-006.png')}}"
-                                         data-sub-html="<h4>CC 006</h4><p style='color: #fff;'>Conform Chrome Matte Silver</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc-006.png')}}" alt="CC 006">
-                                        <div class="custom-overlay">
-                                            <div class="custom-text">
-                                                <h4>CC 006</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc-007.png')}}"
-                                         data-sub-html="<h4>CC 007</h4><p style='color: #fff;'>Conform Chrome Violet</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc-007.png')}}" alt="CC 007">
-                                        <div class="custom-overlay">
-                                            <div class="custom-text">
-                                                <h4>CC 007</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div data-aos="zoom-out" class="item content-area"
-                                         data-src="{{asset('images/product-overview/colors/cc-008.png')}}"
-                                         data-sub-html="<h4>CC 008</h4><p style='color: #fff;'>Conform Chrome Rose Gold</p>">
-                                        <img src="{{asset('images/product-overview/colors/cc-008.png')}}" alt="CC 008">
-                                        <div class="custom-overlay">
-                                            <div class="custom-text">
-                                                <h4>CC 008</h4>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="ta"
@@ -310,32 +271,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <h4 data-aos="fade-left" style="color: #eee">Avery Dennison® Conform Chrome</h4>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Allow the Avery
-                        Dennison conform chrome to add immediate impact to your next vehicle wrap project. Films
-                        designed to add special effects and a sporty touch to vehicles.</p>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Avery Dennison
-                        Conform Accent Chrome is a premium quality specialty film designed for use in vehicle wraps and
-                        graphics markets where high-end chrome accents are desired. The patented Avery Dennison™ Easy
-                        Apply RS feature allows for faster positioning, bubble-free application, and long-term
-                        removability.</p>
-                    <blockquote data-aos="fade-left">Striking accents, premium look, and
-                        immediate impact.
-                    </blockquote>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px">Create a real chrome
-                        effect with fast and easy application. Make your design shine with mirror sharp premium chrome
-                        detailing. Now in a wider size and 3 new colors; Rose Gold, Violet and Matte Silver.</p>
-                    <p data-aos="fade-down" align="justify" style="color: #bbb;margin-bottom: 20px"> Conform Chrome
-                        Series is quick and easy to apply. Bring your design to the next level with sharp, eye-popping
-                        chrome accents and details. The mirror-like finish of glossy Conform Chrome film creates a
-                        distinctive and premium result - perfect for striking accents and special effects.</p>
-                </div>
             </div>
 
-            <div data-aos="fade-up" class="row text-center" style="padding: 0 0 6em 0;">
+            <div data-aos="fade-down" class="row text-center" style="padding: 0 0 6em 0;">
                 <div class="col-lg-12">
-                    <a href="{{route('show.gallery')}}" class="btn btn-dark-red ld ld-breath">
+                    <a href="{{route('show.gallery')}}" class="btn btn-dark-red">
                         <b><i class="fa fa-photo-video"></i>&ensp;MORE VIDEOS</b></a>
                 </div>
             </div>
@@ -348,6 +288,9 @@
     <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
     <script>
         $(function () {
+            $("#kb-tab").click();
+            $("#kf-tab").click();
+
             $('.owl-carousel').owlCarousel({
                 loop: false,
                 rewind: true,
@@ -364,10 +307,10 @@
                         items: 1,
                     },
                     320: {
-                        items: 3,
+                        items: 4,
                     },
                     768: {
-                        items: 5,
+                        items: 6,
                     }
                 }
             });
@@ -443,9 +386,5 @@
                     }]
             });
         });
-
-        function goToAnchor() {
-            $('html,body').animate({scrollTop: $(".page-content").offset().top}, 500);
-        }
     </script>
 @endpush

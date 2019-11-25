@@ -64,10 +64,10 @@
                                             </div>
                                         </th>
                                         <th class="text-center">ID</th>
+                                        <th class="text-center">Color</th>
                                         <th class="text-center">Category</th>
                                         <th>Details</th>
                                         <th class="text-center">Created at</th>
-                                        <th class="text-center">Last Update</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -84,6 +84,21 @@
                                                 </div>
                                             </td>
                                             <td style="vertical-align: middle" align="center">{{$row->id}}</td>
+                                            <td style="vertical-align: middle" align="center">
+                                                @if($row->getColorCode->file != '')
+                                                    <div class="row lightgallery float-left mr-0">
+                                                        <div class="col item" data-src="{{asset('storage/colors/'.$row->getColorCode->file)}}"
+                                                             data-sub-html="<h4>{{$row->getColorCode->file}}</h4><p>{{$row->getColorCode->name.' ['.$row->getColorCode->code.']'}}</p>">
+                                                            <a href="javascript:void(0)">
+                                                                <img width="100" alt="Thumbnail" class="img-thumbnail"
+                                                                     src="{{asset('storage/colors/'.$row->getColorCode->file)}}">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    @else
+                                                    {{$row->getColorCode->name.' ['.$row->getColorCode->code.']'}}
+                                                @endif
+                                            </td>
                                             <td style="vertical-align: middle" align="center">
                                                 <span class="badge badge-{{$row->type == 'photos' ? 'info' :
                                                 'success'}} text-uppercase"><strong>{{$row->type}}</strong></span>
@@ -111,12 +126,11 @@
                                             <td style="vertical-align: middle" align="center">
                                                 {{\Carbon\Carbon::parse($row->created_at)->format('j F Y')}}</td>
                                             <td style="vertical-align: middle" align="center">
-                                                {{$row->updated_at->diffForHumans()}}</td>
-                                            <td style="vertical-align: middle" align="center">
                                                 <button data-placement="left" data-toggle="tooltip" title="Edit"
                                                         type="button" class="btn btn-warning"
-                                                        onclick="editGallery('{{$row->id}}','{{$row->type}}',
-                                                            '{{$row->title}}','{{str_replace('\'', "’",$row->caption)}}',
+                                                        onclick="editGallery('{{$row->id}}','{{$row->color_id}}',
+                                                            '{{$row->type}}','{{$row->title}}',
+                                                            '{{str_replace('\'', "’",$row->caption)}}',
                                                             '{{$row->thumbnail}}','{{$row->file}}')">
                                                     <i class="fa fa-edit"></i></button>
                                                 <hr class="mt-1 mb-1">
@@ -157,6 +171,30 @@
                     <input type="hidden" name="_method">
                     <input type="hidden" name="id">
                     <div class="modal-body">
+                        <div class="row form-group">
+                            <div class="col fix-label-group">
+                                <label for="color_id">Color</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text fix-label-item" style="height: 2.25rem">
+                                            <i class="fa fa-palette"></i></span>
+                                    </div>
+                                    <select id="color_id" class="form-control selectpicker" title="-- Pick a Color --"
+                                            name="color_id" data-live-search="true" required>
+                                        @foreach($categories as $row)
+                                            <optgroup label="{{$row->name}}">
+                                                @foreach($row->getColorCode as $color)
+                                                    <option value="{{$color->id}}" data-image="{{$color->file}}">
+                                                        {{$color->name.' ['.$color->code.']'}}
+                                                    </option>
+                                                @endforeach
+                                            </optgroup>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row form-group">
                             <div class="col-4 fix-label-group">
                                 <label for="type">Category</label>
@@ -273,14 +311,14 @@
                             text: '<strong class="text-uppercase"><i class="far fa-clipboard mr-2"></i>Copy</strong>',
                             extend: 'copy',
                             exportOptions: {
-                                columns: [0, 2, 3, 4, 5]
+                                columns: [0, 3, 4, 5]
                             },
                             className: 'btn btn-warning assets-export-btn export-copy ttip'
                         }, {
                             text: '<strong class="text-uppercase"><i class="far fa-file-excel mr-2"></i>Excel</strong>',
                             extend: 'excel',
                             exportOptions: {
-                                columns: [0, 2, 3, 4, 5]
+                                columns: [0, 3, 4, 5]
                             },
                             className: 'btn btn-success assets-export-btn export-xls ttip',
                             title: export_filename,
@@ -289,7 +327,7 @@
                             text: '<strong class="text-uppercase"><i class="fa fa-print mr-2"></i>Print</strong>',
                             extend: 'print',
                             exportOptions: {
-                                columns: [0, 2, 3, 4, 5]
+                                columns: [0, 3, 4, 5]
                             },
                             className: 'btn btn-info assets-select-btn export-print'
                         }, {
@@ -374,7 +412,7 @@
             $("#form-gallery input[name=_method]").val('');
             $("#form-gallery input[name=id]").val('');
             $("#form-gallery button[type=submit]").text('Submit');
-            $("#type").val('').selectpicker('refresh');
+            $("#color_id, #type").val('').selectpicker('refresh');
             $("#title, #caption, #photo, #thumbnail, #video").val('');
             $("#txt_photo, #txt_thumbnail").text('Choose File');
             $("#rb-thumbnail, #rb-photo").prop("checked", false).trigger('change');
@@ -382,7 +420,7 @@
             $("#galleryModal").modal('show');
         }
 
-        function editGallery(id, type, title, caption, thumbnail, file) {
+        function editGallery(id, color_id, type, title, caption, thumbnail, file) {
             $(".fix-label-group .bootstrap-select").addClass('p-0');
             $(".fix-label-group .bootstrap-select button").css('border-color', '#e4e6fc');
 
@@ -391,6 +429,7 @@
             $("#form-gallery input[name=_method]").val('PUT');
             $("#form-gallery input[name=id]").val(id);
             $("#form-gallery button[type=submit]").text('Save Changes');
+            $("#color_id").val(color_id).selectpicker('refresh');
             $("#type").val(type).selectpicker('refresh');
             $("#title").val(title);
             $("#caption").val(caption);

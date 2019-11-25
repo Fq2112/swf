@@ -7,7 +7,7 @@
     <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('favicon.ico')}}"/>
     <meta name="keywords" content="HTML5 Template , Responsive , html5 , css3"/>
-    <meta name="description" content="Baako - Responsive HTML5 CSS3 Template">
+    <meta name="description" content="{{env('APP_TITLE')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Bootstrap-3.3.7 fremwork css -->
@@ -186,6 +186,121 @@
             color: #E31B23;
             background-color: #fff;
         }
+
+        .btn-dark-red, .btn-cars {
+            background-image: linear-gradient(147deg, #E31B23 0%, #570e11 74%);
+            box-shadow: 0 0 20px rgba(227, 27, 35, 0.4);
+            color: #fff;
+        }
+
+        .btn-cars.color-white {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .stellar-parallax {
+            margin: 3em auto
+        }
+
+        .stellar-overlay {
+        	background: linear-gradient(to bottom, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .45) 30%, rgba(0, 0, 0, .65) 80%, rgba(0, 0, 0, .85) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	right: 0;
+        	bottom: 0;
+        	width: 100%;
+        	height: 100%;
+        }
+
+        .stellar-parallax .first, .stellar-parallax .second, .stellar-parallax .third , .stellar-parallax .forth {
+            width: 100%;
+            height: 450px;
+            margin: 0;
+            display: table;
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1,.stellar-parallax .forth h1,
+        .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2,.stellar-parallax .forth h2,
+        .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3, .stellar-parallax .forth h3 {
+            margin: 0 auto;
+            vertical-align: middle;
+            text-align: center;
+            display: table-cell;
+            text-transform: none;
+            position: relative;
+            padding: 0 3em;
+        }
+
+        .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1 {
+            color: #eee;
+        }
+
+        .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2 {
+            color: #eee;
+        }
+
+        .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3 {
+            color: #aaa;
+        }
+
+        @media (min-width: 1440px) {
+            .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1,
+            .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2,
+            .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3 {
+                font-size: 40px;
+            }
+        }
+
+        @media (min-width: 1281px) and (max-width: 1439px) {
+            .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1,
+            .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2,
+            .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3 {
+                font-size: 38px;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1,
+            .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2,
+            .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3 {
+                font-size: 31px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1,
+            .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2,
+            .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3 {
+                font-size: 30px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1,
+            .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2,
+            .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3 {
+                font-size: 31px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) {
+            .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1,
+            .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2,
+            .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3 {
+                font-size: 27px;
+            }
+        }
+
+        @media (min-width: 320px) and (max-width: 480px) {
+            .stellar-parallax .first h1, .stellar-parallax .second h1, .stellar-parallax .third h1,
+            .stellar-parallax .first h2, .stellar-parallax .second h2, .stellar-parallax .third h2,
+            .stellar-parallax .first h3, .stellar-parallax .second h3, .stellar-parallax .third h3 {
+                font-size: 25px;
+            }
+        }
     </style>
     @stack('styles')
 </head>
@@ -254,7 +369,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-widget widget">
-                            <h4 data-aos="fade-right">Recent Posts</h4>
+                            <h4>Recent Posts</h4>
                             <ul class="recent-post">
                                 @foreach(\App\Models\Blog::orderByDesc('id')->take(1)->get() as $row)
                                     @php
@@ -263,7 +378,7 @@
                                         'y' => $date->format('Y'), 'm' => $date->format('m'), 'd' => $date->format('d'),
                                         'title' => $row->title_uri]);
                                     @endphp
-                                    <li data-aos="zoom-out">
+                                    <li>
                                         <a class="thumb" href="{{$url}}">
                                             <img src="{{asset('storage/blog/thumbnail/'.$row->thumbnail)}}" alt="">
                                         </a>
@@ -277,10 +392,10 @@
                                     </li>
                                 @endforeach
                             </ul>
-                            <h4 data-aos="fade-right">Gallery</h4>
+                            <h4>Gallery</h4>
                             <div class="footer-gallery">
                                 @foreach(\App\Models\Gallery::orderByDesc('id')->take(5)->get() as $row)
-                                    <a data-aos="zoom-out" href="{{route('show.gallery', ['title' => $row->title])}}">
+                                    <a href="{{route('show.gallery', ['title' => $row->title])}}">
                                         <img src="{{$row->type == 'photos' ? asset('storage/gallery/'.$row->file) :
                                         asset('storage/gallery/thumbnail/'.$row->thumbnail)}}" alt="">
                                     </a>
@@ -292,13 +407,13 @@
                         <div class="footer-widget widget">
                             <div class="footer-logo">
                                 <a href="{{route('home')}}">
-                                    <img data-aos="zoom-out" id="logo2" width="200px"
+                                    <img id="logo2" width="200px"
                                          src="{{asset('images/logo/red_horizontal.png')}}" alt=""></a>
                             </div>
-                            <p data-aos="fade-down">Our Company, <b>Premier Autostyling</b>, is the one and only
+                            <p>Our Company, <b>Premier Autostyling</b>, is the one and only
                                 authorized distributor of <b>Avery Dennison</b> SWF (Supreme Wrap Film) in
                                 <b>Indonesia</b>.</p>
-                            <nav data-aos="fade-down" class="footer-nav" style="text-transform: uppercase">
+                            <nav class="footer-nav" style="text-transform: uppercase">
                                 <a href="{{route('show.contact')}}">Contact Us</a>
                                 <a href="https://averydennison.com/en/home/legal-and-privacy-notices.html"
                                    target="_blank">Legal & Privacy Notices</a>
@@ -307,22 +422,22 @@
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="footer-widget widget">
-                            <h4 data-aos="fade-right">Keep in Touch</h4>
+                            <h4>Keep in Touch</h4>
                             <ul class="contact">
-                                <li data-aos="fade-down">
+                                <li>
                                     <i class="fa fa-map-marked-alt"></i>
                                     Raya Kenjeran 469, Surabaya, East Java, Indonesia
                                 </li>
-                                <li data-aos="fade-down">
+                                <li>
                                     <i class="fa fa-phone"></i>
                                     <a href="tel:+6281615007777">+62 816 1500 7777</a>
                                 </li>
-                                <li data-aos="fade-down">
+                                <li>
                                     <i class="fa fa-envelope"></i>
                                     <a href="mailto:info@supremewrap.co.id" style="text-transform: none">info@supremewrap.co.id</a>
                                 </li>
                             </ul>
-                            <div data-aos="fade-up" class="social-media">
+                            <div class="social-media">
                                 <a href="https://facebook.com/AveryDennisonCorporation" target="_blank">
                                     <i class="fab fa-facebook-f"></i></a>
                                 <a href="https://twitter.com/AveryDennison" target="_blank">
@@ -380,6 +495,8 @@
 <script type="text/javascript" src="{{asset('js/index-car-2.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/wmbox.js')}}"></script>
 
+<!-- stellar-parallax -->
+<script src="{{asset('vendor/stellar.js/jquery.stellar.min.js')}}"></script>
 <!-- select2 -->
 <script src="{{asset('vendor/select2/dist/js/select2.full.min.js')}}"></script>
 <!-- check-mobile -->
@@ -403,6 +520,10 @@
 
         $('[data-toggle="tooltip"]').tooltip();
         $('[data-toggle="popover"]').popover();
+
+        $(window).stellar({
+            responsive: true
+        });
     });
 
     $('#logo1').hover(
