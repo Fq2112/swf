@@ -54,6 +54,46 @@ class SWFController extends Controller
         return view('pages.main.product.visualizer');
     }
 
+    public function showWarranty()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.main.warranty');
+    }
+
+    public function submitWarranty(Request $request)
+    {
+        $data = array(
+            'name' => $request->fname . ' ' . $request->lname,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'installer_name' => $request->installer_name,
+            'installed_by' => $request->installed_by,
+            'installer_email' => $request->installer_email,
+            'installer_phone' => $request->installer_phone,
+            'installation_date' => $request->installation_date,
+            'installation_location' => $request->installation_location,
+            'automobile_make' => $request->automobile_make,
+            'automobile_model' => $request->automobile_model,
+            'automobile_year' => $request->automobile_year,
+            'automobile_color' => $request->automobile_color,
+            'automobile_vin' => $request->automobile_vin,
+            'roll_lot_number' => $request->roll_lot_number,
+            'roll_fwo_number' => $request->roll_fwo_number,
+            'template_pattern_number' => $request->template_pattern_number,
+            'areas_protected' => $request->areas_protected,
+            'comments' => $request->comments,
+        );
+
+        Mail::send('emails.warranty-request', $data, function ($message) use ($data) {
+            $message->from($data['email'], $data['name']);
+            $message->to('warranty@supremewrap.co.id');
+            $message->subject('Warranty Request: Avery Dennison® Supreme Wrap™ Film');
+        });
+
+        return back()->with('warranty', 'Warranty registration successful! Please wait for further information, we will contact you as soon as possible.');
+    }
+
     public function showGallery(Request $request)
     {
         $gallery = Gallery::orderBy('title')->get();

@@ -32,6 +32,20 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
     });
 
+    Route::group(['prefix' => 'warranty'], function () {
+
+        Route::get('/', [
+            'uses' => 'SWFController@showWarranty',
+            'as' => 'show.warranty'
+        ]);
+
+        Route::post('submit', [
+            'uses' => 'SWFController@submitWarranty',
+            'as' => 'submit.warranty'
+        ]);
+
+    });
+
     Route::group(['prefix' => 'gallery'], function () {
 
         Route::get('/', [
