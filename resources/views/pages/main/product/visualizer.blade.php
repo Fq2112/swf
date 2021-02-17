@@ -145,7 +145,7 @@
         <div class="container avd">
             <div class="frame-pureweb">
                 <iframe data-aos="fade-down" class="purewebIframe"
-                        src="https://reality.pureweb.io/?name=adocv2gnp4e24f&amp;minSize=1080p&amp;maxSize=1080p"
+                        src="https://reality.pureweb.io/?name=adocv2gnp4e24f&minSize=1080p&maxSize=1080p"
                         width="100%" scrolling="no" frameborder="0" allowfullscreen="{true}"></iframe>
             </div>
         </div>

@@ -321,7 +321,7 @@
                         <div class="col-lg-6 col-sm-6">
                             <!-- Contacts start -->
                             <div class="contacts">
-                                <p><a href="tel:+6281615007777"><i class="fa fa-phone"></i> +62 816 1500 7777</a></p>
+                                <p><a href="tel:+62817597777"><i class="fa fa-phone"></i> +62 817 597 777</a></p>
                                 <p><a href="mailto:{{env('MAIL_USERNAME')}}"><i
                                                 class="fa fa-envelope"></i> {{env('MAIL_USERNAME')}}</a></p>
                             </div>
@@ -430,7 +430,7 @@
                                 </li>
                                 <li>
                                     <i class="fa fa-phone"></i>
-                                    <a href="tel:+6281615007777">+62 816 1500 7777</a>
+                                    <a href="tel:+62817597777">+62 817 597 777</a>
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope"></i>
@@ -626,7 +626,7 @@
         });
 
         var options = {
-            whatsapp: "+6281615007777",
+            whatsapp: "+62817597777",
             email: "sindhu@supremewrap.co.id",
             call_to_action: "Contact us",
             button_color: "#e31b23",

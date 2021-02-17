@@ -359,7 +359,7 @@
                 '<img class="img-fluid" src="{{asset('images/logo/icon.png')}}">' +
                 '<div class="iw-subTitle">Contacts</div>' +
                 '<p>Raya Kenjeran 469, Surabaya, East Java, Indonesia — 60134.<br>' +
-                '<br>Phone: <a href="tel:+6281615007777">+62 816 1500 7777</a>' +
+                '<br>Phone: <a href="tel:+62817597777">+62 817 597 777</a>' +
                 '<br>E-mail: <a href="mailto:{{env('MAIL_USERNAME')}}">{{env('MAIL_USERNAME')}}</a>' +
                 '</p></div><div class="iw-bottom-gradient"></div></div>';
 
