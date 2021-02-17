@@ -19,12 +19,12 @@ class SWFController extends Controller
     public function index()
     {
         $client = new Instagram(env('IG_CLIENT_TOKEN'));
-        $posts = collect($client->media())->sortBy('created_time')->reverse();
+        // $posts = collect($client->media())->sortBy('created_time')->reverse();
         $countries = Country::all();
         $blog = Blog::orderByDesc('id')->take(5)->get();
 
         \App\Models\Visitor::hit();
-        return view('pages.main.home', compact('posts', 'countries', 'blog'));
+        return view('pages.main.home', compact('countries', 'blog'));
     }
 
     public function showProductOverview($category)
@@ -63,7 +63,7 @@ class SWFController extends Controller
     public function submitWarranty(Request $request)
     {
         $data = array(
-            'name' => $request->fname . ' ' . $request->lname,
+            'name' => $request->fname.' '.$request->lname,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,

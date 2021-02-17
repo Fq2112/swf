@@ -620,7 +620,7 @@
 
     <!-- instagram feed -->
     <section class="no-padding">
-        <div id="ig-feed" class="owl-carousel">
+        {{--<div id="ig-feed" class="owl-carousel">
             @foreach($posts as $post)
                 <div data-aos="fade-down" class="item content-area"
                      data-src="{{$post->images->standard_resolution->url}}"
@@ -638,7 +638,8 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div>--}}
+        <div class="elfsight-app-23068c5f-1b5e-4761-abed-fae590638c43"></div>
         <div data-aos="fade-down" class="row text-center" style="padding: 3em 0 6em 0;">
             <div class="col-lg-12">
                 <a href="https://instagram.com/averydennison.id" target="_blank" class="btn btn-dark-red">
@@ -701,6 +702,7 @@
     </div>
 @endsection
 @push('scripts')
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <script src="{{asset('vendor/swiper/dist/js/swiper.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/lib/picturefill.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>

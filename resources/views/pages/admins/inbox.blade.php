@@ -66,11 +66,7 @@
                                     <div class="ticket-items" id="message-items" style="height: 800px">
                                         @foreach($contacts as $row)
                                             <div class="ticket-item" style="cursor: pointer" id="{{$row->id}}"
-                                                 onclick="viewMail('{{$row->id}}','{{$row->name}}','{{$row->email}}',
-                                                     '{{asset('admins/img/avatar/avatar-'.rand(1,5).'.png')}}',
-                                                     '{{$row->subject}}','{{str_replace('\'', "’",$row->message)}}','{{encrypt($row->id)}}',
-                                                     '{{\Carbon\Carbon::parse($row->created_at)->format('l, j F Y').
-                                                 ' at '.\Carbon\Carbon::parse($row->created_at)->format('H:i')}}')">
+                                                 onclick="viewMail('{{$row->id}}','{{route('admin.view.mail',['id'=> $row->id])}}','{{asset('admins/img/avatar/avatar-'.rand(1,5).'.png')}}', '{{encrypt($row->id)}}','{{\Carbon\Carbon::parse($row->created_at)->format('l, j F Y').' at '.\Carbon\Carbon::parse($row->created_at)->format('H:i')}}')">
                                                 <div class="ticket-title">
                                                     <h4>{{ucfirst($row->subject)}}</h4>
                                                 </div>
@@ -186,68 +182,70 @@
             }
         });
 
-        function viewMail(id, name, email, ava, subject, message, deleteId, date) {
-            $(".ticket-item").removeClass('active');
-            $("#" + id).addClass('active');
-            $(".compose").hide("slide");
-
-            $("#message-contents").html(
-                '<div class="ticket-header">' +
-                '<div class="ticket-sender-picture img-shadow"><img src="' + ava + '" alt="Avatar"></div>' +
-                '<div class="ticket-detail">' +
-                '<div class="ticket-title"><h4>' + subject + '</h4></div>' +
-                '<div class="ticket-info">' +
-                '<div class="font-weight-600">' + name + '</div> <div class="bullet"></div> ' +
-                '<div class="text-primary font-weight-600">' + date + '</div></div></div></div>' +
-                '<div class="ticket-description"><p>' + message + '</p>' +
-                '<div class="ticket-divider"></div></div>' +
-                '<div class="btn-group" role="group">' +
-                '<button class="btn btn-primary btn_reply' + id + '" type="button">' +
-                '<i class="fas fa-reply mr-2"></i>Reply</button>' +
-                '<button class="btn btn-info btn_forward' + id + '" type="button">' +
-                '<i class="fas fa-share mr-2"></i>Forward</button>' +
-                '<button class="btn btn-danger btn_delete_inbox' + id + '" type="button">' +
-                '<i class="fas fa-trash mr-2"></i>Delete</button></div>'
-            ).fadeIn("slow");
-
-            $(".btn_reply" + id).on("click", function () {
-                $("#compose_title").text('Reply Message');
-                $("#inbox_to").val(email);
-                $("#inbox_subject").val('Re: ' + subject);
-                $('.summernote').summernote('code', '');
-                $(".compose").slideToggle();
-            });
-
-            $(".btn_forward" + id).on("click", function () {
-                $("#compose_title").text('Forward Message');
-                $("#inbox_to").val('');
-                $("#inbox_subject").val('Fwd: ' + subject);
-                $('.summernote').summernote('code', message);
-                $(".compose").slideToggle();
-            });
-
-            $(".btn_delete_inbox" + id).on("click", function () {
-                var linkURL = '{{url('scott.royce/inbox')}}/' + deleteId + '/delete';
-                swal({
-                    title: 'Delete Message',
-                    text: "Are you sure to delete " + name + "'s message? You can't revert it!",
-                    icon: 'warning',
-                    dangerMode: true,
-                    buttons: ["No", "Yes"],
-                    closeOnEsc: false,
-                    closeOnClickOutside: false,
-                }).then((confirm) => {
-                    if (confirm) {
-                        swal({icon: "success", buttons: false});
-                        window.location.href = linkURL;
-                    }
+        function viewMail(id,data_url, ava, deleteId, date) {
+            $.get(data_url, function (data) {
+                $(".ticket-item").removeClass('active');
+                $("#" + id).addClass('active');
+                $(".compose").hide("slide");
+    
+                $("#message-contents").html(
+                    '<div class="ticket-header">' +
+                    '<div class="ticket-sender-picture img-shadow"><img src="' + ava + '" alt="Avatar"></div>' +
+                    '<div class="ticket-detail">' +
+                    '<div class="ticket-title"><h4>' + data.subject + '</h4></div>' +
+                    '<div class="ticket-info">' +
+                    '<div class="font-weight-600">' + data.name + '</div> <div class="bullet"></div> ' +
+                    '<div class="text-primary font-weight-600">' + date + '</div></div></div></div>' +
+                    '<div class="ticket-description"><p>' + data.message + '</p>' +
+                    '<div class="ticket-divider"></div></div>' +
+                    '<div class="btn-group" role="group">' +
+                    '<button class="btn btn-primary btn_reply' + id + '" type="button">' +
+                    '<i class="fas fa-reply mr-2"></i>Reply</button>' +
+                    '<button class="btn btn-info btn_forward' + id + '" type="button">' +
+                    '<i class="fas fa-share mr-2"></i>Forward</button>' +
+                    '<button class="btn btn-danger btn_delete_inbox' + id + '" type="button">' +
+                    '<i class="fas fa-trash mr-2"></i>Delete</button></div>'
+                ).fadeIn("slow"); 
+                
+                $(".btn_reply" + id).on("click", function () {
+                    $("#compose_title").text('Reply Message');
+                    $("#inbox_to").val(data.email);
+                    $("#inbox_subject").val('Re: ' + data.subject);
+                    $('.summernote').summernote('code', '');
+                    $(".compose").slideToggle();
                 });
-                return false;
+    
+                $(".btn_forward" + id).on("click", function () {
+                    $("#compose_title").text('Forward Message');
+                    $("#inbox_to").val('');
+                    $("#inbox_subject").val('Fwd: ' + data.subject);
+                    $('.summernote').summernote('code', data.message);
+                    $(".compose").slideToggle();
+                });
+    
+                $(".btn_delete_inbox" + id).on("click", function () {
+                    var linkURL = '{{url('scott.royce/inbox')}}/' + deleteId + '/delete';
+                    swal({
+                        title: 'Delete Message',
+                        text: "Are you sure to delete " + data.name + "'s message? You can't revert it!",
+                        icon: 'warning',
+                        dangerMode: true,
+                        buttons: ["No", "Yes"],
+                        closeOnEsc: false,
+                        closeOnClickOutside: false,
+                    }).then((confirm) => {
+                        if (confirm) {
+                            swal({icon: "success", buttons: false});
+                            window.location.href = linkURL;
+                        }
+                    });
+                    return false;
+                });
+    
+                $('html, body').animate({
+                    scrollTop: $('#inbox').offset().top
+                }, 500);
             });
-
-            $('html, body').animate({
-                scrollTop: $('#inbox').offset().top
-            }, 500);
         }
 
         $(document).on('mouseover', '.use-nicescroll', function () {

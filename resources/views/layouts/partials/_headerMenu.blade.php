@@ -23,8 +23,7 @@
         </ul>
     </li>
     <li><a class="{{\Illuminate\Support\Facades\Request::is('warranty*') ? 'active' : ''}}"
-           href="{{route('show.warranty')}}"><i class="fa fa-shield-alt" style="margin-right: .7em"></i>Warranty</a>
-    </li>
+           href="{{route('show.warranty')}}"><i class="fa fa-shield-alt" style="margin-right: .7em"></i>Warranty</a></li>
     <li><a class="{{\Illuminate\Support\Facades\Request::is('gallery*') ? 'active' : ''}}"
            href="{{route('show.gallery')}}"><i class="fa fa-photo-video" style="margin-right: .7em"></i>Gallery</a></li>
     <li><a class="{{\Illuminate\Support\Facades\Request::is('installers*') ? 'active' : ''}}"

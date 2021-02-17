@@ -76,6 +76,11 @@ Route::group(['namespace' => 'Pages\Admins', 'prefix' => 'scott.royce', 'middlew
             'uses' => 'AdminController@showInbox',
             'as' => 'admin.inbox'
         ]);
+        
+        Route::get('{id}/view', [
+            'uses' => 'AdminController@viewMail',
+            'as' => 'admin.view.mail'
+        ]);
 
         Route::post('compose', [
             'uses' => 'AdminController@composeInbox',

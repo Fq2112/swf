@@ -52,6 +52,11 @@ class AdminController extends Controller
 
         return view('pages.admins.inbox', compact('contacts', 'findMessage'));
     }
+    
+    public function viewMail(Request $request) 
+    {
+        return Contact::find($request->id);    
+    }
 
     public function composeInbox(Request $request)
     {

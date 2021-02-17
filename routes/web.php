@@ -45,7 +45,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
         ]);
 
     });
-
+    
     Route::group(['prefix' => 'gallery'], function () {
 
         Route::get('/', [

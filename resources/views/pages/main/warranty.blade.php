@@ -122,8 +122,8 @@
                         <img width="70%" src="{{asset('images/warranty.png')}}" class="img-responsive" alt="Warranty">
                         <div class="custom-overlay">
                             <div class="custom-text">
-                                <a {{asset('storage/pds-supreme-protection-film-spf-xi.pdf')}} class="btn btn-dark-red">
-                                    <b><i class="fa fa-file-pdf"></i>&ensp;DATASHEET</b></a>
+                                <a href="{{asset('storage/datasheet/warranty/pds-supreme-protection-film-spf-xi.pdf')}}"
+                                   class="btn btn-dark-red"><b><i class="fa fa-file-pdf"></i>&ensp;DATASHEET</b></a>
                             </div>
                         </div>
                     </div>
@@ -389,7 +389,7 @@
                 showButtonPanel: false,
                 closeText: 'Select',
                 currentText: 'This year',
-                onChangeMonthYear: function (dateText, inst) {
+                onChangeMonthYear : function (dateText, inst) {
                     var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
                     $(this).val($.datepicker.formatDate("yy", new Date(year, 0, 1)));
                     $(this).datepicker('hide');

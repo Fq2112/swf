@@ -133,7 +133,7 @@
                             {{ csrf_field() }}
                             <div class="form-group has-feedback">
                                 <label for="useremail">Username or Email</label>
-                                <input id="useremail" type="useremail" class="form-control" name="useremail"
+                                <input id="useremail" type="text" class="form-control" name="useremail"
                                        tabindex="1" placeholder="Enter your username or email"
                                        value="{{old('useremail')}}" required autofocus>
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
