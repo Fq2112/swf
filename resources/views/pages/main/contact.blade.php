@@ -6,6 +6,11 @@
             background-image: url({{asset('images/slider/contact4.jpg')}});
         }
 
+        #btn_contact:disabled {
+            opacity: .7;
+            cursor: no-drop;
+        }
+
         .gm-style-iw {
             width: 350px !important;
             top: 15px;
@@ -75,6 +80,7 @@
             background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
         }
     </style>
+    <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit' async defer></script>
 @endpush
 @section('content')
     <div class="breadcrumbs">
@@ -91,7 +97,7 @@
                 <div data-aos="fade-down" id="map" style="width: 100%;height: 600px"></div>
             </div>
             <div data-aos="fade-down" class="col-lg-6" style="padding: 3em 5em 0px 3em;">
-                <form action="{{route('submit.contact')}}" method="post">
+                <form id="form-contact" action="{{route('submit.contact')}}" method="post">
                     @csrf
                     <div class="row form-group">
                         <div class="col-md-12">
@@ -137,10 +143,17 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-dark-red btn-block"
-                                    style="padding-top: 8px;padding-bottom: 8px"><b>SUBMIT</b></button>
+                            <div id="recaptcha-contact"></div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <button id="btn_contact" type="submit" class="btn btn-dark-red btn-block"
+                                    style="padding-top: 8px;padding-bottom: 8px" disabled><b>SUBMIT</b></button>
                         </div>
                     </div>
                 </form>
@@ -447,6 +460,30 @@
         function goToAnchor() {
             $('html,body').animate({scrollTop: $("#map").offset().top}, 500);
         }
+
+        var recaptcha_contact, recaptchaCallback = function () {
+            recaptcha_contact = grecaptcha.render(document.getElementById('recaptcha-contact'), {
+                'sitekey': '{{env('reCAPTCHA_v2_SITEKEY')}}',
+                'callback': 'enable_btnContact',
+                'expired-callback': 'disabled_btnContact'
+            });
+        };
+
+        function enable_btnContact() {
+            $("#btn_contact").removeAttr('disabled');
+        }
+
+        function disabled_btnContact() {
+            $("#btn_contact").attr('disabled', 'disabled');
+        }
+
+        $("#form-contact").on("submit", function (e) {
+            if (grecaptcha.getResponse(recaptcha_contact).length === 0) {
+                e.preventDefault();
+                swal('ATTENTION!', 'Please confirm us that you\'re not a robot by clicking in ' +
+                    'the reCAPTCHA dialog-box.', 'warning');
+            }
+        });
 
         @if(session('contact'))
         swal('Successfully sent a message!', '{{ session('contact') }}', 'success');
